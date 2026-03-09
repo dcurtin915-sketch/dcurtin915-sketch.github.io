@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const length = TradeTools.getPositive('roof-length');
-    const width = TradeTools.getPositive('roof-width');
-    const rise = TradeTools.getNum('pitch-rise');
-    const run = TradeTools.getPositive('pitch-run');
-    const waste = TradeTools.getNum('waste-pct');
+    BuildCalc.clearErrors();
+    const length = BuildCalc.getPositive('roof-length');
+    const width = BuildCalc.getPositive('roof-width');
+    const rise = BuildCalc.getNum('pitch-rise');
+    const run = BuildCalc.getPositive('pitch-run');
+    const waste = BuildCalc.getNum('waste-pct');
     if (!length || !width || rise === null || !run || waste === null) return;
 
     // Pitch multiplier: sqrt(rise² + run²) / run
@@ -28,17 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const pitch = rise + ':' + run;
 
-    TradeTools.setResult('res-footprint', TradeTools.fmt(footprintArea, 0) + ' sq ft');
-    TradeTools.setResult('res-pitch', pitch + ' (' + TradeTools.fmt(pitchMultiplier, 3) + 'x multiplier)');
-    TradeTools.setResult('res-actual-area', TradeTools.fmt(actualArea, 0) + ' sq ft');
-    TradeTools.setResult('res-waste', waste + '% (' + TradeTools.fmt(wasteArea, 0) + ' sq ft total)');
-    TradeTools.setResult('res-squares', TradeTools.fmt(squares) + ' squares');
-    TradeTools.setResult('res-bundles', bundles + ' bundles (3-tab)');
-    TradeTools.setResult('res-underlayment', underlaymentRolls + ' rolls');
-    TradeTools.setResult('res-ridgecap', ridgeCapBundles + ' bundles');
-    TradeTools.setResult('res-nails', nailsLbs + ' lbs');
-    TradeTools.setResult('res-highlight', TradeTools.fmt(squares) + ' squares of shingles');
+    BuildCalc.setResult('res-footprint', BuildCalc.fmt(footprintArea, 0) + ' sq ft');
+    BuildCalc.setResult('res-pitch', pitch + ' (' + BuildCalc.fmt(pitchMultiplier, 3) + 'x multiplier)');
+    BuildCalc.setResult('res-actual-area', BuildCalc.fmt(actualArea, 0) + ' sq ft');
+    BuildCalc.setResult('res-waste', waste + '% (' + BuildCalc.fmt(wasteArea, 0) + ' sq ft total)');
+    BuildCalc.setResult('res-squares', BuildCalc.fmt(squares) + ' squares');
+    BuildCalc.setResult('res-bundles', bundles + ' bundles (3-tab)');
+    BuildCalc.setResult('res-underlayment', underlaymentRolls + ' rolls');
+    BuildCalc.setResult('res-ridgecap', ridgeCapBundles + ' bundles');
+    BuildCalc.setResult('res-nails', nailsLbs + ' lbs');
+    BuildCalc.setResult('res-highlight', BuildCalc.fmt(squares) + ' squares of shingles');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

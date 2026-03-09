@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const amps = TradeTools.getPositive('amperage');
-    const distance = TradeTools.getPositive('distance');
+    BuildCalc.clearErrors();
+    const amps = BuildCalc.getPositive('amperage');
+    const distance = BuildCalc.getPositive('distance');
     if (!amps || !distance) return;
 
     const voltage = parseFloat(document.getElementById('voltage').value);
@@ -57,16 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const actualDrop = (2 * distance * resistivity * amps) / recommended.cmil;
     const dropPercent = (actualDrop / voltage) * 100;
 
-    TradeTools.setResult('res-highlight', 'AWG ' + recommended.awg + ' ' + material);
-    TradeTools.setResult('res-amperage', amps + ' amps');
-    TradeTools.setResult('res-voltage', voltage + 'V');
-    TradeTools.setResult('res-distance', TradeTools.fmt(distance) + ' ft (one-way)');
-    TradeTools.setResult('res-material', material.charAt(0).toUpperCase() + material.slice(1));
-    TradeTools.setResult('res-gauge', 'AWG ' + recommended.awg);
-    TradeTools.setResult('res-drop-volts', TradeTools.fmt(actualDrop) + ' V');
-    TradeTools.setResult('res-drop-pct', TradeTools.fmt(dropPercent) + '%');
-    TradeTools.setResult('res-cmil', TradeTools.fmt(requiredCmil, 0) + ' cmil required, ' + TradeTools.fmt(recommended.cmil, 0) + ' cmil actual');
+    BuildCalc.setResult('res-highlight', 'AWG ' + recommended.awg + ' ' + material);
+    BuildCalc.setResult('res-amperage', amps + ' amps');
+    BuildCalc.setResult('res-voltage', voltage + 'V');
+    BuildCalc.setResult('res-distance', BuildCalc.fmt(distance) + ' ft (one-way)');
+    BuildCalc.setResult('res-material', material.charAt(0).toUpperCase() + material.slice(1));
+    BuildCalc.setResult('res-gauge', 'AWG ' + recommended.awg);
+    BuildCalc.setResult('res-drop-volts', BuildCalc.fmt(actualDrop) + ' V');
+    BuildCalc.setResult('res-drop-pct', BuildCalc.fmt(dropPercent) + '%');
+    BuildCalc.setResult('res-cmil', BuildCalc.fmt(requiredCmil, 0) + ' cmil required, ' + BuildCalc.fmt(recommended.cmil, 0) + ' cmil actual');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

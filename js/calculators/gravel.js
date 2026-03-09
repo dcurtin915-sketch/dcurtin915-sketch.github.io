@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const length = TradeTools.getPositive('length');
-    const width = TradeTools.getPositive('width');
-    const depth = TradeTools.getPositive('depth');
+    BuildCalc.clearErrors();
+    const length = BuildCalc.getPositive('length');
+    const width = BuildCalc.getPositive('width');
+    const depth = BuildCalc.getPositive('depth');
     if (!length || !width || !depth) return;
 
     const material = document.getElementById('material').value;
@@ -20,15 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const volumeCuYd = volumeCuFt / 27;
     const tons = volumeCuYd * mat.density;
 
-    TradeTools.setResult('res-material', mat.name);
-    TradeTools.setResult('res-dimensions', `${TradeTools.fmt(length)} ft × ${TradeTools.fmt(width)} ft × ${TradeTools.fmt(depth)} in`);
-    TradeTools.setResult('res-area', TradeTools.fmt(length * width) + ' sq ft');
-    TradeTools.setResult('res-cuft', TradeTools.fmt(volumeCuFt) + ' cubic feet');
-    TradeTools.setResult('res-cuyd', TradeTools.fmt(volumeCuYd) + ' cubic yards');
-    TradeTools.setResult('res-density', mat.density + ' tons/cu yd');
-    TradeTools.setResult('res-tons', TradeTools.fmt(tons) + ' tons');
-    TradeTools.setResult('res-highlight', TradeTools.fmt(tons) + ' tons of ' + mat.name.toLowerCase());
+    BuildCalc.setResult('res-material', mat.name);
+    BuildCalc.setResult('res-dimensions', `${BuildCalc.fmt(length)} ft × ${BuildCalc.fmt(width)} ft × ${BuildCalc.fmt(depth)} in`);
+    BuildCalc.setResult('res-area', BuildCalc.fmt(length * width) + ' sq ft');
+    BuildCalc.setResult('res-cuft', BuildCalc.fmt(volumeCuFt) + ' cubic feet');
+    BuildCalc.setResult('res-cuyd', BuildCalc.fmt(volumeCuYd) + ' cubic yards');
+    BuildCalc.setResult('res-density', mat.density + ' tons/cu yd');
+    BuildCalc.setResult('res-tons', BuildCalc.fmt(tons) + ' tons');
+    BuildCalc.setResult('res-highlight', BuildCalc.fmt(tons) + ' tons of ' + mat.name.toLowerCase());
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

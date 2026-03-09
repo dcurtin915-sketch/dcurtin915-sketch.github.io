@@ -1,5 +1,5 @@
-/* === TradeTools Shared Utilities === */
-const TradeTools = {
+/* === BuildCalc Shared Utilities === */
+const BuildCalc = {
   // Unit conversions
   feetToInches: (ft) => ft * 12,
   inchesToFeet: (inches) => inches / 12,
@@ -31,7 +31,7 @@ const TradeTools = {
   },
 
   getPositive: (id) => {
-    const val = TradeTools.getNum(id);
+    const val = BuildCalc.getNum(id);
     if (val === null || val <= 0) {
       document.getElementById(id).classList.add('input-error');
       return null;

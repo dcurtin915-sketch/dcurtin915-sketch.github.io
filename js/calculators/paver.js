@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const patioLength = TradeTools.getPositive('patio-length');
-    const patioWidth = TradeTools.getPositive('patio-width');
+    BuildCalc.clearErrors();
+    const patioLength = BuildCalc.getPositive('patio-length');
+    const patioWidth = BuildCalc.getPositive('patio-width');
     if (!patioLength || !patioWidth) return;
 
     const paverSize = document.getElementById('paver-size').value;
@@ -40,16 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gravel weighs ~100-110 lbs per cu ft compacted
     const gravelTons = (gravelCuFt * 105) / 2000;
 
-    TradeTools.setResult('res-highlight', paversWithWaste + ' pavers needed');
-    TradeTools.setResult('res-area', TradeTools.fmt(patioArea) + ' sq ft');
-    TradeTools.setResult('res-paver-size', paverW + '″ × ' + paverL + '″');
-    TradeTools.setResult('res-pavers-exact', paversExact + ' pavers (exact)');
-    TradeTools.setResult('res-pavers-waste', paversWithWaste + ' pavers (with ' + (wasteFactor * 100) + '% waste)');
-    TradeTools.setResult('res-sand', TradeTools.fmt(sandTons) + ' tons leveling sand (1″ base)');
-    TradeTools.setResult('res-poly-sand', polyBags + ' bags polymeric joint sand (50 lb)');
-    TradeTools.setResult('res-gravel', TradeTools.fmt(gravelTons) + ' tons gravel sub-base (4″ depth)');
-    TradeTools.setResult('res-edge', TradeTools.fmt(perimeter) + ' linear ft edge restraint');
+    BuildCalc.setResult('res-highlight', paversWithWaste + ' pavers needed');
+    BuildCalc.setResult('res-area', BuildCalc.fmt(patioArea) + ' sq ft');
+    BuildCalc.setResult('res-paver-size', paverW + '″ × ' + paverL + '″');
+    BuildCalc.setResult('res-pavers-exact', paversExact + ' pavers (exact)');
+    BuildCalc.setResult('res-pavers-waste', paversWithWaste + ' pavers (with ' + (wasteFactor * 100) + '% waste)');
+    BuildCalc.setResult('res-sand', BuildCalc.fmt(sandTons) + ' tons leveling sand (1″ base)');
+    BuildCalc.setResult('res-poly-sand', polyBags + ' bags polymeric joint sand (50 lb)');
+    BuildCalc.setResult('res-gravel', BuildCalc.fmt(gravelTons) + ' tons gravel sub-base (4″ depth)');
+    BuildCalc.setResult('res-edge', BuildCalc.fmt(perimeter) + ' linear ft edge restraint');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const totalRise = TradeTools.getPositive('total-rise');
-    const desiredRun = TradeTools.getPositive('desired-run');
+    BuildCalc.clearErrors();
+    const totalRise = BuildCalc.getPositive('total-rise');
+    const desiredRun = BuildCalc.getPositive('desired-run');
     if (!totalRise || !desiredRun) return;
 
     // Total rise in inches
@@ -45,23 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
       codeStatus = '✅ Meets IRC building code (riser 7–7.75″, tread ≥10″)';
     } else {
       const issues = [];
-      if (!riserOk) issues.push('riser ' + TradeTools.fmt(riserHeight) + '″ (code: 7–7.75″)');
-      if (!treadOk) issues.push('tread ' + TradeTools.fmt(treadDepth) + '″ (code: min 10″)');
+      if (!riserOk) issues.push('riser ' + BuildCalc.fmt(riserHeight) + '″ (code: 7–7.75″)');
+      if (!treadOk) issues.push('tread ' + BuildCalc.fmt(treadDepth) + '″ (code: min 10″)');
       codeStatus = '⚠️ Does not meet code: ' + issues.join(', ');
     }
 
-    TradeTools.setResult('res-highlight', numRisers + ' risers × ' + TradeTools.fmt(riserHeight) + '″ each');
-    TradeTools.setResult('res-total-rise', TradeTools.fmt(totalRiseIn) + ' inches');
-    TradeTools.setResult('res-risers', numRisers + ' risers');
-    TradeTools.setResult('res-riser-height', TradeTools.fmt(riserHeight) + ' inches');
-    TradeTools.setResult('res-treads', numTreads + ' treads');
-    TradeTools.setResult('res-tread-depth', TradeTools.fmt(treadDepth) + ' inches');
-    TradeTools.setResult('res-total-run', TradeTools.fmt(totalRun) + ' inches (' + TradeTools.fmt(totalRun / 12) + ' ft)');
-    TradeTools.setResult('res-stringer', TradeTools.fmt(stringerLength) + ' inches (' + TradeTools.fmt(stringerLength / 12) + ' ft)');
-    TradeTools.setResult('res-angle', TradeTools.fmt(angleDeg) + '°');
-    TradeTools.setResult('res-comfort', TradeTools.fmt(comfortRule) + '″ (ideal: 24–25″)');
-    TradeTools.setResult('res-code', codeStatus);
+    BuildCalc.setResult('res-highlight', numRisers + ' risers × ' + BuildCalc.fmt(riserHeight) + '″ each');
+    BuildCalc.setResult('res-total-rise', BuildCalc.fmt(totalRiseIn) + ' inches');
+    BuildCalc.setResult('res-risers', numRisers + ' risers');
+    BuildCalc.setResult('res-riser-height', BuildCalc.fmt(riserHeight) + ' inches');
+    BuildCalc.setResult('res-treads', numTreads + ' treads');
+    BuildCalc.setResult('res-tread-depth', BuildCalc.fmt(treadDepth) + ' inches');
+    BuildCalc.setResult('res-total-run', BuildCalc.fmt(totalRun) + ' inches (' + BuildCalc.fmt(totalRun / 12) + ' ft)');
+    BuildCalc.setResult('res-stringer', BuildCalc.fmt(stringerLength) + ' inches (' + BuildCalc.fmt(stringerLength / 12) + ' ft)');
+    BuildCalc.setResult('res-angle', BuildCalc.fmt(angleDeg) + '°');
+    BuildCalc.setResult('res-comfort', BuildCalc.fmt(comfortRule) + '″ (ideal: 24–25″)');
+    BuildCalc.setResult('res-code', codeStatus);
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const thickness = TradeTools.getPositive('thickness');
-    const width = TradeTools.getPositive('width');
-    const length = TradeTools.getPositive('length');
-    const qty = TradeTools.getPositive('quantity');
+    BuildCalc.clearErrors();
+    const thickness = BuildCalc.getPositive('thickness');
+    const width = BuildCalc.getPositive('width');
+    const length = BuildCalc.getPositive('length');
+    const qty = BuildCalc.getPositive('quantity');
     if (!thickness || !width || !length || !qty) return;
 
     const bfPerPiece = (thickness * width * length) / 12;
     const totalBf = bfPerPiece * qty;
-    const pricePerBf = TradeTools.getNum('price-bf');
+    const pricePerBf = BuildCalc.getNum('price-bf');
     const totalCost = (pricePerBf && pricePerBf > 0) ? totalBf * pricePerBf : null;
 
-    TradeTools.setResult('res-bf-each', TradeTools.fmt(bfPerPiece) + ' BF');
-    TradeTools.setResult('res-bf-total', TradeTools.fmt(totalBf) + ' BF');
-    TradeTools.setResult('res-qty', qty + ' pieces');
-    TradeTools.setResult('res-dims', `${thickness}" × ${width}" × ${length}'`);
-    TradeTools.setResult('res-highlight', TradeTools.fmt(totalBf) + ' board feet');
+    BuildCalc.setResult('res-bf-each', BuildCalc.fmt(bfPerPiece) + ' BF');
+    BuildCalc.setResult('res-bf-total', BuildCalc.fmt(totalBf) + ' BF');
+    BuildCalc.setResult('res-qty', qty + ' pieces');
+    BuildCalc.setResult('res-dims', `${thickness}" × ${width}" × ${length}'`);
+    BuildCalc.setResult('res-highlight', BuildCalc.fmt(totalBf) + ' board feet');
 
     if (totalCost !== null) {
-      TradeTools.setResult('res-cost', TradeTools.fmtCurrency(totalCost));
+      BuildCalc.setResult('res-cost', BuildCalc.fmtCurrency(totalCost));
       document.getElementById('cost-row').style.display = 'flex';
     } else {
       document.getElementById('cost-row').style.display = 'none';
     }
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

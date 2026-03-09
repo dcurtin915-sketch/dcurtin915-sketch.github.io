@@ -14,22 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const coats = TradeTools.getPositive('coats');
-    const doors = TradeTools.getInt('doors');
-    const windows = TradeTools.getInt('windows');
+    BuildCalc.clearErrors();
+    const coats = BuildCalc.getPositive('coats');
+    const doors = BuildCalc.getInt('doors');
+    const windows = BuildCalc.getInt('windows');
     if (!coats || doors === null || windows === null) return;
 
     let totalSqFt;
     if (modeSelect.value === 'room') {
-      const l = TradeTools.getPositive('room-length');
-      const w = TradeTools.getPositive('room-width');
-      const h = TradeTools.getPositive('room-height');
+      const l = BuildCalc.getPositive('room-length');
+      const w = BuildCalc.getPositive('room-width');
+      const h = BuildCalc.getPositive('room-height');
       if (!l || !w || !h) return;
       const wallArea = 2 * (l + w) * h;
       totalSqFt = wallArea;
     } else {
-      totalSqFt = TradeTools.getPositive('total-sqft');
+      totalSqFt = BuildCalc.getPositive('total-sqft');
       if (!totalSqFt) return;
     }
 
@@ -41,15 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const gallons = paintableArea / coverage;
     const gallonsRounded = Math.ceil(gallons);
 
-    TradeTools.setResult('res-gross-area', TradeTools.fmt(totalSqFt, 0) + ' sq ft');
-    TradeTools.setResult('res-deductions', TradeTools.fmt(doorDeduct + windowDeduct, 0) + ' sq ft');
-    TradeTools.setResult('res-net-area', TradeTools.fmt(netArea, 0) + ' sq ft');
-    TradeTools.setResult('res-coats', coats);
-    TradeTools.setResult('res-total-coverage', TradeTools.fmt(paintableArea, 0) + ' sq ft');
-    TradeTools.setResult('res-gallons-exact', TradeTools.fmt(gallons) + ' gallons');
-    TradeTools.setResult('res-gallons', gallonsRounded + ' gallons');
-    TradeTools.setResult('res-highlight', gallonsRounded + ' gallons needed');
+    BuildCalc.setResult('res-gross-area', BuildCalc.fmt(totalSqFt, 0) + ' sq ft');
+    BuildCalc.setResult('res-deductions', BuildCalc.fmt(doorDeduct + windowDeduct, 0) + ' sq ft');
+    BuildCalc.setResult('res-net-area', BuildCalc.fmt(netArea, 0) + ' sq ft');
+    BuildCalc.setResult('res-coats', coats);
+    BuildCalc.setResult('res-total-coverage', BuildCalc.fmt(paintableArea, 0) + ' sq ft');
+    BuildCalc.setResult('res-gallons-exact', BuildCalc.fmt(gallons) + ' gallons');
+    BuildCalc.setResult('res-gallons', gallonsRounded + ' gallons');
+    BuildCalc.setResult('res-highlight', gallonsRounded + ' gallons needed');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

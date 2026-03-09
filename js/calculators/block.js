@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const wallLength = TradeTools.getPositive('wall-length');
-    const wallHeight = TradeTools.getPositive('wall-height');
+    BuildCalc.clearErrors();
+    const wallLength = BuildCalc.getPositive('wall-length');
+    const wallHeight = BuildCalc.getPositive('wall-height');
     if (!wallLength || !wallHeight) return;
 
     const blockSize = document.getElementById('block-size').value;
@@ -41,15 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Courses (rows of blocks)
     const courses = Math.ceil(wallHeight / effectiveH);
 
-    TradeTools.setResult('res-highlight', blocksWithWaste + ' blocks needed');
-    TradeTools.setResult('res-wall-area', TradeTools.fmt(wallArea) + ' sq ft');
-    TradeTools.setResult('res-block-size', blockSize.replace(/x/g, '×') + ' (nominal)');
-    TradeTools.setResult('res-courses', courses + ' courses');
-    TradeTools.setResult('res-blocks-exact', blocksNeeded + ' blocks (exact)');
-    TradeTools.setResult('res-blocks-waste', blocksWithWaste + ' blocks (with 5% waste)');
-    TradeTools.setResult('res-mortar', mortarBags + ' bags (70 lb mortar mix)');
-    TradeTools.setResult('res-rebar', totalRebar + ' rebar pieces (' + verticalRebar + ' vertical + ' + horizontalRebar + ' horizontal)');
+    BuildCalc.setResult('res-highlight', blocksWithWaste + ' blocks needed');
+    BuildCalc.setResult('res-wall-area', BuildCalc.fmt(wallArea) + ' sq ft');
+    BuildCalc.setResult('res-block-size', blockSize.replace(/x/g, '×') + ' (nominal)');
+    BuildCalc.setResult('res-courses', courses + ' courses');
+    BuildCalc.setResult('res-blocks-exact', blocksNeeded + ' blocks (exact)');
+    BuildCalc.setResult('res-blocks-waste', blocksWithWaste + ' blocks (with 5% waste)');
+    BuildCalc.setResult('res-mortar', mortarBags + ' bags (70 lb mortar mix)');
+    BuildCalc.setResult('res-rebar', totalRebar + ' rebar pieces (' + verticalRebar + ' vertical + ' + horizontalRebar + ' horizontal)');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

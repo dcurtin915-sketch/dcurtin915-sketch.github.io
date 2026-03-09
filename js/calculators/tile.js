@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const areaLength = TradeTools.getPositive('area-length');
-    const areaWidth = TradeTools.getPositive('area-width');
-    const tileSize = TradeTools.getPositive('tile-size');
-    const groutWidth = TradeTools.getNum('grout-width');
-    const wastePct = TradeTools.getNum('waste-pct');
+    BuildCalc.clearErrors();
+    const areaLength = BuildCalc.getPositive('area-length');
+    const areaWidth = BuildCalc.getPositive('area-width');
+    const tileSize = BuildCalc.getPositive('tile-size');
+    const groutWidth = BuildCalc.getNum('grout-width');
+    const wastePct = BuildCalc.getNum('waste-pct');
     if (!areaLength || !areaWidth || !tileSize || groutWidth === null || wastePct === null) return;
 
     // Convert area to inches
@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalTileSqFt = totalTiles * tileSqFt;
 
     // Boxes (common: varies, show per-tile and per-sqft)
-    TradeTools.setResult('res-area', TradeTools.fmt(totalAreaSqFt) + ' sq ft');
-    TradeTools.setResult('res-tile-size', tileSize + '" × ' + tileSize + '" (+ ' + groutWidth + '" grout)');
-    TradeTools.setResult('res-tiles-no-waste', tilesNeeded + ' tiles');
-    TradeTools.setResult('res-waste', wastePct + '% (' + (totalTiles - tilesNeeded) + ' extra tiles)');
-    TradeTools.setResult('res-total-tiles', totalTiles + ' tiles');
-    TradeTools.setResult('res-tile-sqft', TradeTools.fmt(totalTileSqFt) + ' sq ft of tile');
-    TradeTools.setResult('res-highlight', totalTiles + ' tiles needed');
+    BuildCalc.setResult('res-area', BuildCalc.fmt(totalAreaSqFt) + ' sq ft');
+    BuildCalc.setResult('res-tile-size', tileSize + '" × ' + tileSize + '" (+ ' + groutWidth + '" grout)');
+    BuildCalc.setResult('res-tiles-no-waste', tilesNeeded + ' tiles');
+    BuildCalc.setResult('res-waste', wastePct + '% (' + (totalTiles - tilesNeeded) + ' extra tiles)');
+    BuildCalc.setResult('res-total-tiles', totalTiles + ' tiles');
+    BuildCalc.setResult('res-tile-sqft', BuildCalc.fmt(totalTileSqFt) + ' sq ft of tile');
+    BuildCalc.setResult('res-highlight', totalTiles + ' tiles needed');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

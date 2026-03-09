@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const wallLength = TradeTools.getPositive('wall-length');
-    const wallHeight = TradeTools.getPositive('wall-height');
+    BuildCalc.clearErrors();
+    const wallLength = BuildCalc.getPositive('wall-length');
+    const wallHeight = BuildCalc.getPositive('wall-height');
     if (!wallLength || !wallHeight) return;
 
     const spacing = parseInt(document.getElementById('spacing').value);
@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Plates as 8ft or matching wall height studs
     const plateBoards = Math.ceil(plateLumber / 8); // assuming 8ft lumber
 
-    TradeTools.setResult('res-wall-length', TradeTools.fmt(wallLength) + ' ft (' + TradeTools.fmt(lengthInches, 0) + ' in)');
-    TradeTools.setResult('res-spacing', spacing + '" on center');
-    TradeTools.setResult('res-studs-basic', studs + ' studs');
-    TradeTools.setResult('res-corner-studs', cornerStuds + ' studs (' + corners + ' corners × 3)');
-    TradeTools.setResult('res-extras', extras + ' studs (10% waste/cripples)');
-    TradeTools.setResult('res-total-studs', totalStuds + ' studs');
-    TradeTools.setResult('res-plates', totalPlates + ' plates (' + plateBoards + ' boards × 8 ft)');
-    TradeTools.setResult('res-plate-lumber', TradeTools.fmt(plateLumber) + ' linear ft');
-    TradeTools.setResult('res-highlight', totalStuds + ' studs + ' + plateBoards + ' plate boards');
+    BuildCalc.setResult('res-wall-length', BuildCalc.fmt(wallLength) + ' ft (' + BuildCalc.fmt(lengthInches, 0) + ' in)');
+    BuildCalc.setResult('res-spacing', spacing + '" on center');
+    BuildCalc.setResult('res-studs-basic', studs + ' studs');
+    BuildCalc.setResult('res-corner-studs', cornerStuds + ' studs (' + corners + ' corners × 3)');
+    BuildCalc.setResult('res-extras', extras + ' studs (10% waste/cripples)');
+    BuildCalc.setResult('res-total-studs', totalStuds + ' studs');
+    BuildCalc.setResult('res-plates', totalPlates + ' plates (' + plateBoards + ' boards × 8 ft)');
+    BuildCalc.setResult('res-plate-lumber', BuildCalc.fmt(plateLumber) + ' linear ft');
+    BuildCalc.setResult('res-highlight', totalStuds + ' studs + ' + plateBoards + ' plate boards');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

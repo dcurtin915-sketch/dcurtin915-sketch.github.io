@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const deckLength = TradeTools.getPositive('deck-length');
-    const deckWidth = TradeTools.getPositive('deck-width');
+    BuildCalc.clearErrors();
+    const deckLength = BuildCalc.getPositive('deck-length');
+    const deckWidth = BuildCalc.getPositive('deck-width');
     if (!deckLength || !deckWidth) return;
 
     const boardWidth = parseFloat(document.getElementById('board-width').value);
@@ -40,15 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Linear feet of decking
     const linearFt = totalBoardsWithWaste * boardLength;
 
-    TradeTools.setResult('res-highlight', totalBoardsWithWaste + ' deck boards');
-    TradeTools.setResult('res-area', TradeTools.fmt(totalSqFt) + ' sq ft');
-    TradeTools.setResult('res-boards-exact', totalBoardsExact + ' boards (exact)');
-    TradeTools.setResult('res-boards-waste', totalBoardsWithWaste + ' boards (with ' + (wasteFactor * 100) + '% waste)');
-    TradeTools.setResult('res-board-size', boardWidth + '″ wide × ' + boardLength + ' ft long');
-    TradeTools.setResult('res-linear-ft', TradeTools.fmt(linearFt) + ' linear ft of decking');
-    TradeTools.setResult('res-joists', joistCount + ' joists (16″ OC, ' + TradeTools.fmt(deckWidth) + ' ft long)');
-    TradeTools.setResult('res-screws', screwCount + ' screws (~' + screwLbs + ' lbs)');
+    BuildCalc.setResult('res-highlight', totalBoardsWithWaste + ' deck boards');
+    BuildCalc.setResult('res-area', BuildCalc.fmt(totalSqFt) + ' sq ft');
+    BuildCalc.setResult('res-boards-exact', totalBoardsExact + ' boards (exact)');
+    BuildCalc.setResult('res-boards-waste', totalBoardsWithWaste + ' boards (with ' + (wasteFactor * 100) + '% waste)');
+    BuildCalc.setResult('res-board-size', boardWidth + '″ wide × ' + boardLength + ' ft long');
+    BuildCalc.setResult('res-linear-ft', BuildCalc.fmt(linearFt) + ' linear ft of decking');
+    BuildCalc.setResult('res-joists', joistCount + ' joists (16″ OC, ' + BuildCalc.fmt(deckWidth) + ' ft long)');
+    BuildCalc.setResult('res-screws', screwCount + ' screws (~' + screwLbs + ' lbs)');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

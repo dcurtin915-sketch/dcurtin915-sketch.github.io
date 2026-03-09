@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
+    BuildCalc.clearErrors();
     const fenceType = typeSelect.value;
-    const totalLength = TradeTools.getPositive('fence-length');
-    const fenceHeight = TradeTools.getPositive('fence-height');
+    const totalLength = BuildCalc.getPositive('fence-length');
+    const fenceHeight = BuildCalc.getPositive('fence-height');
     const postSpacing = parseFloat(document.getElementById('post-spacing').value);
-    const gates = TradeTools.getInt('gate-count');
+    const gates = BuildCalc.getInt('gate-count');
     if (!totalLength || !fenceHeight || gates === null) return;
 
     // Posts: one at each end + one every postSpacing interval
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const concreteBags = posts * bagsPerPost;
 
     if (fenceType === 'wood') {
-      const picketWidth = TradeTools.getPositive('picket-width');
+      const picketWidth = BuildCalc.getPositive('picket-width');
       if (!picketWidth) return;
 
       // Rails: 2 rails for fences ≤6ft, 3 rails for taller
@@ -47,15 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
       // Gate hardware sets
       const gateHardwareSets = gates;
 
-      TradeTools.setResult('res-highlight', posts + ' posts, ' + pickets + ' pickets');
-      TradeTools.setResult('res-type', 'Wood Fence');
-      TradeTools.setResult('res-length', TradeTools.fmt(totalLength) + ' ft total');
-      TradeTools.setResult('res-height', TradeTools.fmt(fenceHeight) + ' ft');
-      TradeTools.setResult('res-posts', posts + ' posts (4×4)');
-      TradeTools.setResult('res-rails', totalRails + ' rails (2×4) — ' + railsPerSection + ' per section');
-      TradeTools.setResult('res-pickets', pickets + ' pickets (' + TradeTools.fmt(picketWidth) + '" wide)');
-      TradeTools.setResult('res-concrete', concreteBags + ' bags (50 lb fast-set)');
-      TradeTools.setResult('res-gates', gates + ' gate(s), ' + gateHardwareSets + ' hardware set(s)');
+      BuildCalc.setResult('res-highlight', posts + ' posts, ' + pickets + ' pickets');
+      BuildCalc.setResult('res-type', 'Wood Fence');
+      BuildCalc.setResult('res-length', BuildCalc.fmt(totalLength) + ' ft total');
+      BuildCalc.setResult('res-height', BuildCalc.fmt(fenceHeight) + ' ft');
+      BuildCalc.setResult('res-posts', posts + ' posts (4×4)');
+      BuildCalc.setResult('res-rails', totalRails + ' rails (2×4) — ' + railsPerSection + ' per section');
+      BuildCalc.setResult('res-pickets', pickets + ' pickets (' + BuildCalc.fmt(picketWidth) + '" wide)');
+      BuildCalc.setResult('res-concrete', concreteBags + ' bags (50 lb fast-set)');
+      BuildCalc.setResult('res-gates', gates + ' gate(s), ' + gateHardwareSets + ' hardware set(s)');
     } else {
       // Chain link
       const fabricHeight = fenceHeight; // chain link fabric sold by height
@@ -65,17 +65,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const ties = fabricFeet * tiesPerFoot;
       const tensionBands = posts * 3; // ~3 per terminal post (simplified)
 
-      TradeTools.setResult('res-highlight', posts + ' posts, ' + fabricFeet + ' ft fabric');
-      TradeTools.setResult('res-type', 'Chain Link Fence');
-      TradeTools.setResult('res-length', TradeTools.fmt(totalLength) + ' ft total');
-      TradeTools.setResult('res-height', TradeTools.fmt(fenceHeight) + ' ft');
-      TradeTools.setResult('res-posts', posts + ' posts (terminal + line)');
-      TradeTools.setResult('res-rails', topRail + ' top rail sections (10.5 ft each)');
-      TradeTools.setResult('res-pickets', fabricFeet + ' linear ft of chain link fabric');
-      TradeTools.setResult('res-concrete', concreteBags + ' bags (50 lb fast-set)');
-      TradeTools.setResult('res-gates', gates + ' gate(s)');
+      BuildCalc.setResult('res-highlight', posts + ' posts, ' + fabricFeet + ' ft fabric');
+      BuildCalc.setResult('res-type', 'Chain Link Fence');
+      BuildCalc.setResult('res-length', BuildCalc.fmt(totalLength) + ' ft total');
+      BuildCalc.setResult('res-height', BuildCalc.fmt(fenceHeight) + ' ft');
+      BuildCalc.setResult('res-posts', posts + ' posts (terminal + line)');
+      BuildCalc.setResult('res-rails', topRail + ' top rail sections (10.5 ft each)');
+      BuildCalc.setResult('res-pickets', fabricFeet + ' linear ft of chain link fabric');
+      BuildCalc.setResult('res-concrete', concreteBags + ' bags (50 lb fast-set)');
+      BuildCalc.setResult('res-gates', gates + ' gate(s)');
     }
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

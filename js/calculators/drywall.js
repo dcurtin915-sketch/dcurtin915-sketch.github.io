@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
-    const roomLength = TradeTools.getPositive('room-length');
-    const roomWidth = TradeTools.getPositive('room-width');
-    const roomHeight = TradeTools.getPositive('room-height');
-    const doors = TradeTools.getInt('doors');
-    const windows = TradeTools.getInt('windows');
+    BuildCalc.clearErrors();
+    const roomLength = BuildCalc.getPositive('room-length');
+    const roomWidth = BuildCalc.getPositive('room-width');
+    const roomHeight = BuildCalc.getPositive('room-height');
+    const doors = BuildCalc.getInt('doors');
+    const windows = BuildCalc.getInt('windows');
     if (!roomLength || !roomWidth || !roomHeight || doors === null || windows === null) return;
 
     const perimeter = 2 * (roomLength + roomWidth);
@@ -27,15 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Screws: ~1 lb per 100 sq ft (about 60 screws per sheet)
     const screws = Math.ceil(totalArea / 100);
 
-    TradeTools.setResult('res-wall-area', TradeTools.fmt(netWallArea, 0) + ' sq ft');
-    TradeTools.setResult('res-ceiling-area', TradeTools.fmt(ceilingArea, 0) + ' sq ft');
-    TradeTools.setResult('res-total-area', TradeTools.fmt(totalArea, 0) + ' sq ft');
-    TradeTools.setResult('res-sheets', sheets + ' sheets (4×8)');
-    TradeTools.setResult('res-tape', tapeFt + ' linear ft');
-    TradeTools.setResult('res-compound', compound + ' boxes');
-    TradeTools.setResult('res-screws', screws + ' lbs');
-    TradeTools.setResult('res-highlight', sheets + ' drywall sheets');
+    BuildCalc.setResult('res-wall-area', BuildCalc.fmt(netWallArea, 0) + ' sq ft');
+    BuildCalc.setResult('res-ceiling-area', BuildCalc.fmt(ceilingArea, 0) + ' sq ft');
+    BuildCalc.setResult('res-total-area', BuildCalc.fmt(totalArea, 0) + ' sq ft');
+    BuildCalc.setResult('res-sheets', sheets + ' sheets (4×8)');
+    BuildCalc.setResult('res-tape', tapeFt + ' linear ft');
+    BuildCalc.setResult('res-compound', compound + ' boxes');
+    BuildCalc.setResult('res-screws', screws + ' lbs');
+    BuildCalc.setResult('res-highlight', sheets + ' drywall sheets');
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });

@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('calc-btn').addEventListener('click', () => {
-    TradeTools.clearErrors();
+    BuildCalc.clearErrors();
     let areaSqFt;
 
     if (inputMethod.value === 'dimensions') {
-      const length = TradeTools.getPositive('room-length');
-      const height = TradeTools.getPositive('room-height');
+      const length = BuildCalc.getPositive('room-length');
+      const height = BuildCalc.getPositive('room-height');
       if (!length || !height) return;
       areaSqFt = length * height;
     } else {
-      areaSqFt = TradeTools.getPositive('total-sqft');
+      areaSqFt = BuildCalc.getPositive('total-sqft');
       if (!areaSqFt) return;
     }
 
@@ -76,16 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const typeLabels = { batt: 'Fiberglass Batt', blown: 'Blown-In (Cellulose)', spray: 'Spray Foam (Closed Cell)' };
     const appLabels = { wall: 'Walls', attic: 'Attic', ceiling: 'Cathedral Ceiling' };
 
-    TradeTools.setResult('res-highlight', unitsNeeded + ' ' + unitLabel);
-    TradeTools.setResult('res-area', TradeTools.fmt(areaSqFt) + ' sq ft');
-    TradeTools.setResult('res-type', typeLabels[insulationType]);
-    TradeTools.setResult('res-application', appLabels[application]);
-    TradeTools.setResult('res-rvalue', 'R-' + spec.rValue);
-    TradeTools.setResult('res-thickness', spec.thickness);
-    TradeTools.setResult('res-stud-spacing', studSpacing + '″ on center');
-    TradeTools.setResult('res-units', unitsNeeded + ' ' + unitLabel);
-    TradeTools.setResult('res-coverage', TradeTools.fmt(adjustedCoverage) + ' sq ft per ' + (insulationType === 'batt' ? 'bundle' : insulationType === 'blown' ? 'bag' : 'kit'));
+    BuildCalc.setResult('res-highlight', unitsNeeded + ' ' + unitLabel);
+    BuildCalc.setResult('res-area', BuildCalc.fmt(areaSqFt) + ' sq ft');
+    BuildCalc.setResult('res-type', typeLabels[insulationType]);
+    BuildCalc.setResult('res-application', appLabels[application]);
+    BuildCalc.setResult('res-rvalue', 'R-' + spec.rValue);
+    BuildCalc.setResult('res-thickness', spec.thickness);
+    BuildCalc.setResult('res-stud-spacing', studSpacing + '″ on center');
+    BuildCalc.setResult('res-units', unitsNeeded + ' ' + unitLabel);
+    BuildCalc.setResult('res-coverage', BuildCalc.fmt(adjustedCoverage) + ' sq ft per ' + (insulationType === 'batt' ? 'bundle' : insulationType === 'blown' ? 'bag' : 'kit'));
 
-    TradeTools.showResults('results');
+    BuildCalc.showResults('results');
   });
 });
