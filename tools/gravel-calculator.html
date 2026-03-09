@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Gravel &amp; Aggregate Calculator — Tons Needed | TradeTools</title>
+  <meta name="description" content="Calculate tons of gravel, sand, crushed stone, or topsoil needed. Free aggregate calculator with material density options. Instant tonnage estimate.">
+  <meta property="og:title" content="Free Gravel &amp; Aggregate Calculator | TradeTools">
+  <meta property="og:description" content="Calculate tons of gravel, sand, crushed stone, or topsoil for your project.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/gravel-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Gravel & Aggregate Calculator",
+    "description": "Calculate tons of gravel, sand, crushed stone, or topsoil needed for any project.",
+    "url": "https://tradetools.example.com/tools/gravel-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html" class="active">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Gravel &amp; Aggregate Calculator</h1>
+        <p>Calculate how many tons of gravel, sand, crushed stone, or topsoil you need. Simply enter the area dimensions and depth, select your material type, and get an instant tonnage estimate based on standard material densities.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Project Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="length">Length (feet)</label>
+            <input type="number" id="length" placeholder="e.g. 20" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="width">Width (feet)</label>
+            <input type="number" id="width" placeholder="e.g. 10" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="depth">Depth (inches)</label>
+            <input type="number" id="depth" placeholder="e.g. 4" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="material">Material Type</label>
+            <select id="material">
+              <option value="gravel">Gravel (1.4 tons/cu yd)</option>
+              <option value="sand">Sand (1.35 tons/cu yd)</option>
+              <option value="crushed-stone">Crushed Stone (1.5 tons/cu yd)</option>
+              <option value="topsoil">Topsoil (1.1 tons/cu yd)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Tonnage</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Material</span><span class="result-value" id="res-material"></span></div>
+          <div class="result-row"><span class="result-label">Dimensions</span><span class="result-value" id="res-dimensions"></span></div>
+          <div class="result-row"><span class="result-label">Coverage Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Volume</span><span class="result-value" id="res-cuft"></span></div>
+          <div class="result-row"><span class="result-label">Volume</span><span class="result-value" id="res-cuyd"></span></div>
+          <div class="result-row"><span class="result-label">Density</span><span class="result-value" id="res-density"></span></div>
+          <div class="result-row"><span class="result-label">Weight</span><span class="result-value" id="res-tons"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>length</strong> and <strong>width</strong> of the area in feet.</li>
+          <li>Enter the desired <strong>depth</strong> in inches.</li>
+          <li>Select the <strong>material type</strong> from the dropdown.</li>
+          <li>Click <strong>"Calculate Tonnage"</strong> for volume and weight estimates.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Volume (cu yd) = (Length × Width × Depth÷12) ÷ 27<br>Tons = Volume × Material Density</div>
+        <p>Densities used: Gravel = 1.4 t/cy, Sand = 1.35 t/cy, Crushed Stone = 1.5 t/cy, Topsoil = 1.1 t/cy. Actual density may vary — confirm with your supplier.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for pours</span></div></a>
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Shingles and materials</span></div></a>
+          <a href="/tools/tile-calculator.html" class="related-card"><span class="rc-icon">🔲</span><div class="rc-text"><strong>Tile Calculator</strong><span>Tiles with grout spacing</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/gravel.js"></script>
+</body>
+</html>

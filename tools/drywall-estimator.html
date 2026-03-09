@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Drywall Estimator — Sheets, Tape &amp; Compound Calculator | TradeTools</title>
+  <meta name="description" content="Estimate drywall sheets, tape, joint compound, and screws for any room. Free drywall calculator accounts for doors and windows. Instant results.">
+  <meta property="og:title" content="Free Drywall Estimator | TradeTools">
+  <meta property="og:description" content="Calculate drywall sheets, tape, joint compound, and screws needed for your room.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/drywall-estimator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Drywall Estimator",
+    "description": "Estimate drywall sheets, tape, joint compound, and screws for any room.",
+    "url": "https://tradetools.example.com/tools/drywall-estimator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html" class="active">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Drywall Estimator</h1>
+        <p>Estimate how many 4×8 drywall sheets you need for walls and ceiling, plus tape, joint compound, and screws. This free drywall calculator automatically deducts for standard doors and windows so you get an accurate material list.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Room Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="room-length">Room Length (feet)</label>
+            <input type="number" id="room-length" placeholder="e.g. 12" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="room-width">Room Width (feet)</label>
+            <input type="number" id="room-width" placeholder="e.g. 10" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="room-height">Ceiling Height (feet)</label>
+          <input type="number" id="room-height" placeholder="e.g. 8" min="0" step="any" value="8">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="doors">Number of Doors</label>
+            <input type="number" id="doors" placeholder="e.g. 2" min="0" step="1" value="1">
+          </div>
+          <div class="form-group">
+            <label for="windows">Number of Windows</label>
+            <input type="number" id="windows" placeholder="e.g. 2" min="0" step="1" value="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Estimate Drywall</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Wall Area (net)</span><span class="result-value" id="res-wall-area"></span></div>
+          <div class="result-row"><span class="result-label">Ceiling Area</span><span class="result-value" id="res-ceiling-area"></span></div>
+          <div class="result-row"><span class="result-label">Total Coverage</span><span class="result-value" id="res-total-area"></span></div>
+          <div class="result-row"><span class="result-label">4×8 Sheets</span><span class="result-value" id="res-sheets"></span></div>
+          <div class="result-row"><span class="result-label">Drywall Tape</span><span class="result-value" id="res-tape"></span></div>
+          <div class="result-row"><span class="result-label">Joint Compound</span><span class="result-value" id="res-compound"></span></div>
+          <div class="result-row"><span class="result-label">Drywall Screws</span><span class="result-value" id="res-screws"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>room length</strong> and <strong>width</strong> in feet.</li>
+          <li>Enter the <strong>ceiling height</strong> (default is 8 feet).</li>
+          <li>Enter the number of <strong>doors</strong> and <strong>windows</strong> to deduct.</li>
+          <li>Click <strong>"Estimate Drywall"</strong> to see sheets, tape, compound, and screws needed.</li>
+        </ol>
+        <p>Standard deductions: doors = 21 sq ft (3×7), windows = 15 sq ft (3×5). The calculator includes ceiling coverage.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Wall Area = 2 × (Length + Width) × Height<br>Ceiling Area = Length × Width<br>Net Area = Wall Area − (Doors × 21) − (Windows × 15) + Ceiling<br>Sheets = Net Area ÷ 32 (rounded up)</div>
+        <p>Each 4×8 sheet covers 32 square feet. Tape, compound, and screws are estimated proportionally based on total area.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Gallons of paint needed</span></div></a>
+          <a href="/tools/stud-calculator.html" class="related-card"><span class="rc-icon">📐</span><div class="rc-text"><strong>Stud Calculator</strong><span>Framing studs and plates</span></div></a>
+          <a href="/tools/board-feet-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Board Feet Calculator</strong><span>Lumber BF and cost</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/drywall.js"></script>
+</body>
+</html>

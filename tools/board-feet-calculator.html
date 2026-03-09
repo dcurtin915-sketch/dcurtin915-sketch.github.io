@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Board Feet Calculator — Lumber BF &amp; Cost Estimator | TradeTools</title>
+  <meta name="description" content="Calculate board feet of lumber instantly. Enter thickness, width, length, and quantity for BF totals plus cost estimates. Free board foot calculator.">
+  <meta property="og:title" content="Free Board Feet Calculator | TradeTools">
+  <meta property="og:description" content="Calculate lumber board feet and costs. Enter dimensions and quantity for instant BF results.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/board-feet-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Board Feet Calculator",
+    "description": "Calculate lumber board feet and estimate costs based on dimensions and quantity.",
+    "url": "https://tradetools.example.com/tools/board-feet-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html" class="active">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Board Feet Calculator</h1>
+        <p>Calculate board feet for any lumber order. Board feet (BF) is the standard unit for measuring hardwood lumber volume. Enter your board dimensions and quantity below to get total board feet and an optional cost estimate.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Lumber Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="thickness">Thickness (inches)</label>
+            <input type="number" id="thickness" placeholder="e.g. 1" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="width">Width (inches)</label>
+            <input type="number" id="width" placeholder="e.g. 6" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="length">Length (feet)</label>
+            <input type="number" id="length" placeholder="e.g. 8" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity (pieces)</label>
+            <input type="number" id="quantity" placeholder="e.g. 10" min="1" step="1" value="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price-bf">Price per Board Foot ($ — optional)</label>
+          <input type="number" id="price-bf" placeholder="e.g. 5.50" min="0" step="0.01">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Board Feet</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Board Dimensions</span><span class="result-value" id="res-dims"></span></div>
+          <div class="result-row"><span class="result-label">Quantity</span><span class="result-value" id="res-qty"></span></div>
+          <div class="result-row"><span class="result-label">BF per Piece</span><span class="result-value" id="res-bf-each"></span></div>
+          <div class="result-row"><span class="result-label">Total Board Feet</span><span class="result-value" id="res-bf-total"></span></div>
+          <div class="result-row" id="cost-row" style="display:none;"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the board <strong>thickness</strong> in inches (e.g., 1 for 4/4 lumber, 2 for 8/4).</li>
+          <li>Enter the board <strong>width</strong> in inches and <strong>length</strong> in feet.</li>
+          <li>Set the <strong>quantity</strong> of boards you're ordering.</li>
+          <li>Optionally enter a <strong>price per board foot</strong> for a cost estimate.</li>
+          <li>Click <strong>"Calculate Board Feet"</strong> for instant results.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Board Feet = (Thickness" × Width" × Length') ÷ 12</div>
+        <p>One board foot equals a piece of wood 1 inch thick, 12 inches wide, and 1 foot long (144 cubic inches). Multiply BF per piece by quantity for total board feet.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/stud-calculator.html" class="related-card"><span class="rc-icon">📐</span><div class="rc-text"><strong>Stud Calculator</strong><span>Framing studs and plates</span></div></a>
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets, tape, and compound</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for pours</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/boardfeet.js"></script>
+</body>
+</html>

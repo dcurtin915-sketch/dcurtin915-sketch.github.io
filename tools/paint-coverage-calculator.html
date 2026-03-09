@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Paint Coverage Calculator — Gallons Needed for Any Room | TradeTools</title>
+  <meta name="description" content="Calculate how many gallons of paint you need. Enter room dimensions or square footage, coats, and deductions. Free paint calculator with instant results.">
+  <meta property="og:title" content="Free Paint Coverage Calculator | TradeTools">
+  <meta property="og:description" content="Calculate gallons of paint needed for any room. Supports multiple coats and door/window deductions.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/paint-coverage-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Paint Coverage Calculator",
+    "description": "Calculate how many gallons of paint you need for any room or area.",
+    "url": "https://tradetools.example.com/tools/paint-coverage-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html" class="active">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Paint Coverage Calculator</h1>
+        <p>Figure out how many gallons of paint you need before you head to the store. Enter your room dimensions or total square footage, select the number of coats, and deduct doors and windows for an accurate paint estimate.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Details</h2>
+        <div class="form-group">
+          <label for="input-mode">Input Method</label>
+          <select id="input-mode">
+            <option value="room">Room Dimensions</option>
+            <option value="manual">Total Square Footage</option>
+          </select>
+        </div>
+
+        <div id="room-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="room-length">Room Length (feet)</label>
+              <input type="number" id="room-length" placeholder="e.g. 12" min="0" step="any">
+            </div>
+            <div class="form-group">
+              <label for="room-width">Room Width (feet)</label>
+              <input type="number" id="room-width" placeholder="e.g. 10" min="0" step="any">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="room-height">Wall Height (feet)</label>
+            <input type="number" id="room-height" placeholder="e.g. 8" min="0" step="any" value="8">
+          </div>
+        </div>
+
+        <div id="manual-fields" style="display:none;">
+          <div class="form-group">
+            <label for="total-sqft">Total Wall Area (sq ft)</label>
+            <input type="number" id="total-sqft" placeholder="e.g. 400" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="coats">Number of Coats</label>
+            <input type="number" id="coats" placeholder="2" min="1" step="1" value="2">
+          </div>
+          <div class="form-group">
+            <label for="doors">Doors to Deduct</label>
+            <input type="number" id="doors" min="0" step="1" value="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="windows">Windows to Deduct</label>
+          <input type="number" id="windows" min="0" step="1" value="1">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Paint</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Gross Wall Area</span><span class="result-value" id="res-gross-area"></span></div>
+          <div class="result-row"><span class="result-label">Deductions (doors/windows)</span><span class="result-value" id="res-deductions"></span></div>
+          <div class="result-row"><span class="result-label">Net Paintable Area</span><span class="result-value" id="res-net-area"></span></div>
+          <div class="result-row"><span class="result-label">Number of Coats</span><span class="result-value" id="res-coats"></span></div>
+          <div class="result-row"><span class="result-label">Total Coverage Needed</span><span class="result-value" id="res-total-coverage"></span></div>
+          <div class="result-row"><span class="result-label">Exact Gallons</span><span class="result-value" id="res-gallons-exact"></span></div>
+          <div class="result-row"><span class="result-label">Gallons to Buy</span><span class="result-value" id="res-gallons"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Choose <strong>Room Dimensions</strong> or <strong>Total Square Footage</strong> input mode.</li>
+          <li>Enter measurements, number of <strong>coats</strong> (2 is standard), and deductions.</li>
+          <li>Click <strong>"Calculate Paint"</strong> to see gallons needed.</li>
+          <li>Standard deductions: doors = 21 sq ft, windows = 15 sq ft.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Gallons = (Net Area × Coats) ÷ 350</div>
+        <p>Standard interior latex paint covers approximately <strong>350 square feet per gallon</strong>. Net area = total wall area minus doors (21 sq ft each) and windows (15 sq ft each). Results are rounded up to the nearest gallon.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets, tape, and compound</span></div></a>
+          <a href="/tools/tile-calculator.html" class="related-card"><span class="rc-icon">🔲</span><div class="rc-text"><strong>Tile Calculator</strong><span>Tiles with grout spacing</span></div></a>
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Shingles and materials</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/paint.js"></script>
+</body>
+</html>

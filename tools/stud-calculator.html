@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Stud Calculator — Wall Framing Studs &amp; Plates | TradeTools</title>
+  <meta name="description" content="Calculate studs and plates needed for wall framing. Supports 16 and 24 inch on-center spacing with corner and waste estimates. Free stud calculator.">
+  <meta property="og:title" content="Free Stud Calculator | TradeTools">
+  <meta property="og:description" content="Calculate studs and plates for wall framing with 16 or 24 inch on-center spacing.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/stud-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Stud Calculator",
+    "description": "Calculate studs and plates needed for wall framing with standard spacing options.",
+    "url": "https://tradetools.example.com/tools/stud-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html" class="active">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Stud Calculator</h1>
+        <p>Calculate how many studs and plates you need for wall framing. This free stud calculator supports standard 16" and 24" on-center spacing, includes corner assemblies, and adds a waste factor for cripples and headers.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Wall Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wall-length">Wall Length (feet)</label>
+            <input type="number" id="wall-length" placeholder="e.g. 20" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="wall-height">Wall Height (feet)</label>
+            <input type="number" id="wall-height" placeholder="e.g. 8" min="0" step="any" value="8">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="spacing">Stud Spacing</label>
+            <select id="spacing">
+              <option value="16">16" on center (standard)</option>
+              <option value="24">24" on center</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="corners">Number of Corners</label>
+            <select id="corners">
+              <option value="0">0 corners</option>
+              <option value="1">1 corner</option>
+              <option value="2" selected>2 corners</option>
+              <option value="3">3 corners</option>
+              <option value="4">4 corners</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Studs</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Wall Length</span><span class="result-value" id="res-wall-length"></span></div>
+          <div class="result-row"><span class="result-label">Spacing</span><span class="result-value" id="res-spacing"></span></div>
+          <div class="result-row"><span class="result-label">Layout Studs</span><span class="result-value" id="res-studs-basic"></span></div>
+          <div class="result-row"><span class="result-label">Corner Studs</span><span class="result-value" id="res-corner-studs"></span></div>
+          <div class="result-row"><span class="result-label">Extra (waste)</span><span class="result-value" id="res-extras"></span></div>
+          <div class="result-row"><span class="result-label">Total Studs</span><span class="result-value" id="res-total-studs"></span></div>
+          <div class="result-row"><span class="result-label">Plates</span><span class="result-value" id="res-plates"></span></div>
+          <div class="result-row"><span class="result-label">Plate Lumber</span><span class="result-value" id="res-plate-lumber"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the total <strong>wall length</strong> in feet.</li>
+          <li>Enter the <strong>wall height</strong> (default 8 feet for standard construction).</li>
+          <li>Select <strong>stud spacing</strong> — 16" OC for load-bearing walls, 24" OC for non-load-bearing.</li>
+          <li>Select the number of <strong>corners</strong> (each requires a 3-stud assembly).</li>
+          <li>Click <strong>"Calculate Studs"</strong> for your materials list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Studs = (Wall Length in Inches ÷ Spacing) + 1<br>Corner Studs = Corners × 3<br>Total = (Studs + Corner Studs) × 1.10<br>Plates = 3 × Wall Length (1 bottom + 2 top)</div>
+        <p>Standard framing uses a single bottom plate and a double top plate. The 10% extra accounts for waste, cripple studs, jack studs, and headers around openings.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/board-feet-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Board Feet Calculator</strong><span>Lumber BF and cost</span></div></a>
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets, tape, and compound</span></div></a>
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Shingles and materials</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/stud.js"></script>
+</body>
+</html>

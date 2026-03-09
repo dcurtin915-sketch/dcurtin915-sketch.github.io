@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Tile Calculator — Tiles Needed with Grout &amp; Waste | TradeTools</title>
+  <meta name="description" content="Calculate how many tiles you need including grout line spacing and waste percentage. Free tile calculator for floors, walls, and backsplashes. Instant results.">
+  <meta property="og:title" content="Free Tile Calculator | TradeTools">
+  <meta property="og:description" content="Calculate tiles needed with grout spacing and waste. Works for any tile size and area.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/tile-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Tile Calculator",
+    "description": "Calculate tiles needed including grout spacing and waste percentage.",
+    "url": "https://tradetools.example.com/tools/tile-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html" class="active">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Tile Calculator</h1>
+        <p>Calculate how many tiles you need for any floor, wall, or backsplash project. This free tile calculator accounts for grout line spacing and waste percentage so you order the right amount the first time.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Project Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="area-length">Area Length (feet)</label>
+            <input type="number" id="area-length" placeholder="e.g. 10" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="area-width">Area Width (feet)</label>
+            <input type="number" id="area-width" placeholder="e.g. 8" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tile-size">Tile Size (inches, square)</label>
+            <input type="number" id="tile-size" placeholder="e.g. 12" min="0" step="any" value="12">
+          </div>
+          <div class="form-group">
+            <label for="grout-width">Grout Width (inches)</label>
+            <input type="number" id="grout-width" placeholder="e.g. 0.125" min="0" step="any" value="0.125">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="waste-pct">Waste Factor (%)</label>
+          <input type="number" id="waste-pct" placeholder="e.g. 10" min="0" step="1" value="10">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Tiles</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Total Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Tile Size</span><span class="result-value" id="res-tile-size"></span></div>
+          <div class="result-row"><span class="result-label">Tiles (no waste)</span><span class="result-value" id="res-tiles-no-waste"></span></div>
+          <div class="result-row"><span class="result-label">Waste</span><span class="result-value" id="res-waste"></span></div>
+          <div class="result-row"><span class="result-label">Total Tiles</span><span class="result-value" id="res-total-tiles"></span></div>
+          <div class="result-row"><span class="result-label">Tile Coverage</span><span class="result-value" id="res-tile-sqft"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>length</strong> and <strong>width</strong> of the area to tile in feet.</li>
+          <li>Enter your <strong>tile size</strong> in inches (assumes square tiles).</li>
+          <li>Enter the <strong>grout width</strong> in inches (⅛" is standard, use 0.125).</li>
+          <li>Set a <strong>waste factor</strong> — 10% for straight lay, 15% for diagonal patterns.</li>
+          <li>Click <strong>"Calculate Tiles"</strong> for your total count.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Effective Tile Size = Tile Size + Grout Width<br>Tiles Along = ⌈Area Length (in) ÷ Effective Size⌉<br>Tiles Across = ⌈Area Width (in) ÷ Effective Size⌉<br>Total = Tiles Along × Across × (1 + Waste%)</div>
+        <p>The calculator accounts for grout lines by adding the grout width to each tile dimension. Results are always rounded up since partial tiles still require a full tile to cut.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Tons of aggregate needed</span></div></a>
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Gallons of paint needed</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for pours</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/tile.js"></script>
+</body>
+</html>
