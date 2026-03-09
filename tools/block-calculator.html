@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Concrete Block / CMU Calculator — Blocks &amp; Mortar | TradeTools</title>
+  <meta name="description" content="Calculate concrete blocks (CMU), mortar bags, and rebar for your wall project. Supports standard 8x8x16 and other block sizes. Free instant results.">
+  <meta property="og:title" content="Free Concrete Block / CMU Calculator | TradeTools">
+  <meta property="og:description" content="Calculate concrete blocks, mortar, and rebar needed for your wall. Supports multiple block sizes.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/block-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Concrete Block / CMU Calculator",
+    "description": "Calculate concrete blocks, mortar bags, and rebar for wall construction.",
+    "url": "https://tradetools.example.com/tools/block-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Concrete Block / CMU Calculator</h1>
+        <p>Calculate how many concrete masonry units (CMU) you need for your wall, along with mortar bags and rebar. This calculator supports standard 8×8×16, half-height 8×4×16, and 8×8×12 block sizes with adjustable mortar joint thickness.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Wall Dimensions</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wall-length">Wall Length (feet)</label>
+            <input type="number" id="wall-length" placeholder="e.g. 40" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="wall-height">Wall Height (feet)</label>
+            <input type="number" id="wall-height" placeholder="e.g. 8" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="block-size">Block Size (nominal)</label>
+            <select id="block-size">
+              <option value="8x8x16">8×8×16 (Standard)</option>
+              <option value="8x4x16">8×4×16 (Half-Height)</option>
+              <option value="8x8x12">8×8×12</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mortar-joint">Mortar Joint Thickness</label>
+            <select id="mortar-joint">
+              <option value="0.375">⅜ inch (Standard)</option>
+              <option value="0.5">½ inch</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Blocks</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Wall Area</span><span class="result-value" id="res-wall-area"></span></div>
+          <div class="result-row"><span class="result-label">Block Size</span><span class="result-value" id="res-block-size"></span></div>
+          <div class="result-row"><span class="result-label">Courses (Rows)</span><span class="result-value" id="res-courses"></span></div>
+          <div class="result-row"><span class="result-label">Blocks (Exact)</span><span class="result-value" id="res-blocks-exact"></span></div>
+          <div class="result-row"><span class="result-label">Blocks (w/ 5% Waste)</span><span class="result-value" id="res-blocks-waste"></span></div>
+          <div class="result-row"><span class="result-label">Mortar</span><span class="result-value" id="res-mortar"></span></div>
+          <div class="result-row"><span class="result-label">Rebar</span><span class="result-value" id="res-rebar"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>wall length</strong> and <strong>height</strong> in feet.</li>
+          <li>Select the <strong>block size</strong> — standard 8×8×16 is most common for structural walls.</li>
+          <li>Choose your <strong>mortar joint thickness</strong> (⅜" is standard).</li>
+          <li>Click <strong>"Calculate Blocks"</strong> for a complete material list.</li>
+          <li>Results include 5% waste factor and rebar estimates for every 4 feet.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <p>For <strong>standard 8×8×16 blocks</strong> with ⅜" mortar joints:</p>
+        <div class="formula-block">Blocks per sq ft = 1 ÷ ((Block Height + Joint) × (Block Width + Joint)) in sq ft</div>
+        <div class="formula-block">Standard: ~1.125 blocks per sq ft of wall face</div>
+        <p><strong>Mortar:</strong> approximately 3.5 bags (70 lb) per 100 blocks.</p>
+        <p><strong>Rebar:</strong> vertical bars every 4 feet plus horizontal reinforcement every 4 feet of height.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for slabs &amp; footings</span></div></a>
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Tons of aggregate needed</span></div></a>
+          <a href="/tools/fence-calculator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Fence Calculator</strong><span>Posts, rails &amp; pickets</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/block.js"></script>
+</body>
+</html>

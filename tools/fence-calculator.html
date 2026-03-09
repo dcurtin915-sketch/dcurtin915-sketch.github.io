@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Fence Material Calculator — Wood &amp; Chain Link | TradeTools</title>
+  <meta name="description" content="Calculate fence materials including posts, rails, pickets, and concrete. Supports wood and chain link fences. Free instant estimates for your project.">
+  <meta property="og:title" content="Free Fence Material Calculator | TradeTools">
+  <meta property="og:description" content="Calculate posts, rails, pickets, and concrete for wood or chain link fences. Free instant estimates.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/fence-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Fence Material Calculator",
+    "description": "Calculate fence materials including posts, rails, pickets, and concrete for wood and chain link fences.",
+    "url": "https://tradetools.example.com/tools/fence-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Fence Material Calculator</h1>
+        <p>Estimate all the materials you need for your fence project. This free calculator handles both wood privacy fences and chain link fences, giving you post counts, rail quantities, picket numbers, and concrete for post holes.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Measurements</h2>
+
+        <div class="form-group">
+          <label for="fence-type">Fence Type</label>
+          <select id="fence-type">
+            <option value="wood">Wood (Privacy / Picket)</option>
+            <option value="chainlink">Chain Link</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fence-length">Total Fence Length (feet)</label>
+            <input type="number" id="fence-length" placeholder="e.g. 150" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="fence-height">Fence Height (feet)</label>
+            <input type="number" id="fence-height" placeholder="e.g. 6" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="post-spacing">Post Spacing</label>
+            <select id="post-spacing">
+              <option value="8">8 feet</option>
+              <option value="6">6 feet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="gate-count">Number of Gates</label>
+            <input type="number" id="gate-count" placeholder="e.g. 1" min="0" step="1" value="1">
+          </div>
+        </div>
+
+        <div id="wood-fields">
+          <div class="form-group">
+            <label for="picket-width">Picket Width (inches)</label>
+            <input type="number" id="picket-width" placeholder="e.g. 5.5" min="0" step="any" value="5.5">
+          </div>
+        </div>
+
+        <div id="chain-fields" style="display:none;">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Fence Materials</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Fence Type</span><span class="result-value" id="res-type"></span></div>
+          <div class="result-row"><span class="result-label">Total Length</span><span class="result-value" id="res-length"></span></div>
+          <div class="result-row"><span class="result-label">Height</span><span class="result-value" id="res-height"></span></div>
+          <div class="result-row"><span class="result-label">Posts</span><span class="result-value" id="res-posts"></span></div>
+          <div class="result-row"><span class="result-label">Rails / Top Rail</span><span class="result-value" id="res-rails"></span></div>
+          <div class="result-row"><span class="result-label">Pickets / Fabric</span><span class="result-value" id="res-pickets"></span></div>
+          <div class="result-row"><span class="result-label">Post Concrete</span><span class="result-value" id="res-concrete"></span></div>
+          <div class="result-row"><span class="result-label">Gates &amp; Hardware</span><span class="result-value" id="res-gates"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Select your <strong>fence type</strong> — wood or chain link.</li>
+          <li>Enter the <strong>total length</strong> of your fence run in feet.</li>
+          <li>Set the <strong>fence height</strong> and <strong>post spacing</strong> (6 or 8 feet is standard).</li>
+          <li>For wood fences, enter the <strong>picket width</strong> (standard is 5.5 inches).</li>
+          <li>Click <strong>"Calculate Fence Materials"</strong> to get your complete material list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <p>For <strong>wood fences</strong>:</p>
+        <div class="formula-block">Posts = (Total Length ÷ Post Spacing) + 1 + Gates</div>
+        <div class="formula-block">Rails = Sections × Rails per Section (2 for ≤6ft, 3 for taller)</div>
+        <div class="formula-block">Pickets = (Total Length × 12) ÷ (Picket Width + Gap)</div>
+        <p>For <strong>chain link</strong>:</p>
+        <div class="formula-block">Fabric = Total Length in linear feet</div>
+        <div class="formula-block">Top Rail Sections = Length ÷ 10.5 ft</div>
+        <p>Concrete is estimated at 1 bag (50 lb) per post for fences up to 6 ft, and 2 bags per post for taller fences.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for slabs &amp; footings</span></div></a>
+          <a href="/tools/deck-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Deck Board Calculator</strong><span>Boards, joists &amp; screws</span></div></a>
+          <a href="/tools/stud-calculator.html" class="related-card"><span class="rc-icon">📐</span><div class="rc-text"><strong>Stud Calculator</strong><span>Framing studs and plates</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/fence.js"></script>
+</body>
+</html>

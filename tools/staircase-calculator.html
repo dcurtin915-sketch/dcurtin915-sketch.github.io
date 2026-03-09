@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Staircase Calculator — Risers, Treads &amp; Stringers | TradeTools</title>
+  <meta name="description" content="Calculate stair risers, treads, stringer length, and total run. Includes building code compliance check for riser and tread dimensions. Free calculator.">
+  <meta property="og:title" content="Free Staircase Calculator | TradeTools">
+  <meta property="og:description" content="Calculate risers, treads, stringer length, and code compliance for your staircase. Free instant results.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/staircase-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Staircase Calculator",
+    "description": "Calculate stair risers, treads, stringer length, and building code compliance.",
+    "url": "https://tradetools.example.com/tools/staircase-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Staircase Calculator</h1>
+        <p>Design code-compliant stairs with this free calculator. Enter your total rise (floor-to-floor height) and desired tread run to get the number of risers, riser height, stringer length, and a building code compliance check based on IRC residential standards.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Stair Dimensions</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="total-rise">Total Rise — Floor to Floor (inches)</label>
+            <input type="number" id="total-rise" placeholder="e.g. 108 (9 ft)" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="desired-run">Desired Tread Run (inches)</label>
+            <input type="number" id="desired-run" placeholder="e.g. 10" min="0" step="any" value="10">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Staircase</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Total Rise</span><span class="result-value" id="res-total-rise"></span></div>
+          <div class="result-row"><span class="result-label">Number of Risers</span><span class="result-value" id="res-risers"></span></div>
+          <div class="result-row"><span class="result-label">Riser Height</span><span class="result-value" id="res-riser-height"></span></div>
+          <div class="result-row"><span class="result-label">Number of Treads</span><span class="result-value" id="res-treads"></span></div>
+          <div class="result-row"><span class="result-label">Tread Depth (Run)</span><span class="result-value" id="res-tread-depth"></span></div>
+          <div class="result-row"><span class="result-label">Total Run (Horizontal)</span><span class="result-value" id="res-total-run"></span></div>
+          <div class="result-row"><span class="result-label">Stringer Length</span><span class="result-value" id="res-stringer"></span></div>
+          <div class="result-row"><span class="result-label">Stair Angle</span><span class="result-value" id="res-angle"></span></div>
+          <div class="result-row"><span class="result-label">Comfort Rule (2R+T)</span><span class="result-value" id="res-comfort"></span></div>
+          <div class="result-row"><span class="result-label">Code Compliance</span><span class="result-value" id="res-code"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Measure the <strong>total rise</strong> — the vertical distance from finished floor to finished floor, in inches.</li>
+          <li>Enter your <strong>desired tread run</strong> (depth). 10–11 inches is standard and code-compliant.</li>
+          <li>Click <strong>"Calculate Staircase"</strong> to see the number of risers, exact riser height, total run, and stringer length.</li>
+          <li>Check the <strong>code compliance</strong> result to ensure your stairs meet IRC residential building codes.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Number of Risers = Total Rise ÷ Ideal Riser Height (7.5″)</div>
+        <div class="formula-block">Actual Riser Height = Total Rise ÷ Number of Risers</div>
+        <div class="formula-block">Number of Treads = Risers − 1</div>
+        <div class="formula-block">Total Run = Treads × Tread Depth</div>
+        <div class="formula-block">Stringer Length = √(Total Rise² + Total Run²)</div>
+        <p><strong>IRC Building Code Requirements:</strong></p>
+        <ul>
+          <li>Maximum riser height: 7¾ inches (7.75″)</li>
+          <li>Minimum riser height: 7 inches</li>
+          <li>Minimum tread depth: 10 inches</li>
+          <li>Comfort rule: 2×Riser + Tread should equal 24–25 inches</li>
+        </ul>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/deck-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Deck Board Calculator</strong><span>Boards, joists &amp; screws</span></div></a>
+          <a href="/tools/board-feet-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Board Feet Calculator</strong><span>Lumber board feet &amp; cost</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Footings &amp; landing pads</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/staircase.js"></script>
+</body>
+</html>

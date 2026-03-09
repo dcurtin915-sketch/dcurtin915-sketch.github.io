@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Insulation Calculator — R-Value, Batts &amp; Blown-In | TradeTools</title>
+  <meta name="description" content="Calculate insulation needed for walls, attics, and ceilings. Supports fiberglass batt, blown-in cellulose, and spray foam with R-value guidance. Free tool.">
+  <meta property="og:title" content="Free Insulation Calculator | TradeTools">
+  <meta property="og:description" content="Calculate insulation for walls, attics, and ceilings. Batt, blown-in, and spray foam with R-value guidance.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/insulation-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Insulation Calculator",
+    "description": "Calculate insulation needed for walls, attics, and ceilings with R-value guidance.",
+    "url": "https://tradetools.example.com/tools/insulation-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Insulation Calculator</h1>
+        <p>Estimate insulation materials for your walls, attic, or ceiling. This calculator supports fiberglass batts, blown-in cellulose, and spray foam — with the correct R-value for each application based on common building standards.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Details</h2>
+
+        <div class="form-group">
+          <label for="input-method">Input Method</label>
+          <select id="input-method">
+            <option value="dimensions">Wall/Ceiling Length × Height</option>
+            <option value="sqft">Total Square Feet</option>
+          </select>
+        </div>
+
+        <div id="dim-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="room-length">Length (feet)</label>
+              <input type="number" id="room-length" placeholder="e.g. 40" min="0" step="any">
+            </div>
+            <div class="form-group">
+              <label for="room-height">Height (feet)</label>
+              <input type="number" id="room-height" placeholder="e.g. 8" min="0" step="any">
+            </div>
+          </div>
+        </div>
+
+        <div id="sqft-field" style="display:none;">
+          <div class="form-group">
+            <label for="total-sqft">Total Area (sq ft)</label>
+            <input type="number" id="total-sqft" placeholder="e.g. 320" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="insulation-type">Insulation Type</label>
+            <select id="insulation-type">
+              <option value="batt">Fiberglass Batt</option>
+              <option value="blown">Blown-In (Cellulose)</option>
+              <option value="spray">Spray Foam (Closed Cell)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="application">Application</label>
+            <select id="application">
+              <option value="wall">Walls (R-13)</option>
+              <option value="attic">Attic (R-30)</option>
+              <option value="ceiling">Cathedral Ceiling (R-38)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="stud-spacing">Stud / Joist Spacing</label>
+          <select id="stud-spacing">
+            <option value="16">16″ on center</option>
+            <option value="24">24″ on center</option>
+          </select>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Insulation</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Insulation Type</span><span class="result-value" id="res-type"></span></div>
+          <div class="result-row"><span class="result-label">Application</span><span class="result-value" id="res-application"></span></div>
+          <div class="result-row"><span class="result-label">R-Value</span><span class="result-value" id="res-rvalue"></span></div>
+          <div class="result-row"><span class="result-label">Thickness</span><span class="result-value" id="res-thickness"></span></div>
+          <div class="result-row"><span class="result-label">Stud Spacing</span><span class="result-value" id="res-stud-spacing"></span></div>
+          <div class="result-row"><span class="result-label">Quantity Needed</span><span class="result-value" id="res-units"></span></div>
+          <div class="result-row"><span class="result-label">Coverage per Unit</span><span class="result-value" id="res-coverage"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Choose your <strong>input method</strong> — enter dimensions or total square footage.</li>
+          <li>Select the <strong>insulation type</strong>: fiberglass batt, blown-in cellulose, or spray foam.</li>
+          <li>Choose the <strong>application</strong> — walls (R-13), attic (R-30), or cathedral ceiling (R-38).</li>
+          <li>Set your <strong>stud spacing</strong> (16" OC is most common).</li>
+          <li>Click <strong>"Calculate Insulation"</strong> for quantities and coverage details.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Units Needed = Total Area ÷ Coverage per Unit</div>
+        <p><strong>Common R-values by application:</strong></p>
+        <ul>
+          <li><strong>R-13:</strong> Standard exterior walls (2×4 framing)</li>
+          <li><strong>R-30:</strong> Attic floors</li>
+          <li><strong>R-38:</strong> Cathedral ceilings and some attics in cold climates</li>
+        </ul>
+        <p><strong>Coverage per unit</strong> varies by insulation type:</p>
+        <ul>
+          <li><strong>Batt:</strong> ~88 sq ft per bundle (R-13, 16" OC)</li>
+          <li><strong>Blown-in:</strong> ~40 sq ft per bag (R-13), ~18 sq ft per bag (R-30)</li>
+          <li><strong>Spray foam:</strong> ~200 board feet per kit</li>
+        </ul>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets, tape &amp; compound</span></div></a>
+          <a href="/tools/stud-calculator.html" class="related-card"><span class="rc-icon">📐</span><div class="rc-text"><strong>Stud Calculator</strong><span>Framing studs and plates</span></div></a>
+          <a href="/tools/wire-size-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Wire Size Calculator</strong><span>AWG gauge by NEC guidelines</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/insulation.js"></script>
+</body>
+</html>

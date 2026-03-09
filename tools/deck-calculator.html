@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Deck Board Calculator — Boards, Joists &amp; Screws | TradeTools</title>
+  <meta name="description" content="Calculate deck boards, joists, and screws needed for your deck project. Adjustable board width, length, gap spacing, and waste factor. Free results.">
+  <meta property="og:title" content="Free Deck Board Calculator | TradeTools">
+  <meta property="og:description" content="Calculate deck boards, joists, screws, and linear footage needed. Adjustable dimensions and waste factor.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/deck-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Deck Board Calculator",
+    "description": "Calculate deck boards, joists, and screws needed for your deck project.",
+    "url": "https://tradetools.example.com/tools/deck-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Deck Board Calculator</h1>
+        <p>Plan your deck build with accurate material estimates. Enter your deck dimensions to calculate the number of deck boards, joists, screws, and total linear footage — with an adjustable waste factor for cuts and mistakes.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Deck Dimensions</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="deck-length">Deck Length (feet)</label>
+            <input type="number" id="deck-length" placeholder="e.g. 16" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="deck-width">Deck Width (feet)</label>
+            <input type="number" id="deck-width" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="board-width">Board Width (inches)</label>
+            <select id="board-width">
+              <option value="5.5" selected>5.5″ (standard 2×6 / composite)</option>
+              <option value="3.5">3.5″ (2×4)</option>
+              <option value="7.25">7.25″ (2×8)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="board-length">Board Length (feet)</label>
+            <select id="board-length">
+              <option value="8">8 ft</option>
+              <option value="10">10 ft</option>
+              <option value="12" selected>12 ft</option>
+              <option value="16">16 ft</option>
+              <option value="20">20 ft</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="gap-spacing">Gap Between Boards (inches)</label>
+            <select id="gap-spacing">
+              <option value="0.125" selected>⅛″ (standard)</option>
+              <option value="0.1875">3/16″</option>
+              <option value="0.25">¼″</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="waste-factor">Waste Factor</label>
+            <select id="waste-factor">
+              <option value="5">5%</option>
+              <option value="10" selected>10% (recommended)</option>
+              <option value="15">15% (complex layout)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Deck Materials</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Deck Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Boards (Exact)</span><span class="result-value" id="res-boards-exact"></span></div>
+          <div class="result-row"><span class="result-label">Boards (w/ Waste)</span><span class="result-value" id="res-boards-waste"></span></div>
+          <div class="result-row"><span class="result-label">Board Size</span><span class="result-value" id="res-board-size"></span></div>
+          <div class="result-row"><span class="result-label">Linear Feet</span><span class="result-value" id="res-linear-ft"></span></div>
+          <div class="result-row"><span class="result-label">Joists</span><span class="result-value" id="res-joists"></span></div>
+          <div class="result-row"><span class="result-label">Deck Screws</span><span class="result-value" id="res-screws"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your <strong>deck length and width</strong> in feet.</li>
+          <li>Select the <strong>board width</strong> (5.5" is standard for most decking).</li>
+          <li>Choose the <strong>board length</strong> available at your supplier.</li>
+          <li>Set the <strong>gap spacing</strong> between boards (⅛" is standard for wood).</li>
+          <li>Select a <strong>waste factor</strong> — 10% is recommended for most builds, 15% for diagonal or complex layouts.</li>
+          <li>Click <strong>"Calculate Deck Materials"</strong> for your full material list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Boards Across = (Deck Width × 12) ÷ (Board Width + Gap)</div>
+        <div class="formula-block">Boards Along Length = Deck Length ÷ Board Length</div>
+        <div class="formula-block">Total Boards = Boards Across × Boards Along Length × (1 + Waste%)</div>
+        <p><strong>Joists</strong> are calculated at 16" on center: (Deck Length × 12 ÷ 16) + 1.</p>
+        <p><strong>Deck screws</strong> are estimated at ~350 per 100 sq ft (2 screws per board per joist crossing).</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/board-feet-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Board Feet Calculator</strong><span>Lumber board feet &amp; cost</span></div></a>
+          <a href="/tools/staircase-calculator.html" class="related-card"><span class="rc-icon">🪜</span><div class="rc-text"><strong>Staircase Calculator</strong><span>Risers, treads &amp; stringers</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Footings for deck posts</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/deck.js"></script>
+</body>
+</html>

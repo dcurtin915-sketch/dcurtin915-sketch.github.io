@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Paver / Patio Calculator — Pavers, Sand &amp; Gravel | TradeTools</title>
+  <meta name="description" content="Calculate pavers, sand, gravel sub-base, and edge restraint for your patio or walkway. Multiple paver sizes with waste factor. Free instant estimates.">
+  <meta property="og:title" content="Free Paver / Patio Calculator | TradeTools">
+  <meta property="og:description" content="Calculate pavers, sand, gravel, and edge restraint for patios and walkways. Multiple paver sizes supported.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://tradetools.example.com/tools/paver-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Paver / Patio Calculator",
+    "description": "Calculate pavers, sand, gravel sub-base, and edge restraint for patios and walkways.",
+    "url": "https://tradetools.example.com/tools/paver-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Paver / Patio Calculator</h1>
+        <p>Plan your patio, walkway, or driveway with accurate paver estimates. This calculator figures out how many pavers you need along with leveling sand, gravel sub-base, polymeric joint sand, and edge restraint — with a configurable waste factor.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Patio Dimensions</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patio-length">Patio Length (feet)</label>
+            <input type="number" id="patio-length" placeholder="e.g. 20" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="patio-width">Patio Width (feet)</label>
+            <input type="number" id="patio-width" placeholder="e.g. 15" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="paver-size">Paver Size (inches)</label>
+            <select id="paver-size">
+              <option value="4x8">4×8 (Holland / Brick)</option>
+              <option value="6x6">6×6</option>
+              <option value="6x9">6×9</option>
+              <option value="12x12" selected>12×12</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="joint-width">Joint Width (inches)</label>
+            <select id="joint-width">
+              <option value="0.125">⅛″ (tight)</option>
+              <option value="0.1875" selected>3/16″ (standard)</option>
+              <option value="0.25">¼″ (wide)</option>
+              <option value="0.375">⅜″</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="waste-factor">Waste Factor</label>
+          <select id="waste-factor">
+            <option value="5">5% (straight edges)</option>
+            <option value="10" selected>10% (recommended)</option>
+            <option value="15">15% (curves / cuts)</option>
+          </select>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Paver Materials</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Patio Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Paver Size</span><span class="result-value" id="res-paver-size"></span></div>
+          <div class="result-row"><span class="result-label">Pavers (Exact)</span><span class="result-value" id="res-pavers-exact"></span></div>
+          <div class="result-row"><span class="result-label">Pavers (w/ Waste)</span><span class="result-value" id="res-pavers-waste"></span></div>
+          <div class="result-row"><span class="result-label">Leveling Sand</span><span class="result-value" id="res-sand"></span></div>
+          <div class="result-row"><span class="result-label">Polymeric Sand</span><span class="result-value" id="res-poly-sand"></span></div>
+          <div class="result-row"><span class="result-label">Gravel Sub-Base</span><span class="result-value" id="res-gravel"></span></div>
+          <div class="result-row"><span class="result-label">Edge Restraint</span><span class="result-value" id="res-edge"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>patio length and width</strong> in feet.</li>
+          <li>Select your <strong>paver size</strong> from the common presets.</li>
+          <li>Choose the <strong>joint width</strong> between pavers (3/16" is standard).</li>
+          <li>Set a <strong>waste factor</strong> — 10% for most layouts, 15% if you have curves or diagonal cuts.</li>
+          <li>Click <strong>"Calculate Paver Materials"</strong> for a complete material list including base materials.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Pavers = Patio Area ÷ ((Paver Width + Joint) × (Paver Length + Joint) ÷ 144)</div>
+        <p>Each paver's effective area includes one joint width on each dimension. The result is in square inches, divided by 144 to convert to square feet.</p>
+        <div class="formula-block">Leveling Sand (tons) = (Area × 1″ depth ÷ 12) × 100 lbs/cu ft ÷ 2000</div>
+        <div class="formula-block">Gravel Sub-Base (tons) = (Area × 4″ depth ÷ 12) × 105 lbs/cu ft ÷ 2000</div>
+        <p><strong>Edge restraint</strong> equals the perimeter of the patio in linear feet.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Tons of aggregate needed</span></div></a>
+          <a href="/tools/mulch-calculator.html" class="related-card"><span class="rc-icon">🌿</span><div class="rc-text"><strong>Mulch Calculator</strong><span>Cubic yards &amp; bags</span></div></a>
+          <a href="/tools/tile-calculator.html" class="related-card"><span class="rc-icon">🔲</span><div class="rc-text"><strong>Tile Calculator</strong><span>Indoor tiles with grout spacing</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>TradeTools</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 TradeTools. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/paver.js"></script>
+</body>
+</html>
