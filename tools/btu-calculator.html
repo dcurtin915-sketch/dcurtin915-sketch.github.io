@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free BTU Calculator — HVAC Sizing for Any Room | BuildCalc</title>
+  <meta name="description" content="Calculate BTUs needed to heat or cool a room. Enter room size, ceiling height, insulation, climate zone, and sun exposure for an accurate HVAC sizing estimate.">
+  <meta property="og:title" content="Free BTU Calculator — HVAC Sizing for Any Room | BuildCalc">
+  <meta property="og:description" content="Calculate heating and cooling BTUs for any room based on size, insulation, climate, and sun exposure.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/btu-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free BTU Calculator",
+    "description": "Calculate BTUs needed to heat or cool a room. Accurate HVAC sizing for any space.",
+    "url": "https://buildcalc.cc/tools/btu-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>BTU Calculator — HVAC Sizing</h1>
+        <p>Determine the right BTU capacity for heating or cooling any room. This calculator factors in room size, ceiling height, insulation quality, climate zone, sun exposure, and occupancy to give you an accurate HVAC sizing estimate.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Room Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="roomLength">Room Length (feet)</label>
+            <input type="number" id="roomLength" placeholder="e.g. 15" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="roomWidth">Room Width (feet)</label>
+            <input type="number" id="roomWidth" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ceilingHeight">Ceiling Height (feet)</label>
+            <input type="number" id="ceilingHeight" value="8" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="insulation">Insulation Quality</label>
+            <select id="insulation">
+              <option value="poor">Poor (old/no insulation)</option>
+              <option value="average" selected>Average (standard R-13 walls)</option>
+              <option value="good">Good (R-19+ walls, sealed)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="climate">Climate Zone</label>
+            <select id="climate">
+              <option value="hot">Hot (Zone 1–2, e.g. FL, TX Gulf)</option>
+              <option value="warm">Warm (Zone 3, e.g. GA, AZ)</option>
+              <option value="moderate" selected>Moderate (Zone 4, e.g. TN, VA)</option>
+              <option value="cold">Cold (Zone 5–6, e.g. OH, CO)</option>
+              <option value="very-cold">Very Cold (Zone 7, e.g. MN, WI)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sunExposure">Sun Exposure</label>
+            <select id="sunExposure">
+              <option value="shaded">Heavily Shaded</option>
+              <option value="average" selected>Average</option>
+              <option value="sunny">Very Sunny</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="occupants">Number of Occupants</label>
+            <input type="number" id="occupants" value="2" min="1" step="1">
+          </div>
+          <div class="form-group">
+            <label for="mode">Heating or Cooling?</label>
+            <select id="mode">
+              <option value="cooling">Cooling (AC)</option>
+              <option value="heating">Heating</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate BTU</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Room Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Room Volume</span><span class="result-value" id="res-volume"></span></div>
+          <div class="result-row"><span class="result-label">Base BTU</span><span class="result-value" id="res-base"></span></div>
+          <div class="result-row"><span class="result-label">Ceiling Adjustment</span><span class="result-value" id="res-ceiling"></span></div>
+          <div class="result-row"><span class="result-label">Insulation Factor</span><span class="result-value" id="res-insulation"></span></div>
+          <div class="result-row"><span class="result-label">Climate Factor</span><span class="result-value" id="res-climate"></span></div>
+          <div class="result-row"><span class="result-label">Sun Adjustment</span><span class="result-value" id="res-sun"></span></div>
+          <div class="result-row"><span class="result-label">Occupant Load</span><span class="result-value" id="res-occupant"></span></div>
+          <div class="result-row"><span class="result-label">Recommended BTU</span><span class="result-value" id="res-btu"></span></div>
+          <div class="result-row"><span class="result-label">Tonnage (AC)</span><span class="result-value" id="res-tons"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>room length</strong> and <strong>width</strong> in feet.</li>
+          <li>Set the <strong>ceiling height</strong> (8 ft is standard).</li>
+          <li>Choose your <strong>insulation quality</strong>, <strong>climate zone</strong>, and <strong>sun exposure</strong>.</li>
+          <li>Enter the typical <strong>number of occupants</strong>.</li>
+          <li>Select <strong>heating or cooling</strong> mode.</li>
+          <li>Click <strong>"Calculate BTU"</strong> for your recommendation.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Base BTU = Room Sq Ft × 20 (cooling) or × 30 (heating)<br>Ceiling Adj = +12.5% per foot above 8 ft<br>Insulation Factor: Poor ×1.3, Average ×1.0, Good ×0.8<br>Climate Factor: Hot ×1.2, Warm ×1.1, Moderate ×1.0, Cold ×1.1, Very Cold ×1.3<br>Sun: Shaded −10%, Average ×1.0, Sunny +10%<br>Occupants: +600 BTU per person beyond 2<br>1 Ton AC = 12,000 BTU</div>
+        <p>This uses the ACCA Manual J simplified method. The 20 BTU/sq ft cooling baseline is industry-standard for moderate climates. For a precise load calculation, consult an HVAC professional.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/insulation-calculator.html" class="related-card"><span class="rc-icon">🧊</span><div class="rc-text"><strong>Insulation Calculator</strong><span>R-value &amp; materials</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Panel &amp; circuit sizing</span></div></a>
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets &amp; supplies</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/btu.js"></script>
+</body>
+</html>

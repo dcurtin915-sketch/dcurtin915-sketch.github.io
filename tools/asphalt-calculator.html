@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Asphalt Calculator — Tons for Driveways &amp; Parking Lots | BuildCalc</title>
+  <meta name="description" content="Calculate tons of asphalt (hot mix) needed for driveways, parking lots, and roads. Enter length, width, and thickness for accurate tonnage and cost estimates.">
+  <meta property="og:title" content="Free Asphalt Calculator — Tons Needed | BuildCalc">
+  <meta property="og:description" content="Calculate tons of hot mix asphalt for driveways and parking lots. Enter dimensions for instant results.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/asphalt-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Asphalt Calculator",
+    "description": "Calculate tons of hot mix asphalt needed for driveways, parking lots, and roads.",
+    "url": "https://buildcalc.cc/tools/asphalt-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Asphalt Calculator</h1>
+        <p>Estimate how many tons of hot mix asphalt you need for a driveway, parking lot, road, or overlay. Enter the area dimensions and pavement thickness to get tonnage, volume, and optional cost estimates based on standard asphalt density.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Paving Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="length">Length (feet)</label>
+            <input type="number" id="length" placeholder="e.g. 50" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="width">Width (feet)</label>
+            <input type="number" id="width" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="thickness">Thickness (inches)</label>
+            <select id="thickness">
+              <option value="1.5">1.5″ (overlay)</option>
+              <option value="2" selected>2″ (residential driveway)</option>
+              <option value="3">3″ (heavy residential)</option>
+              <option value="4">4″ (commercial parking)</option>
+              <option value="6">6″ (road / heavy traffic)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="density">Asphalt Density</label>
+            <select id="density">
+              <option value="145" selected>Hot Mix Asphalt (145 lb/cu ft)</option>
+              <option value="140">Warm Mix Asphalt (140 lb/cu ft)</option>
+              <option value="100">Cold Patch (100 lb/cu ft)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pricePerTon">Price per Ton ($) <small>(optional)</small></label>
+            <input type="number" id="pricePerTon" placeholder="e.g. 100" min="0" step="1">
+          </div>
+          <div class="form-group">
+            <label for="waste">Waste / Compaction Factor (%)</label>
+            <input type="number" id="waste" value="5" min="0" max="20" step="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Asphalt</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Paving Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Thickness</span><span class="result-value" id="res-thickness"></span></div>
+          <div class="result-row"><span class="result-label">Volume</span><span class="result-value" id="res-cuft"></span></div>
+          <div class="result-row"><span class="result-label">Volume</span><span class="result-value" id="res-cuyd"></span></div>
+          <div class="result-row"><span class="result-label">Density</span><span class="result-value" id="res-density"></span></div>
+          <div class="result-row"><span class="result-label">Net Weight</span><span class="result-value" id="res-nettons"></span></div>
+          <div class="result-row"><span class="result-label">With Waste/Compaction</span><span class="result-value" id="res-tons"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>length</strong> and <strong>width</strong> of the paving area in feet.</li>
+          <li>Select the <strong>asphalt thickness</strong> (2″ is standard for residential driveways).</li>
+          <li>Choose the <strong>asphalt type</strong> (hot mix is most common).</li>
+          <li>Set a <strong>waste/compaction factor</strong> (5% is typical).</li>
+          <li>Optionally enter a <strong>price per ton</strong> for cost estimates.</li>
+          <li>Click <strong>"Calculate Asphalt"</strong> for tonnage and cost.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Volume (cu ft) = Length × Width × (Thickness ÷ 12)<br>Weight (lbs) = Volume × Density (lb/cu ft)<br>Tons = Weight ÷ 2000<br>With Waste = Tons × (1 + Waste%)</div>
+        <p>Hot mix asphalt (HMA) typically weighs 145 lbs per cubic foot compacted. One ton of HMA covers approximately 80 sq ft at 2″ thick. Actual density varies by mix design — confirm with your asphalt supplier.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for pours</span></div></a>
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Sub-base aggregate</span></div></a>
+          <a href="/tools/rebar-calculator.html" class="related-card"><span class="rc-icon">🔩</span><div class="rc-text"><strong>Rebar Calculator</strong><span>Reinforcement steel</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/asphalt.js"></script>
+</body>
+</html>

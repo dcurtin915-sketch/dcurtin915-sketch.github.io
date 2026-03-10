@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Residential Electrical Load Calculator — Panel Sizing | BuildCalc</title>
+  <meta name="description" content="Calculate residential electrical load for panel sizing. Enter appliances, square footage, and circuits to determine total watts, amps, and recommended service size per NEC guidelines.">
+  <meta property="og:title" content="Free Residential Electrical Load Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate total electrical load in watts and amps. Determine the right panel size for your home.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/electrical-load-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Residential Electrical Load Calculator",
+    "description": "Calculate residential electrical load for panel sizing based on NEC Article 220 standard method.",
+    "url": "https://buildcalc.cc/tools/electrical-load-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Residential Electrical Load Calculator</h1>
+        <p>Determine the total electrical load for your home using the NEC Article 220 standard calculation method. Enter your home's square footage and major appliances to calculate the minimum service panel size needed.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Home Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sqft">Living Area (sq ft)</label>
+            <input type="number" id="sqft" placeholder="e.g. 2000" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="voltage">Service Voltage</label>
+            <select id="voltage">
+              <option value="240">240V (standard residential)</option>
+              <option value="120">120V</option>
+            </select>
+          </div>
+        </div>
+        <h2>Major Appliances (watts)</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="range">Range/Oven (W)</label>
+            <input type="number" id="range" value="12000" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="dryer">Clothes Dryer (W)</label>
+            <input type="number" id="dryer" value="5000" min="0" step="100">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="waterHeater">Water Heater (W)</label>
+            <input type="number" id="waterHeater" value="4500" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="ac">Central AC (W)</label>
+            <input type="number" id="ac" value="5000" min="0" step="100">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dishwasher">Dishwasher (W)</label>
+            <input type="number" id="dishwasher" value="1500" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="otherAppliances">Other Appliances (W)</label>
+            <input type="number" id="otherAppliances" value="0" min="0" step="100">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="smallAppCircuits">Small Appliance Circuits (qty)</label>
+            <input type="number" id="smallAppCircuits" value="2" min="0" step="1">
+          </div>
+          <div class="form-group">
+            <label for="laundryCircuits">Laundry Circuits (qty)</label>
+            <input type="number" id="laundryCircuits" value="1" min="0" step="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Load</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">General Lighting Load</span><span class="result-value" id="res-lighting"></span></div>
+          <div class="result-row"><span class="result-label">Small Appliance Circuits</span><span class="result-value" id="res-smallapp"></span></div>
+          <div class="result-row"><span class="result-label">Laundry Circuit(s)</span><span class="result-value" id="res-laundry"></span></div>
+          <div class="result-row"><span class="result-label">General Load (after demand)</span><span class="result-value" id="res-general"></span></div>
+          <div class="result-row"><span class="result-label">Range (NEC Table 220.55)</span><span class="result-value" id="res-range"></span></div>
+          <div class="result-row"><span class="result-label">Major Appliances</span><span class="result-value" id="res-appliances"></span></div>
+          <div class="result-row"><span class="result-label">AC / Heating</span><span class="result-value" id="res-ac"></span></div>
+          <div class="result-row"><span class="result-label">Total Demand Load</span><span class="result-value" id="res-total"></span></div>
+          <div class="result-row"><span class="result-label">Total Amps</span><span class="result-value" id="res-amps"></span></div>
+          <div class="result-row"><span class="result-label">Recommended Service</span><span class="result-value" id="res-service"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your home's <strong>total living area</strong> in square feet.</li>
+          <li>Enter wattage for each <strong>major appliance</strong> (check nameplates or manuals).</li>
+          <li>Set the number of <strong>small appliance</strong> and <strong>laundry circuits</strong> (NEC minimum: 2 and 1).</li>
+          <li>Click <strong>"Calculate Load"</strong> for your total demand and service recommendation.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">General Lighting = Sq Ft × 3 VA/sq ft<br>Small Appliance = Circuits × 1,500 VA each<br>Laundry = Circuits × 1,500 VA each<br>General Load Demand: First 3,000 VA at 100%, remainder at 35%<br>Range Demand: Per NEC Table 220.55 (8 kW for ≤12 kW rated)<br>Other Appliances: 100% of nameplate<br>Total Amps = Total Watts ÷ Service Voltage</div>
+        <p>This follows the NEC Article 220 Standard Calculation method for single-family dwellings. Always have a licensed electrician verify before upgrading your panel.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/wire-size-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Wire Size Calculator</strong><span>AWG gauge sizing</span></div></a>
+          <a href="/tools/voltage-drop-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Voltage Drop Calculator</strong><span>Wire length &amp; drop</span></div></a>
+          <a href="/tools/btu-calculator.html" class="related-card"><span class="rc-icon">🌡️</span><div class="rc-text"><strong>BTU Calculator</strong><span>HVAC sizing</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/electrical-load.js"></script>
+</body>
+</html>

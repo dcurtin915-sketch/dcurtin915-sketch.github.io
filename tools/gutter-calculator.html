@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Gutter Size Calculator — Downspouts &amp; Materials | BuildCalc</title>
+  <meta name="description" content="Calculate gutter size, downspout count, and materials needed for your roof. Enter roof dimensions, pitch, and rainfall intensity for proper gutter sizing.">
+  <meta property="og:title" content="Free Gutter Size Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate gutter size, downspout quantity, and linear footage for your roof drainage system.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/gutter-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Gutter Size Calculator",
+    "description": "Calculate gutter size, downspouts, and materials based on roof area and rainfall intensity.",
+    "url": "https://buildcalc.cc/tools/gutter-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Gutter Size Calculator</h1>
+        <p>Determine the correct gutter size, number of downspouts, and total material footage for your home. This calculator uses roof drainage area and local rainfall intensity to recommend proper gutter and downspout sizing per industry standards.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Roof &amp; Gutter Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="roofLength">Roof Length / Eave (feet)</label>
+            <input type="number" id="roofLength" placeholder="e.g. 40" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="roofWidth">Roof Width / Rafter Run (feet)</label>
+            <input type="number" id="roofWidth" placeholder="e.g. 15" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pitch">Roof Pitch Factor</label>
+            <select id="pitch">
+              <option value="1.0">Flat to 4/12 (factor 1.0)</option>
+              <option value="1.05" selected>5/12 to 8/12 (factor 1.05)</option>
+              <option value="1.1">9/12 to 12/12 (factor 1.1)</option>
+              <option value="1.2">Over 12/12 (factor 1.2)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rainfall">Rainfall Intensity (in/hr)</label>
+            <select id="rainfall">
+              <option value="1">Light (1 in/hr)</option>
+              <option value="2">Moderate (2 in/hr)</option>
+              <option value="4">Heavy (4 in/hr)</option>
+              <option value="6" selected>Very Heavy (6 in/hr — US design standard)</option>
+              <option value="8">Extreme (8 in/hr)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="gutterSides">Sides with Gutters</label>
+            <select id="gutterSides">
+              <option value="1">1 side (single eave)</option>
+              <option value="2" selected>2 sides (both eaves)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pricePerFt">Gutter Price per Foot ($) <small>(optional)</small></label>
+            <input type="number" id="pricePerFt" placeholder="e.g. 6.50" min="0" step="0.01">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Gutters</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Adjusted Roof Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Drainage per Side</span><span class="result-value" id="res-drainage"></span></div>
+          <div class="result-row"><span class="result-label">Recommended Gutter Size</span><span class="result-value" id="res-guttersize"></span></div>
+          <div class="result-row"><span class="result-label">Total Gutter Length</span><span class="result-value" id="res-length"></span></div>
+          <div class="result-row"><span class="result-label">Downspouts Needed</span><span class="result-value" id="res-downspouts"></span></div>
+          <div class="result-row"><span class="result-label">Inside Corners</span><span class="result-value" id="res-corners"></span></div>
+          <div class="result-row"><span class="result-label">End Caps</span><span class="result-value" id="res-endcaps"></span></div>
+          <div class="result-row"><span class="result-label">Hangers (every 3 ft)</span><span class="result-value" id="res-hangers"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>roof eave length</strong> and <strong>rafter run</strong> (horizontal distance from eave to ridge).</li>
+          <li>Select your <strong>roof pitch factor</strong> and local <strong>rainfall intensity</strong>.</li>
+          <li>Choose how many <strong>sides</strong> have gutters (most gable roofs = 2).</li>
+          <li>Optionally enter a <strong>price per foot</strong> for cost estimates.</li>
+          <li>Click <strong>"Calculate Gutters"</strong> for sizing and material counts.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Adjusted Roof Area = Eave Length × Rafter Run × Pitch Factor<br>Drainage Area per Side = Total Area ÷ Sides<br>Gutter Size: 5″ K-style handles up to 5,520 sq ft at 6 in/hr; 6″ handles up to 7,960 sq ft<br>Downspouts: 1 per 20 linear feet of gutter (2×3″) or 1 per 30 ft (3×4″)<br>Hangers: 1 every 3 feet</div>
+        <p>Sizing is based on SMACNA (Sheet Metal and Air Conditioning Contractors' National Association) standards. 5″ K-style gutters with 2×3″ downspouts are the most common residential size.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Shingles &amp; materials</span></div></a>
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Drainage gravel</span></div></a>
+          <a href="/tools/fence-calculator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Fence Calculator</strong><span>Posts &amp; rails</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/gutter.js"></script>
+</body>
+</html>

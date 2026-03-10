@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Wallpaper Calculator — How Many Rolls Do I Need? | BuildCalc</title>
+  <meta name="description" content="Calculate how many rolls of wallpaper you need. Enter room dimensions, pattern repeat, and deductions for doors and windows. Accurate roll estimate for any room.">
+  <meta property="og:title" content="Free Wallpaper Calculator — Rolls Needed | BuildCalc">
+  <meta property="og:description" content="Calculate wallpaper rolls needed for any room. Accounts for pattern repeat, doors, and windows.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/wallpaper-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Wallpaper Calculator",
+    "description": "Calculate how many rolls of wallpaper you need for any room, with pattern repeat and deductions.",
+    "url": "https://buildcalc.cc/tools/wallpaper-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Wallpaper Calculator</h1>
+        <p>Find out exactly how many rolls of wallpaper you need for any room. This calculator accounts for roll size, pattern repeat, doors, and windows to give you an accurate material estimate with minimal waste.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Room Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="perimeter">Room Perimeter (feet) <small>or enter L×W below</small></label>
+            <input type="number" id="perimeter" placeholder="e.g. 52" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="wallHeight">Wall Height (feet)</label>
+            <input type="number" id="wallHeight" value="8" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="roomLength">— or Room Length (feet)</label>
+            <input type="number" id="roomLength" placeholder="e.g. 14" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="roomWidth">— Room Width (feet)</label>
+            <input type="number" id="roomWidth" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+        <h2>Wallpaper Roll Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rollWidth">Roll Width (inches)</label>
+            <input type="number" id="rollWidth" value="20.5" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="rollLength">Roll Length (feet)</label>
+            <input type="number" id="rollLength" value="33" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patternRepeat">Pattern Repeat (inches) <small>(0 = no pattern)</small></label>
+            <input type="number" id="patternRepeat" value="0" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="deductions">Deductions — Doors &amp; Windows (sq ft)</label>
+            <input type="number" id="deductions" value="0" min="0" step="any">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Rolls</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Room Perimeter</span><span class="result-value" id="res-perimeter"></span></div>
+          <div class="result-row"><span class="result-label">Gross Wall Area</span><span class="result-value" id="res-gross"></span></div>
+          <div class="result-row"><span class="result-label">Deductions</span><span class="result-value" id="res-deductions"></span></div>
+          <div class="result-row"><span class="result-label">Net Wall Area</span><span class="result-value" id="res-net"></span></div>
+          <div class="result-row"><span class="result-label">Usable Area per Roll</span><span class="result-value" id="res-usable"></span></div>
+          <div class="result-row"><span class="result-label">Rolls Needed</span><span class="result-value" id="res-rolls"></span></div>
+          <div class="result-row"><span class="result-label">Single Rolls to Buy</span><span class="result-value" id="res-buy"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>room perimeter</strong> in feet (or enter length and width to auto-calculate).</li>
+          <li>Set the <strong>wall height</strong> (typically 8 ft).</li>
+          <li>Enter your wallpaper <strong>roll width</strong> and <strong>length</strong> (standard US: 20.5″ × 33 ft).</li>
+          <li>If your wallpaper has a pattern, enter the <strong>pattern repeat</strong> in inches.</li>
+          <li>Enter <strong>deductions</strong> for doors (≈21 sq ft each) and windows (≈12 sq ft each).</li>
+          <li>Click <strong>"Calculate Rolls"</strong> for your estimate.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Net Wall Area = (Perimeter × Height) − Deductions<br>Usable Drop Length = Wall Height + Pattern Repeat waste<br>Drops per Roll = ⌊Roll Length ÷ Drop Length⌋<br>Usable Area/Roll = Drops per Roll × Roll Width × Drop Length<br>Rolls = ⌈Net Wall Area ÷ Usable Area per Roll⌉</div>
+        <p>Standard US single rolls are 20.5″ wide × 33 ft long (≈56 sq ft). Euro rolls are typically 21″ × 33 ft. Pattern repeat adds waste — larger repeats require more rolls.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Gallons of paint</span></div></a>
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets &amp; supplies</span></div></a>
+          <a href="/tools/tile-calculator.html" class="related-card"><span class="rc-icon">🔲</span><div class="rc-text"><strong>Tile Calculator</strong><span>Tiles &amp; grout</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/wallpaper.js"></script>
+</body>
+</html>

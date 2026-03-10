@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Sod Calculator — How Much Sod Do I Need? | BuildCalc</title>
+  <meta name="description" content="Calculate how much sod you need for your lawn. Enter yard dimensions, get square footage, number of rolls or pallets, and cost estimate. Free sod calculator.">
+  <meta property="og:title" content="Free Sod Calculator — How Much Sod Do I Need? | BuildCalc">
+  <meta property="og:description" content="Calculate sod rolls or pallets needed for your lawn. Enter dimensions for instant estimates.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/sod-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Sod Calculator",
+    "description": "Calculate how much sod you need — rolls, pallets, and cost estimates for any lawn area.",
+    "url": "https://buildcalc.cc/tools/sod-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Sod Calculator</h1>
+        <p>Figure out exactly how much sod you need for a new lawn or renovation. Enter your yard dimensions, choose your sod roll size, and get the number of rolls, pallets, and an optional cost estimate instantly.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Lawn Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="length">Lawn Length (feet)</label>
+            <input type="number" id="length" placeholder="e.g. 50" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="width">Lawn Width (feet)</label>
+            <input type="number" id="width" placeholder="e.g. 30" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rollSize">Sod Roll Size</label>
+            <select id="rollSize">
+              <option value="10">Standard Roll — 10 sq ft (2 ft × 5 ft)</option>
+              <option value="9">Small Roll — 9 sq ft (1.5 ft × 6 ft)</option>
+              <option value="50">Big Roll — 50 sq ft (2 ft × 25 ft)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="waste">Waste Factor (%)</label>
+            <input type="number" id="waste" value="5" min="0" max="30" step="1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pricePerRoll">Price per Roll ($) <small>(optional)</small></label>
+            <input type="number" id="pricePerRoll" placeholder="e.g. 4.50" min="0" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="rollsPerPallet">Rolls per Pallet</label>
+            <input type="number" id="rollsPerPallet" value="50" min="1" step="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Sod</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Lawn Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Waste Added</span><span class="result-value" id="res-waste"></span></div>
+          <div class="result-row"><span class="result-label">Total Coverage Needed</span><span class="result-value" id="res-total"></span></div>
+          <div class="result-row"><span class="result-label">Roll Size</span><span class="result-value" id="res-rollsize"></span></div>
+          <div class="result-row"><span class="result-label">Rolls Needed</span><span class="result-value" id="res-rolls"></span></div>
+          <div class="result-row"><span class="result-label">Pallets Needed</span><span class="result-value" id="res-pallets"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>length</strong> and <strong>width</strong> of your lawn area in feet.</li>
+          <li>Select the <strong>sod roll size</strong> your supplier offers.</li>
+          <li>Set a <strong>waste factor</strong> (5–10% is typical for rectangular lawns; use 10–15% for irregular shapes).</li>
+          <li>Optionally enter a <strong>price per roll</strong> for a cost estimate.</li>
+          <li>Click <strong>"Calculate Sod"</strong> to see your results.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Lawn Area = Length × Width<br>Total Coverage = Lawn Area × (1 + Waste%)<br>Rolls Needed = ⌈Total Coverage ÷ Roll Size⌉<br>Pallets = ⌈Rolls ÷ Rolls per Pallet⌉</div>
+        <p>Standard sod rolls are 2 ft × 5 ft (10 sq ft). A typical pallet holds 50 rolls covering 500 sq ft. Prices vary by grass type and region — confirm with your sod supplier.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/mulch-calculator.html" class="related-card"><span class="rc-icon">🌿</span><div class="rc-text"><strong>Mulch Calculator</strong><span>Cubic yards of mulch</span></div></a>
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Tons of aggregate</span></div></a>
+          <a href="/tools/paver-calculator.html" class="related-card"><span class="rc-icon">🧩</span><div class="rc-text"><strong>Paver Calculator</strong><span>Pavers for patios</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/sod.js"></script>
+</body>
+</html>

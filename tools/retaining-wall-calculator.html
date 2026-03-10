@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Retaining Wall Block Calculator — Blocks Needed | BuildCalc</title>
+  <meta name="description" content="Calculate retaining wall blocks needed for your project. Enter wall length, height, and block size to get block count, cap blocks, base gravel, and backfill estimates.">
+  <meta property="og:title" content="Free Retaining Wall Block Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate retaining wall blocks, cap stones, gravel, and backfill needed for any wall.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/retaining-wall-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Retaining Wall Block Calculator",
+    "description": "Calculate retaining wall blocks, cap stones, gravel base, and backfill for any retaining wall project.",
+    "url": "https://buildcalc.cc/tools/retaining-wall-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Retaining Wall Block Calculator</h1>
+        <p>Plan your retaining wall project accurately. Enter the wall length and height along with your block dimensions to get the total number of blocks, cap stones, base gravel, and drainage backfill estimates.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Wall &amp; Block Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wallLength">Wall Length (feet)</label>
+            <input type="number" id="wallLength" placeholder="e.g. 30" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="wallHeight">Wall Height (feet)</label>
+            <input type="number" id="wallHeight" placeholder="e.g. 3" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="blockLength">Block Length (inches)</label>
+            <input type="number" id="blockLength" value="12" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="blockHeight">Block Height (inches)</label>
+            <input type="number" id="blockHeight" value="4" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pricePerBlock">Price per Block ($) <small>(optional)</small></label>
+            <input type="number" id="pricePerBlock" placeholder="e.g. 3.50" min="0" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="waste">Waste Factor (%)</label>
+            <input type="number" id="waste" value="10" min="0" max="30" step="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Blocks</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Wall Face Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Rows (Courses)</span><span class="result-value" id="res-rows"></span></div>
+          <div class="result-row"><span class="result-label">Blocks per Row</span><span class="result-value" id="res-perrow"></span></div>
+          <div class="result-row"><span class="result-label">Wall Blocks (with waste)</span><span class="result-value" id="res-blocks"></span></div>
+          <div class="result-row"><span class="result-label">Cap Blocks</span><span class="result-value" id="res-caps"></span></div>
+          <div class="result-row"><span class="result-label">Base Gravel (tons)</span><span class="result-value" id="res-gravel"></span></div>
+          <div class="result-row"><span class="result-label">Drainage Backfill (cu yd)</span><span class="result-value" id="res-backfill"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Block Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>total wall length</strong> in feet.</li>
+          <li>Enter the <strong>desired wall height</strong> in feet.</li>
+          <li>Set the <strong>block dimensions</strong> (default: 12″ long × 4″ tall, common landscape block).</li>
+          <li>Optionally enter a <strong>price per block</strong> for cost estimates.</li>
+          <li>Click <strong>"Calculate Blocks"</strong> for a full material breakdown.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Rows = ⌈(Wall Height × 12) ÷ Block Height⌉<br>Blocks per Row = ⌈(Wall Length × 12) ÷ Block Length⌉<br>Total Blocks = Rows × Blocks per Row × (1 + Waste%)<br>Cap Blocks = Blocks per Row<br>Base Gravel = Wall Length × 2 ft wide × 6 in deep (at 1.4 t/cu yd)<br>Backfill = Wall Length × 1 ft wide × Wall Height (cu yd)</div>
+        <p>Base gravel assumes a 2 ft wide × 6 in deep compacted base. Drainage backfill assumes 1 ft of crushed stone behind the wall. Adjust for your design.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/block-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Block Calculator</strong><span>CMU blocks &amp; mortar</span></div></a>
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Tons of aggregate</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for pours</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/retaining-wall.js"></script>
+</body>
+</html>

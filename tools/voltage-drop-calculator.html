@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Voltage Drop Calculator — NEC Wire Length &amp; Gauge | BuildCalc</title>
+  <meta name="description" content="Calculate voltage drop for any wire run. Enter wire gauge, length, load amps, and voltage to check NEC 3% and 5% limits. Supports copper and aluminum conductors.">
+  <meta property="og:title" content="Free Voltage Drop Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate voltage drop percentage for electrical wire runs. NEC compliant for copper and aluminum.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/voltage-drop-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Voltage Drop Calculator",
+    "description": "Calculate voltage drop for any wire run using NEC guidelines for copper and aluminum conductors.",
+    "url": "https://buildcalc.cc/tools/voltage-drop-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Voltage Drop Calculator</h1>
+        <p>Check whether your electrical wire run meets NEC voltage drop recommendations. Enter the wire gauge, one-way distance, load current, and source voltage to calculate the voltage drop, percentage, and voltage at the load end.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Circuit Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="voltage">Source Voltage</label>
+            <select id="voltage">
+              <option value="120">120V (single phase)</option>
+              <option value="240">240V (single phase)</option>
+              <option value="208">208V (3-phase)</option>
+              <option value="480">480V (3-phase)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="phase">Phase</label>
+            <select id="phase">
+              <option value="1" selected>Single Phase</option>
+              <option value="3">Three Phase</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="amps">Load Current (amps)</label>
+            <input type="number" id="amps" placeholder="e.g. 20" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="distance">One-Way Distance (feet)</label>
+            <input type="number" id="distance" placeholder="e.g. 100" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wireSize">Wire Gauge (AWG/kcmil)</label>
+            <select id="wireSize">
+              <option value="14">14 AWG</option>
+              <option value="12" selected>12 AWG</option>
+              <option value="10">10 AWG</option>
+              <option value="8">8 AWG</option>
+              <option value="6">6 AWG</option>
+              <option value="4">4 AWG</option>
+              <option value="3">3 AWG</option>
+              <option value="2">2 AWG</option>
+              <option value="1">1 AWG</option>
+              <option value="1/0">1/0 AWG</option>
+              <option value="2/0">2/0 AWG</option>
+              <option value="3/0">3/0 AWG</option>
+              <option value="4/0">4/0 AWG</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="material">Conductor Material</label>
+            <select id="material">
+              <option value="copper" selected>Copper</option>
+              <option value="aluminum">Aluminum</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Voltage Drop</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Wire Resistance</span><span class="result-value" id="res-resistance"></span></div>
+          <div class="result-row"><span class="result-label">Total Wire Length</span><span class="result-value" id="res-wirelength"></span></div>
+          <div class="result-row"><span class="result-label">Voltage Drop</span><span class="result-value" id="res-drop"></span></div>
+          <div class="result-row"><span class="result-label">Drop Percentage</span><span class="result-value" id="res-pct"></span></div>
+          <div class="result-row"><span class="result-label">Voltage at Load</span><span class="result-value" id="res-loadv"></span></div>
+          <div class="result-row"><span class="result-label">NEC 3% Limit (branch)</span><span class="result-value" id="res-nec3"></span></div>
+          <div class="result-row"><span class="result-label">NEC 5% Limit (total)</span><span class="result-value" id="res-nec5"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Select the <strong>source voltage</strong> and <strong>phase</strong> configuration.</li>
+          <li>Enter the <strong>load current</strong> in amps.</li>
+          <li>Enter the <strong>one-way distance</strong> from the panel to the load.</li>
+          <li>Select the <strong>wire gauge</strong> and <strong>conductor material</strong>.</li>
+          <li>Click <strong>"Calculate Voltage Drop"</strong> to see the drop and NEC compliance.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Single Phase: VD = 2 × Length × Resistance × Amps ÷ 1000<br>Three Phase: VD = √3 × Length × Resistance × Amps ÷ 1000<br>Drop % = (VD ÷ Source Voltage) × 100<br>Voltage at Load = Source Voltage − VD</div>
+        <p>Resistance values are per NEC Chapter 9 Table 8 at 75°C. NEC recommends max 3% drop for branch circuits and 5% total (feeder + branch). These are recommendations, not code requirements — but exceeding them can cause equipment problems.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/wire-size-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Wire Size Calculator</strong><span>AWG gauge sizing</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Panel sizing</span></div></a>
+          <a href="/tools/btu-calculator.html" class="related-card"><span class="rc-icon">🌡️</span><div class="rc-text"><strong>BTU Calculator</strong><span>HVAC sizing</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/voltage-drop.js"></script>
+</body>
+</html>

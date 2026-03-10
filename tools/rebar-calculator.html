@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Rebar Calculator — Spacing, Weight &amp; Quantity | BuildCalc</title>
+  <meta name="description" content="Calculate rebar quantity, weight, and spacing for concrete slabs, footings, and walls. Enter dimensions and bar size for a complete rebar estimate with lap splice lengths.">
+  <meta property="og:title" content="Free Rebar Calculator — Concrete Reinforcement | BuildCalc">
+  <meta property="og:description" content="Calculate rebar quantity, weight, spacing, and lap splices for concrete slabs and footings.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/rebar-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Rebar Calculator",
+    "description": "Calculate rebar quantity, weight, and spacing for concrete slabs, footings, and walls.",
+    "url": "https://buildcalc.cc/tools/rebar-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Rebar Calculator</h1>
+        <p>Calculate the number of rebar pieces, total linear feet, and weight needed for concrete slab or footing reinforcement. Enter your slab dimensions, bar spacing, and rebar size for a complete material takeoff.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Slab / Footing Dimensions</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="slabLength">Length (feet)</label>
+            <input type="number" id="slabLength" placeholder="e.g. 20" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="slabWidth">Width (feet)</label>
+            <input type="number" id="slabWidth" placeholder="e.g. 20" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="spacing">Bar Spacing (inches O.C.)</label>
+            <select id="spacing">
+              <option value="6">6″ on center</option>
+              <option value="8">8″ on center</option>
+              <option value="12" selected>12″ on center</option>
+              <option value="16">16″ on center</option>
+              <option value="18">18″ on center</option>
+              <option value="24">24″ on center</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="barSize">Rebar Size</label>
+            <select id="barSize">
+              <option value="3">#3 (3/8″ — 0.376 lb/ft)</option>
+              <option value="4" selected>#4 (1/2″ — 0.668 lb/ft)</option>
+              <option value="5">#5 (5/8″ — 1.043 lb/ft)</option>
+              <option value="6">#6 (3/4″ — 1.502 lb/ft)</option>
+              <option value="7">#7 (7/8″ — 2.044 lb/ft)</option>
+              <option value="8">#8 (1″ — 2.670 lb/ft)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="barLength">Stock Bar Length (feet)</label>
+            <input type="number" id="barLength" value="20" min="1" step="any">
+          </div>
+          <div class="form-group">
+            <label for="grid">Layout</label>
+            <select id="grid">
+              <option value="grid" selected>Grid (both directions)</option>
+              <option value="one-way">One-way (single direction)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Rebar</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Slab Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Bars (length direction)</span><span class="result-value" id="res-barsL"></span></div>
+          <div class="result-row"><span class="result-label">Bars (width direction)</span><span class="result-value" id="res-barsW"></span></div>
+          <div class="result-row"><span class="result-label">Total Linear Feet</span><span class="result-value" id="res-linft"></span></div>
+          <div class="result-row"><span class="result-label">Stock Bars to Buy</span><span class="result-value" id="res-stockbars"></span></div>
+          <div class="result-row"><span class="result-label">Total Weight</span><span class="result-value" id="res-weight"></span></div>
+          <div class="result-row"><span class="result-label">Lap Splice Length</span><span class="result-value" id="res-lap"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>length</strong> and <strong>width</strong> of your concrete slab or footing.</li>
+          <li>Select the <strong>bar spacing</strong> (12″ O.C. is common for residential slabs).</li>
+          <li>Choose the <strong>rebar size</strong> (#4 is most common for residential).</li>
+          <li>Set the <strong>stock bar length</strong> (standard is 20 ft).</li>
+          <li>Choose <strong>grid</strong> (both directions) or <strong>one-way</strong> layout.</li>
+          <li>Click <strong>"Calculate Rebar"</strong> for your material list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Bars in length dir. = ⌊Width ÷ (Spacing/12)⌋ + 1<br>Bars in width dir. = ⌊Length ÷ (Spacing/12)⌋ + 1<br>Total Linear Ft = (Bars_L × Length) + (Bars_W × Width)<br>Stock Bars = ⌈Total Linear Ft ÷ Bar Length⌉<br>Weight = Total Linear Ft × Weight per Ft<br>Lap Splice = 40 × Bar Diameter (ACI 318)</div>
+        <p>Bar weights: #3 = 0.376, #4 = 0.668, #5 = 1.043, #6 = 1.502, #7 = 2.044, #8 = 2.670 lb/ft. Lap splice uses ACI 318 minimum of 40 bar diameters for tension splices.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for pours</span></div></a>
+          <a href="/tools/block-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Block Calculator</strong><span>CMU blocks &amp; mortar</span></div></a>
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Sub-base aggregate</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/rebar.js"></script>
+</body>
+</html>

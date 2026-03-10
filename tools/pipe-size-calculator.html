@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Plumbing Pipe Size Calculator — Water Flow Rate | BuildCalc</title>
+  <meta name="description" content="Calculate the correct water pipe size based on flow rate and velocity. Determine pipe diameter for supply lines using industry-standard plumbing formulas.">
+  <meta property="og:title" content="Free Plumbing Pipe Size Calculator | BuildCalc">
+  <meta property="og:description" content="Determine correct water pipe diameter based on flow rate, velocity, and fixture count.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/pipe-size-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Plumbing Pipe Size Calculator",
+    "description": "Calculate correct water pipe size based on flow rate and velocity for residential and commercial plumbing.",
+    "url": "https://buildcalc.cc/tools/pipe-size-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Trade<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Plumbing Pipe Size Calculator</h1>
+        <p>Determine the correct water supply pipe diameter based on your required flow rate and maximum velocity. This calculator uses standard hydraulic formulas to recommend nominal pipe sizes for copper, PEX, and CPVC piping.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Flow Requirements</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="flowRate">Required Flow Rate (GPM)</label>
+            <input type="number" id="flowRate" placeholder="e.g. 12" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="maxVelocity">Max Velocity (ft/sec)</label>
+            <select id="maxVelocity">
+              <option value="5">5 ft/s (copper — recommended)</option>
+              <option value="8" selected>8 ft/s (PEX / CPVC — typical)</option>
+              <option value="10">10 ft/s (max code limit)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pipeType">Pipe Material</label>
+            <select id="pipeType">
+              <option value="copper">Copper (Type L)</option>
+              <option value="pex" selected>PEX</option>
+              <option value="cpvc">CPVC</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fixtures">Total Fixture Units <small>(optional — overrides GPM)</small></label>
+            <input type="number" id="fixtures" placeholder="e.g. 20" min="0" step="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Pipe Size</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Design Flow Rate</span><span class="result-value" id="res-flow"></span></div>
+          <div class="result-row"><span class="result-label">Max Velocity</span><span class="result-value" id="res-velocity"></span></div>
+          <div class="result-row"><span class="result-label">Min. Inside Diameter</span><span class="result-value" id="res-mindia"></span></div>
+          <div class="result-row"><span class="result-label">Recommended Nominal Size</span><span class="result-value" id="res-nominal"></span></div>
+          <div class="result-row"><span class="result-label">Actual Inside Diameter</span><span class="result-value" id="res-actualdia"></span></div>
+          <div class="result-row"><span class="result-label">Actual Velocity</span><span class="result-value" id="res-actualvel"></span></div>
+          <div class="result-row"><span class="result-label">Pipe Material</span><span class="result-value" id="res-material"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>required flow rate</strong> in gallons per minute (GPM), or enter total <strong>fixture units</strong> to auto-calculate GPM.</li>
+          <li>Select the <strong>maximum velocity</strong> (5 ft/s for copper, 8 ft/s for PEX/CPVC is typical).</li>
+          <li>Choose your <strong>pipe material</strong>.</li>
+          <li>Click <strong>"Calculate Pipe Size"</strong> to get the recommended nominal pipe size.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Q (ft³/s) = GPM ÷ 448.83<br>A (ft²) = Q ÷ Velocity<br>Inside Diameter (in) = √(4 × A ÷ π) × 12<br>Select next standard pipe size ≥ calculated diameter</div>
+        <p>Flow rate from fixture units uses the Hunter's Curve approximation. Standard nominal pipe sizes: ½″, ¾″, 1″, 1¼″, 1½″, 2″, 2½″, 3″. Always verify with local plumbing code.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/wire-size-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Wire Size Calculator</strong><span>Electrical AWG sizing</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards for pours</span></div></a>
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Base &amp; backfill</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/pipe-size.js"></script>
+</body>
+</html>
