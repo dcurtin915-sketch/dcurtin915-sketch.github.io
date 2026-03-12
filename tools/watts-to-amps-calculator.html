@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Watts to Amps Calculator — Convert W to A Instantly | BuildCalc</title>
+  <meta name="description" content="Convert watts to amps for DC, single-phase AC, and three-phase AC circuits. Enter watts, voltage, and power factor for instant amp calculations. Free electrical calculator.">
+  <meta property="og:title" content="Free Watts to Amps Calculator | BuildCalc">
+  <meta property="og:description" content="Convert watts to amps for DC and AC circuits. Enter wattage and voltage for instant results.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/watts-to-amps-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Watts to Amps Calculator",
+    "description": "Convert watts to amps for DC, single-phase, and three-phase AC electrical circuits.",
+    "url": "https://buildcalc.cc/tools/watts-to-amps-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Watts to Amps Calculator</h1>
+        <p>Convert watts to amps (and amps to watts) for DC, single-phase AC, and three-phase AC circuits. Essential for sizing breakers, wiring, and electrical panels. Enter your values and get instant, accurate results.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Electrical Values</h2>
+
+        <div class="form-group">
+          <label for="calc-direction">Conversion Direction</label>
+          <select id="calc-direction">
+            <option value="w2a">Watts → Amps</option>
+            <option value="a2w">Amps → Watts</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="circuit-type">Circuit Type</label>
+          <select id="circuit-type">
+            <option value="dc">DC (Direct Current)</option>
+            <option value="ac1" selected>AC Single-Phase</option>
+            <option value="ac3">AC Three-Phase</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" id="watts-field">
+            <label for="watts">Power (Watts)</label>
+            <input type="number" id="watts" placeholder="e.g. 1500" min="0" step="any">
+          </div>
+          <div class="form-group" id="amps-field" style="display:none;">
+            <label for="amps-input">Current (Amps)</label>
+            <input type="number" id="amps-input" placeholder="e.g. 12.5" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="voltage">Voltage (V)</label>
+            <select id="voltage">
+              <option value="12">12V (DC battery)</option>
+              <option value="24">24V (DC system)</option>
+              <option value="120" selected>120V (US residential)</option>
+              <option value="208">208V (commercial)</option>
+              <option value="240">240V (US appliance)</option>
+              <option value="277">277V (commercial lighting)</option>
+              <option value="480">480V (industrial)</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="custom-volt-field" style="display:none;">
+          <div class="form-group">
+            <label for="custom-voltage">Custom Voltage (V)</label>
+            <input type="number" id="custom-voltage" placeholder="e.g. 230" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-group" id="pf-field">
+          <label for="power-factor">Power Factor (AC only)</label>
+          <select id="power-factor">
+            <option value="1">1.0 (resistive — heaters, incandescent)</option>
+            <option value="0.95">0.95 (LED, modern electronics)</option>
+            <option value="0.9">0.90 (induction motors, typical)</option>
+            <option value="0.85" selected>0.85 (general AC loads)</option>
+            <option value="0.8">0.80 (older motors)</option>
+          </select>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Power</span><span class="result-value" id="res-watts"></span></div>
+          <div class="result-row"><span class="result-label">Voltage</span><span class="result-value" id="res-voltage"></span></div>
+          <div class="result-row"><span class="result-label">Circuit Type</span><span class="result-value" id="res-type"></span></div>
+          <div class="result-row"><span class="result-label">Power Factor</span><span class="result-value" id="res-pf"></span></div>
+          <div class="result-row"><span class="result-label">Current</span><span class="result-value" id="res-amps"></span></div>
+          <div class="result-row"><span class="result-label">Suggested Breaker</span><span class="result-value" id="res-breaker"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Choose <strong>conversion direction</strong> — watts to amps or amps to watts.</li>
+          <li>Select the <strong>circuit type</strong> — DC, single-phase AC, or three-phase AC.</li>
+          <li>Enter <strong>power (watts)</strong> and <strong>voltage</strong>.</li>
+          <li>For AC circuits, select the <strong>power factor</strong> (0.85 is a safe default).</li>
+          <li>Click <strong>"Calculate"</strong> for instant results with breaker recommendations.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formulas</h2>
+        <div class="formula-block">DC: Amps = Watts ÷ Volts</div>
+        <div class="formula-block">AC Single-Phase: Amps = Watts ÷ (Volts × Power Factor)</div>
+        <div class="formula-block">AC Three-Phase: Amps = Watts ÷ (Volts × √3 × Power Factor)</div>
+        <p>Power factor (PF) accounts for the phase difference between voltage and current in AC circuits. Resistive loads (heaters, incandescent bulbs) have PF = 1.0. Motors and inductive loads typically have PF between 0.8 and 0.95.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/wire-size-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Wire Size Calculator</strong><span>AWG gauge for your circuit</span></div></a>
+          <a href="/tools/voltage-drop-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Voltage Drop Calculator</strong><span>Check NEC voltage drop limits</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Panel sizing per NEC</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/watts-to-amps.js"></script>
+</body>
+</html>

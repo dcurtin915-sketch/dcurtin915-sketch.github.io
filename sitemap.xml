@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://buildcalc.cc/</loc><lastmod>2026-03-11</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://buildcalc.cc/</loc><lastmod>2026-03-12</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://buildcalc.cc/tools/concrete-calculator.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://buildcalc.cc/tools/board-feet-calculator.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://buildcalc.cc/tools/drywall-estimator.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -27,4 +27,14 @@
   <url><loc>https://buildcalc.cc/tools/gutter-calculator.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://buildcalc.cc/tools/voltage-drop-calculator.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://buildcalc.cc/tools/asphalt-calculator.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/topsoil-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/crown-molding-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/drain-slope-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/duct-size-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/post-hole-concrete-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/brick-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/watts-to-amps-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/pergola-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/french-drain-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://buildcalc.cc/tools/sprinkler-system-calculator.html</loc><lastmod>2026-03-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

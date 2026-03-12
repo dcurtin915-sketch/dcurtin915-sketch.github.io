@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Conduit Fill Calculator — NEC Compliant Wire Fill | BuildCalc</title>
+  <meta name="description" content="Calculate conduit fill percentage per NEC Chapter 9. Select conduit type and size, add wires, and verify compliance with NEC 40% fill limits for multiple conductors.">
+  <meta property="og:title" content="Free Conduit Fill Calculator — NEC Compliant Wire Fill | BuildCalc">
+  <meta property="og:description" content="Verify NEC conduit fill compliance. Calculate wire area vs conduit capacity for EMT, PVC, and rigid conduit.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/conduit-fill-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Conduit Fill Calculator",
+    "description": "Calculate NEC-compliant conduit fill for EMT, PVC, and rigid conduit with multiple wire sizes.",
+    "url": "https://buildcalc.cc/tools/conduit-fill-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Conduit Fill Calculator — NEC Chapter 9</h1>
+        <p>Determine if your wire combination fits in a given conduit per NEC fill limits. Select your conduit type and trade size, then add your wire sizes and quantities. The calculator checks compliance with NEC Table 1 fill percentages.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Conduit &amp; Wire Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="conduitType">Conduit Type</label>
+            <select id="conduitType">
+              <option value="emt" selected>EMT (Electrical Metallic Tubing)</option>
+              <option value="pvc40">PVC Schedule 40</option>
+              <option value="pvc80">PVC Schedule 80</option>
+              <option value="rmc">RMC (Rigid Metal Conduit)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="conduitSize">Trade Size</label>
+            <select id="conduitSize">
+              <option value="0.5">1/2"</option>
+              <option value="0.75" selected>3/4"</option>
+              <option value="1">1"</option>
+              <option value="1.25">1-1/4"</option>
+              <option value="1.5">1-1/2"</option>
+              <option value="2">2"</option>
+              <option value="2.5">2-1/2"</option>
+              <option value="3">3"</option>
+              <option value="4">4"</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wireSize">Wire Size (AWG/kcmil)</label>
+            <select id="wireSize">
+              <option value="14">14 AWG</option>
+              <option value="12" selected>12 AWG</option>
+              <option value="10">10 AWG</option>
+              <option value="8">8 AWG</option>
+              <option value="6">6 AWG</option>
+              <option value="4">4 AWG</option>
+              <option value="3">3 AWG</option>
+              <option value="2">2 AWG</option>
+              <option value="1">1 AWG</option>
+              <option value="1/0">1/0 AWG</option>
+              <option value="2/0">2/0 AWG</option>
+              <option value="3/0">3/0 AWG</option>
+              <option value="4/0">4/0 AWG</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="wireInsulation">Wire Insulation</label>
+            <select id="wireInsulation">
+              <option value="thhn" selected>THHN / THWN-2</option>
+              <option value="thw">THW / THWN</option>
+              <option value="xhhw">XHHW</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wireCount">Number of Conductors</label>
+            <input type="number" id="wireCount" value="3" min="1" step="1">
+          </div>
+          <div class="form-group" style="display:flex;align-items:flex-end;">
+            <button id="add-wire-btn" class="btn-calculate" style="margin:0;width:100%;">Add Wire Group</button>
+          </div>
+        </div>
+        <div id="wire-list" style="margin:1rem 0;"></div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Fill</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Conduit Type</span><span class="result-value" id="res-conduit"></span></div>
+          <div class="result-row"><span class="result-label">Conduit Internal Area</span><span class="result-value" id="res-conduit-area"></span></div>
+          <div class="result-row"><span class="result-label">Allowable Fill Area</span><span class="result-value" id="res-allowable"></span></div>
+          <div class="result-row"><span class="result-label">Total Wire Area</span><span class="result-value" id="res-wire-area"></span></div>
+          <div class="result-row"><span class="result-label">Fill Percentage</span><span class="result-value" id="res-fill-pct"></span></div>
+          <div class="result-row"><span class="result-label">NEC Limit</span><span class="result-value" id="res-nec-limit"></span></div>
+          <div class="result-row"><span class="result-label">Compliance</span><span class="result-value" id="res-compliance"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Select your <strong>conduit type</strong> (EMT, PVC, RMC) and <strong>trade size</strong>.</li>
+          <li>Choose <strong>wire size</strong>, <strong>insulation type</strong>, and <strong>quantity</strong>.</li>
+          <li>Click <strong>"Add Wire Group"</strong> to add conductors (repeat for mixed sizes).</li>
+          <li>Click <strong>"Calculate Fill"</strong> to check NEC compliance.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">NEC Table 1 Fill Limits:<br>1 wire: 53% of conduit area<br>2 wires: 31% of conduit area<br>3+ wires: 40% of conduit area<br><br>Fill % = (Total Wire Cross-Section Area ÷ Conduit Internal Area) × 100<br>Wire areas from NEC Chapter 9, Table 5</div>
+        <p>Conduit internal areas and wire cross-section areas are from NEC Chapter 9, Tables 4 and 5. These are the same tables electricians use for permit compliance.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/wire-size-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Wire Size Calculator</strong><span>AWG gauge sizing</span></div></a>
+          <a href="/tools/voltage-drop-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Voltage Drop Calculator</strong><span>Wire run losses</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Panel sizing</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/conduit-fill.js"></script>
+</body>
+</html>

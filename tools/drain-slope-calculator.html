@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Drain Slope Calculator — Pipe Grade &amp; Drop Per Foot | BuildCalc</title>
+  <meta name="description" content="Calculate drain pipe slope, total drop, and grade percentage. Enter pipe length and diameter to verify code-compliant drainage slope. Free plumbing calculator.">
+  <meta property="og:title" content="Free Drain Slope Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate pipe slope, total fall, and percent grade for drain pipes. Verify plumbing code compliance.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/drain-slope-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Drain Slope Calculator",
+    "description": "Calculate drain pipe slope, drop per foot, and total fall for plumbing installations.",
+    "url": "https://buildcalc.cc/tools/drain-slope-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Drain Slope Calculator</h1>
+        <p>Calculate the correct slope (grade) for drain pipes based on pipe diameter and run length. This calculator uses IPC/UPC plumbing code minimum slopes to verify your drainage installation will flow properly and pass inspection.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Pipe Details</h2>
+
+        <div class="form-group">
+          <label for="calc-mode">Calculation Mode</label>
+          <select id="calc-mode">
+            <option value="find-drop">Find Total Drop (enter pipe length)</option>
+            <option value="find-slope">Find Slope (enter drop &amp; length)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pipe-diameter">Pipe Diameter</label>
+            <select id="pipe-diameter">
+              <option value="1.5">1½ inches</option>
+              <option value="2">2 inches</option>
+              <option value="3" selected>3 inches</option>
+              <option value="4">4 inches</option>
+              <option value="6">6 inches</option>
+              <option value="8">8 inches</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pipe-length">Pipe Run Length (feet)</label>
+            <input type="number" id="pipe-length" placeholder="e.g. 30" min="0" step="any">
+          </div>
+        </div>
+
+        <div id="drop-input-field" style="display:none;">
+          <div class="form-group">
+            <label for="total-drop">Total Drop (inches)</label>
+            <input type="number" id="total-drop" placeholder="e.g. 3.75" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="custom-slope">Custom Slope (in/ft) — leave blank for code minimum</label>
+          <input type="number" id="custom-slope" placeholder="e.g. 0.25" min="0" step="any">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Slope</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Pipe Diameter</span><span class="result-value" id="res-diameter"></span></div>
+          <div class="result-row"><span class="result-label">Pipe Run</span><span class="result-value" id="res-run"></span></div>
+          <div class="result-row"><span class="result-label">Slope (in/ft)</span><span class="result-value" id="res-slope"></span></div>
+          <div class="result-row"><span class="result-label">Slope (%)</span><span class="result-value" id="res-pct"></span></div>
+          <div class="result-row"><span class="result-label">Total Drop</span><span class="result-value" id="res-drop"></span></div>
+          <div class="result-row"><span class="result-label">Code Minimum</span><span class="result-value" id="res-code"></span></div>
+          <div class="result-row"><span class="result-label">Compliance</span><span class="result-value" id="res-compliance"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Select the <strong>pipe diameter</strong> for your drain line.</li>
+          <li>Enter the <strong>pipe run length</strong> in feet (horizontal distance).</li>
+          <li>Optionally enter a <strong>custom slope</strong> or leave blank to use the code minimum.</li>
+          <li>Click <strong>"Calculate Slope"</strong> to see the required drop and compliance status.</li>
+          <li>Use "Find Slope" mode to check if an existing installation meets code.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Total Drop (inches) = Slope (in/ft) × Pipe Length (ft)</div>
+        <div class="formula-block">Grade (%) = (Slope in/ft ÷ 12) × 100</div>
+        <h3>IPC/UPC Code Minimum Slopes</h3>
+        <ul>
+          <li><strong>Pipes 2½" and smaller:</strong> ¼ inch per foot (0.25 in/ft = 2.08%)</li>
+          <li><strong>Pipes 3" to 6":</strong> ⅛ inch per foot (0.125 in/ft = 1.04%)</li>
+          <li><strong>Pipes 8" and larger:</strong> 1/16 inch per foot (0.0625 in/ft = 0.52%)</li>
+        </ul>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/pipe-size-calculator.html" class="related-card"><span class="rc-icon">🚿</span><div class="rc-text"><strong>Pipe Size Calculator</strong><span>Water supply pipe diameter</span></div></a>
+          <a href="/tools/french-drain-calculator.html" class="related-card"><span class="rc-icon">🕳️</span><div class="rc-text"><strong>French Drain Calculator</strong><span>Gravel &amp; pipe for drains</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards of concrete</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/drain-slope.js"></script>
+</body>
+</html>

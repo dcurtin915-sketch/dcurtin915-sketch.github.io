@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Sprinkler System Calculator — Heads, Pipe &amp; Zones | BuildCalc</title>
+  <meta name="description" content="Calculate sprinkler heads, zones, pipe, and valves for an irrigation system. Enter lawn area and water pressure for a complete layout plan. Free calculator.">
+  <meta property="og:title" content="Free Sprinkler System Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate sprinkler heads, zones, and pipe for your irrigation system. Enter area and water pressure.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/sprinkler-system-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Sprinkler System Calculator",
+    "description": "Calculate sprinkler heads, zones, pipe, and valves for residential irrigation systems.",
+    "url": "https://buildcalc.cc/tools/sprinkler-system-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Sprinkler System Calculator</h1>
+        <p>Plan your lawn irrigation system with accurate head counts, zone calculations, and pipe estimates. Enter your lawn area, water supply details, and sprinkler type to get a complete system layout with material quantities.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter System Details</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lawn-area">Lawn Area (sq ft)</label>
+            <input type="number" id="lawn-area" placeholder="e.g. 5000" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="head-type">Sprinkler Head Type</label>
+            <select id="head-type">
+              <option value="rotor" selected>Rotor Heads (25–50 ft radius)</option>
+              <option value="spray">Spray Heads (8–15 ft radius)</option>
+              <option value="drip">Drip Irrigation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="flow-rate">Available Flow Rate (GPM)</label>
+            <input type="number" id="flow-rate" placeholder="e.g. 12" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="water-pressure">Water Pressure (PSI)</label>
+            <input type="number" id="water-pressure" placeholder="e.g. 55" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pipe-run">Estimated Main Line Run (feet)</label>
+            <input type="number" id="pipe-run" placeholder="e.g. 100" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="head-spacing">Head Spacing Strategy</label>
+            <select id="head-spacing">
+              <option value="head-to-head" selected>Head-to-Head (recommended)</option>
+              <option value="triangular">Triangular Spacing</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Sprinkler System</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full System Estimate</h3>
+          <div class="result-row"><span class="result-label">Sprinkler Heads</span><span class="result-value" id="res-heads"></span></div>
+          <div class="result-row"><span class="result-label">Coverage per Head</span><span class="result-value" id="res-coverage"></span></div>
+          <div class="result-row"><span class="result-label">GPM per Head</span><span class="result-value" id="res-gpm-head"></span></div>
+          <div class="result-row"><span class="result-label">Heads per Zone</span><span class="result-value" id="res-heads-zone"></span></div>
+          <div class="result-row"><span class="result-label">Number of Zones</span><span class="result-value" id="res-zones"></span></div>
+          <div class="result-row"><span class="result-label">Zone Valves</span><span class="result-value" id="res-valves"></span></div>
+          <div class="result-row"><span class="result-label">Main Line Pipe</span><span class="result-value" id="res-main-pipe"></span></div>
+          <div class="result-row"><span class="result-label">Lateral Pipe (est.)</span><span class="result-value" id="res-lateral-pipe"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your total <strong>lawn area</strong> in square feet.</li>
+          <li>Select your <strong>sprinkler head type</strong> — rotors for large areas, sprays for small/narrow areas.</li>
+          <li>Enter your <strong>available GPM</strong> (do a bucket test: fill a 5-gal bucket and time it).</li>
+          <li>Enter <strong>water pressure</strong> in PSI (check with a pressure gauge on your hose bib).</li>
+          <li>Click <strong>"Calculate"</strong> for head counts, zones, and pipe estimates.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formulas</h2>
+        <div class="formula-block">Heads = Lawn Area ÷ Coverage per Head</div>
+        <div class="formula-block">Heads per Zone = Available GPM ÷ GPM per Head</div>
+        <div class="formula-block">Zones = Total Heads ÷ Heads per Zone</div>
+        <h3>Typical Values</h3>
+        <ul>
+          <li><strong>Rotor heads:</strong> ~1,200 sq ft coverage, 2–4 GPM each (30' radius head-to-head)</li>
+          <li><strong>Spray heads:</strong> ~200 sq ft coverage, 1–2 GPM each (12' radius head-to-head)</li>
+          <li><strong>Drip:</strong> ~1 sq ft per emitter at 12" spacing, 0.5–1 GPH each</li>
+        </ul>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/sod-calculator.html" class="related-card"><span class="rc-icon">🌱</span><div class="rc-text"><strong>Sod Calculator</strong><span>Rolls &amp; pallets for your lawn</span></div></a>
+          <a href="/tools/topsoil-calculator.html" class="related-card"><span class="rc-icon">🌿</span><div class="rc-text"><strong>Topsoil Calculator</strong><span>Cubic yards of topsoil</span></div></a>
+          <a href="/tools/french-drain-calculator.html" class="related-card"><span class="rc-icon">🕳️</span><div class="rc-text"><strong>French Drain Calculator</strong><span>Drainage gravel &amp; pipe</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/sprinkler.js"></script>
+</body>
+</html>

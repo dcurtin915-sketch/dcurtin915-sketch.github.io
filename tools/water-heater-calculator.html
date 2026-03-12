@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Water Heater Size Calculator — Tank & Tankless Sizing | BuildCalc</title>
+  <meta name="description" content="Calculate the right water heater size for your home. Determine tank gallons or tankless GPM based on household size, fixtures, and peak demand usage patterns.">
+  <meta property="og:title" content="Free Water Heater Size Calculator — Tank & Tankless Sizing | BuildCalc">
+  <meta property="og:description" content="Size your water heater correctly. Calculate tank gallons or tankless GPM for your household demand.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/water-heater-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Water Heater Size Calculator",
+    "description": "Calculate the correct water heater size based on household demand, fixtures, and peak usage.",
+    "url": "https://buildcalc.cc/tools/water-heater-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Water Heater Size Calculator — Tank &amp; Tankless</h1>
+        <p>Find the right water heater capacity for your household. This calculator estimates peak hour demand based on fixtures and usage, then recommends tank size (gallons) or tankless flow rate (GPM).</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Household &amp; Fixture Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="people">Number of People</label>
+            <input type="number" id="people" value="4" min="1" step="1">
+          </div>
+          <div class="form-group">
+            <label for="bathrooms">Number of Bathrooms</label>
+            <input type="number" id="bathrooms" value="2" min="1" step="1">
+          </div>
+        </div>
+        <h2 style="margin-top:1rem;">Peak Hour Fixtures (simultaneous use)</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="showers">Showers Running</label>
+            <input type="number" id="showers" value="1" min="0" step="1">
+          </div>
+          <div class="form-group">
+            <label for="bathFill">Bathtub Fills</label>
+            <input type="number" id="bathFill" value="0" min="0" step="1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dishwasher">Dishwasher Loads</label>
+            <input type="number" id="dishwasher" value="1" min="0" step="1">
+          </div>
+          <div class="form-group">
+            <label for="clothesWasher">Clothes Washer Loads</label>
+            <input type="number" id="clothesWasher" value="0" min="0" step="1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="handWash">Hand Washing / Kitchen Sink</label>
+            <input type="number" id="handWash" value="2" min="0" step="1">
+          </div>
+          <div class="form-group">
+            <label for="inletTemp">Inlet Water Temp (°F)</label>
+            <input type="number" id="inletTemp" value="50" min="32" max="80" step="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Water Heater Size</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Peak Hour Demand</span><span class="result-value" id="res-peak"></span></div>
+          <div class="result-row"><span class="result-label">Peak Flow Rate</span><span class="result-value" id="res-gpm"></span></div>
+          <div class="result-row"><span class="result-label">Temp Rise Needed</span><span class="result-value" id="res-rise"></span></div>
+          <div class="result-row"><span class="result-label">Tank: First Hour Rating</span><span class="result-value" id="res-fhr"></span></div>
+          <div class="result-row"><span class="result-label">Tank: Recommended Size</span><span class="result-value" id="res-tank"></span></div>
+          <div class="result-row"><span class="result-label">Tankless: Min GPM</span><span class="result-value" id="res-tankless"></span></div>
+          <div class="result-row"><span class="result-label">Tankless: BTU Required</span><span class="result-value" id="res-btu"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>number of people</strong> and <strong>bathrooms</strong> in your home.</li>
+          <li>Enter how many fixtures run during your <strong>busiest hour</strong> (e.g., morning rush).</li>
+          <li>Set your <strong>inlet water temperature</strong> (50°F is typical; colder in northern states).</li>
+          <li>Click <strong>"Calculate Water Heater Size"</strong> for tank and tankless recommendations.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Peak Hour Demand (gallons):<br>Shower = 20 gal × count<br>Bathtub = 36 gal × count<br>Dishwasher = 14 gal × count<br>Clothes Washer = 30 gal × count<br>Hand/Kitchen = 4 gal × count<br><br>First Hour Rating (FHR) = Peak Demand (match to tank label)<br>Tankless GPM = Total GPM of simultaneous fixtures<br>Tankless BTU = GPM × (Output Temp − Inlet Temp) × 500<br>Output Temp = 120°F (standard)</div>
+        <p>Peak hour demand values are from DOE/ENERGY STAR guidelines. The First Hour Rating (FHR) on the tank's EnergyGuide label should meet or exceed your peak demand.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/btu-calculator.html" class="related-card"><span class="rc-icon">🌡️</span><div class="rc-text"><strong>BTU Calculator</strong><span>HVAC sizing</span></div></a>
+          <a href="/tools/pipe-size-calculator.html" class="related-card"><span class="rc-icon">🚿</span><div class="rc-text"><strong>Pipe Size Calculator</strong><span>Water supply pipes</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Panel sizing</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/water-heater.js"></script>
+</body>
+</html>

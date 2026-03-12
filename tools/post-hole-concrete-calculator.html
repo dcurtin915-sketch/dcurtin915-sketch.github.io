@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Post Hole Concrete Calculator — Bags Per Post &amp; Total | BuildCalc</title>
+  <meta name="description" content="Calculate how much concrete you need for fence posts, deck posts, or mailbox posts. Enter hole size and number of posts for instant bag counts. Free calculator.">
+  <meta property="og:title" content="Free Post Hole Concrete Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate concrete bags needed for fence or deck post holes. Enter hole dimensions for instant results.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/post-hole-concrete-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Post Hole Concrete Calculator",
+    "description": "Calculate concrete bags needed for fence posts, deck posts, and mailbox posts.",
+    "url": "https://buildcalc.cc/tools/post-hole-concrete-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Post Hole Concrete Calculator</h1>
+        <p>Calculate exactly how many bags of concrete you need for fence posts, deck posts, mailbox posts, or any other post installation. Enter your hole dimensions, post size, and number of posts for an accurate bag count.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Post Hole Details</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="hole-diameter">Hole Diameter (inches)</label>
+            <select id="hole-diameter">
+              <option value="8">8 inches</option>
+              <option value="10" selected>10 inches</option>
+              <option value="12">12 inches</option>
+              <option value="14">14 inches</option>
+              <option value="18">18 inches</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hole-depth">Hole Depth (inches)</label>
+            <select id="hole-depth">
+              <option value="24">24 inches (2 ft)</option>
+              <option value="30">30 inches (2.5 ft)</option>
+              <option value="36" selected>36 inches (3 ft)</option>
+              <option value="42">42 inches (3.5 ft)</option>
+              <option value="48">48 inches (4 ft)</option>
+              <option value="custom_depth">Custom</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="custom-diam-field" style="display:none;">
+          <div class="form-group">
+            <label for="custom-diameter">Custom Hole Diameter (inches)</label>
+            <input type="number" id="custom-diameter" placeholder="e.g. 16" min="1" step="any">
+          </div>
+        </div>
+
+        <div id="custom-depth-field" style="display:none;">
+          <div class="form-group">
+            <label for="custom-depth">Custom Hole Depth (inches)</label>
+            <input type="number" id="custom-depth" placeholder="e.g. 40" min="1" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="post-size">Post Size</label>
+            <select id="post-size">
+              <option value="3.5">4×4 (actual 3.5")</option>
+              <option value="5.5">6×6 (actual 5.5")</option>
+              <option value="2.375">2⅜" round (metal)</option>
+              <option value="0">No post displacement</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="num-posts">Number of Posts</label>
+            <input type="number" id="num-posts" value="1" min="1" step="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bag-size">Concrete Bag Size</label>
+          <select id="bag-size">
+            <option value="40">40 lb (0.30 cu ft)</option>
+            <option value="50">50 lb (0.375 cu ft)</option>
+            <option value="60">60 lb (0.45 cu ft)</option>
+            <option value="80" selected>80 lb (0.60 cu ft)</option>
+          </select>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Concrete</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Hole Volume (each)</span><span class="result-value" id="res-hole-vol"></span></div>
+          <div class="result-row"><span class="result-label">Post Displacement</span><span class="result-value" id="res-post-vol"></span></div>
+          <div class="result-row"><span class="result-label">Concrete per Hole</span><span class="result-value" id="res-per-hole"></span></div>
+          <div class="result-row"><span class="result-label">Bags per Post</span><span class="result-value" id="res-bags-each"></span></div>
+          <div class="result-row"><span class="result-label">Total Posts</span><span class="result-value" id="res-posts"></span></div>
+          <div class="result-row"><span class="result-label">Total Bags Needed</span><span class="result-value" id="res-total-bags"></span></div>
+          <div class="result-row"><span class="result-label">Total Concrete Volume</span><span class="result-value" id="res-total-vol"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Select or enter your <strong>hole diameter</strong> — typically 3× the post width.</li>
+          <li>Select or enter the <strong>hole depth</strong> — at least ⅓ of total post length or below frost line.</li>
+          <li>Choose your <strong>post size</strong> to subtract its volume from the hole.</li>
+          <li>Enter the <strong>number of posts</strong> for your project.</li>
+          <li>Select your <strong>bag size</strong> and click calculate.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Hole Volume = π × (Hole Radius)² × Depth</div>
+        <div class="formula-block">Post Volume = Post Width² × Depth (square) or π × r² × Depth (round)</div>
+        <div class="formula-block">Concrete Needed = Hole Volume − Post Volume</div>
+        <p>Volume is in cubic inches, converted to cubic feet (÷ 1728). Bag yields: 40 lb = 0.30 cu ft, 50 lb = 0.375 cu ft, 60 lb = 0.45 cu ft, 80 lb = 0.60 cu ft.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/fence-calculator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Fence Calculator</strong><span>Posts, rails &amp; pickets</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Slabs, footings &amp; columns</span></div></a>
+          <a href="/tools/deck-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Deck Calculator</strong><span>Boards, joists &amp; screws</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/post-hole.js"></script>
+</body>
+</html>

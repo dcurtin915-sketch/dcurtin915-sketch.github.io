@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Pergola Calculator — Posts, Beams, Rafters &amp; Cost | BuildCalc</title>
+  <meta name="description" content="Calculate pergola materials including posts, beams, rafters, purlins, and hardware. Enter dimensions for a complete material list with cost estimates. Free calculator.">
+  <meta property="og:title" content="Free Pergola Material Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate pergola posts, beams, rafters, and hardware. Enter dimensions for a full material list.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/pergola-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Pergola Calculator",
+    "description": "Calculate materials needed to build a pergola: posts, beams, rafters, and purlins.",
+    "url": "https://buildcalc.cc/tools/pergola-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Pergola Calculator</h1>
+        <p>Plan your pergola build with a complete material list. Enter your desired dimensions and spacing to get exact counts for posts, beams, rafters, purlins, and hardware — plus post hole concrete and cost estimates.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Pergola Dimensions</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pergola-length">Length (feet) — rafter direction</label>
+            <input type="number" id="pergola-length" placeholder="e.g. 16" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="pergola-width">Width (feet) — beam direction</label>
+            <input type="number" id="pergola-width" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="post-height">Post Height (feet)</label>
+            <select id="post-height">
+              <option value="8" selected>8 feet</option>
+              <option value="9">9 feet</option>
+              <option value="10">10 feet</option>
+              <option value="12">12 feet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rafter-spacing">Rafter Spacing (inches OC)</label>
+            <select id="rafter-spacing">
+              <option value="12">12" on center</option>
+              <option value="16" selected>16" on center</option>
+              <option value="24">24" on center</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="purlin-spacing">Purlin Spacing (inches OC)</label>
+            <select id="purlin-spacing">
+              <option value="0">No purlins</option>
+              <option value="12" selected>12" on center</option>
+              <option value="16">16" on center</option>
+              <option value="24">24" on center</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rafter-overhang">Rafter Overhang Each Side (inches)</label>
+            <input type="number" id="rafter-overhang" value="12" min="0" max="36" step="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Pergola Materials</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Material List</h3>
+          <div class="result-row"><span class="result-label">Posts (6×6)</span><span class="result-value" id="res-posts"></span></div>
+          <div class="result-row"><span class="result-label">Beams (2×10)</span><span class="result-value" id="res-beams"></span></div>
+          <div class="result-row"><span class="result-label">Rafters (2×8)</span><span class="result-value" id="res-rafters"></span></div>
+          <div class="result-row"><span class="result-label">Rafter Length</span><span class="result-value" id="res-rafter-len"></span></div>
+          <div class="result-row"><span class="result-label">Purlins (2×2)</span><span class="result-value" id="res-purlins"></span></div>
+          <div class="result-row"><span class="result-label">Post Base Hardware</span><span class="result-value" id="res-hardware"></span></div>
+          <div class="result-row"><span class="result-label">Post Hole Concrete (80 lb bags)</span><span class="result-value" id="res-concrete"></span></div>
+          <div class="result-row"><span class="result-label">Total Board Feet</span><span class="result-value" id="res-bf"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>length and width</strong> of your pergola (outside dimensions).</li>
+          <li>Select <strong>post height</strong> — 8' is standard; account for buried depth separately.</li>
+          <li>Choose <strong>rafter spacing</strong> — 16" OC is most common for 2×8 rafters.</li>
+          <li>Optionally add <strong>purlins</strong> (the cross pieces on top of rafters for shade).</li>
+          <li>Set <strong>rafter overhang</strong> — 12" per side is typical for a decorative look.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Posts = 4 (standard) or 6 (for pergolas over 16' long)</div>
+        <div class="formula-block">Beams = 2 doubled (4 boards total, each = width + overhang)</div>
+        <div class="formula-block">Rafters = (Width ÷ Spacing) + 1</div>
+        <div class="formula-block">Rafter Length = Length + (2 × Overhang)</div>
+        <div class="formula-block">Purlins = (Length ÷ Purlin Spacing) + 1</div>
+        <p>Posts are 6×6 for standard pergolas. Beams are doubled 2×10s. Rafters are 2×8s. Purlins (shade slats) are typically 2×2s.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/deck-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Deck Calculator</strong><span>Boards, joists &amp; screws</span></div></a>
+          <a href="/tools/post-hole-concrete-calculator.html" class="related-card"><span class="rc-icon">🕳️</span><div class="rc-text"><strong>Post Hole Concrete</strong><span>Bags per post hole</span></div></a>
+          <a href="/tools/board-feet-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Board Feet Calculator</strong><span>Lumber board feet &amp; cost</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/pergola.js"></script>
+</body>
+</html>

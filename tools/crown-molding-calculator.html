@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Crown Molding Calculator — Linear Feet, Pieces &amp; Cost | BuildCalc</title>
+  <meta name="description" content="Calculate crown molding needed in linear feet and pieces. Enter room dimensions, select trim length, and get waste-adjusted estimates with costs. Free calculator.">
+  <meta property="og:title" content="Free Crown Molding Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate crown molding linear feet, pieces, and cost. Enter room perimeter for instant results.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/crown-molding-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Crown Molding Calculator",
+    "description": "Calculate linear feet and pieces of crown molding needed for any room.",
+    "url": "https://buildcalc.cc/tools/crown-molding-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Crown Molding Calculator</h1>
+        <p>Estimate how much crown molding you need for any room. Enter wall lengths or room perimeter, choose your trim piece length, and get an accurate count with waste factor built in — plus inside and outside corner counts.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Measurements</h2>
+
+        <div class="form-group">
+          <label for="input-method">Input Method</label>
+          <select id="input-method">
+            <option value="dimensions">Room Length × Width</option>
+            <option value="perimeter">Total Perimeter (linear feet)</option>
+          </select>
+        </div>
+
+        <div id="dim-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="room-length">Room Length (feet)</label>
+              <input type="number" id="room-length" placeholder="e.g. 14" min="0" step="any">
+            </div>
+            <div class="form-group">
+              <label for="room-width">Room Width (feet)</label>
+              <input type="number" id="room-width" placeholder="e.g. 12" min="0" step="any">
+            </div>
+          </div>
+        </div>
+
+        <div id="perim-field" style="display:none;">
+          <div class="form-group">
+            <label for="total-perimeter">Total Perimeter (linear feet)</label>
+            <input type="number" id="total-perimeter" placeholder="e.g. 52" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="piece-length">Trim Piece Length</label>
+            <select id="piece-length">
+              <option value="8">8 feet</option>
+              <option value="10">10 feet</option>
+              <option value="12" selected>12 feet</option>
+              <option value="16">16 feet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="waste-pct">Waste Factor (%)</label>
+            <input type="number" id="waste-pct" value="10" min="0" max="50" step="1">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inside-corners">Inside Corners</label>
+            <input type="number" id="inside-corners" value="4" min="0" step="1">
+          </div>
+          <div class="form-group">
+            <label for="outside-corners">Outside Corners</label>
+            <input type="number" id="outside-corners" value="0" min="0" step="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cost-per-foot">Price per Linear Foot ($)</label>
+          <input type="number" id="cost-per-foot" placeholder="e.g. 2.50" min="0" step="any">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Crown Molding</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Room Perimeter</span><span class="result-value" id="res-perimeter"></span></div>
+          <div class="result-row"><span class="result-label">Linear Feet (with waste)</span><span class="result-value" id="res-lf"></span></div>
+          <div class="result-row"><span class="result-label">Pieces Needed</span><span class="result-value" id="res-pieces"></span></div>
+          <div class="result-row"><span class="result-label">Inside Corners</span><span class="result-value" id="res-inside"></span></div>
+          <div class="result-row"><span class="result-label">Outside Corners</span><span class="result-value" id="res-outside"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter <strong>room dimensions</strong> or the total perimeter in linear feet.</li>
+          <li>Select the <strong>piece length</strong> your trim comes in (most common: 8' or 12').</li>
+          <li>Set a <strong>waste factor</strong> — 10% is standard for miter cuts and mistakes.</li>
+          <li>Enter the number of <strong>inside and outside corners</strong> in the room.</li>
+          <li>Click <strong>"Calculate Crown Molding"</strong> for your material list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Perimeter = 2 × (Length + Width)</div>
+        <p>For rectangular rooms. For irregular rooms, measure each wall and add them up.</p>
+        <div class="formula-block">Linear Feet Needed = Perimeter × (1 + Waste%/100)</div>
+        <div class="formula-block">Pieces = ⌈Linear Feet ÷ Piece Length⌉</div>
+        <p>Always round up to whole pieces. Standard waste factor is 10% to account for miter cuts, coping, and off-cuts.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets, tape &amp; compound</span></div></a>
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Gallons of paint needed</span></div></a>
+          <a href="/tools/wallpaper-calculator.html" class="related-card"><span class="rc-icon">🖼️</span><div class="rc-text"><strong>Wallpaper Calculator</strong><span>Rolls of wallpaper</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/crown-molding.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free French Drain Calculator — Gravel, Pipe &amp; Fabric | BuildCalc</title>
+  <meta name="description" content="Calculate materials for a French drain: gravel, perforated pipe, landscape fabric, and trench volume. Enter drain length and depth for instant estimates. Free calculator.">
+  <meta property="og:title" content="Free French Drain Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate French drain gravel, pipe, and fabric. Enter trench dimensions for a full material list.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/french-drain-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free French Drain Calculator",
+    "description": "Calculate gravel, pipe, and landscape fabric needed for a French drain installation.",
+    "url": "https://buildcalc.cc/tools/french-drain-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>French Drain Calculator</h1>
+        <p>Calculate all materials needed for a French drain installation — drainage gravel, perforated pipe, landscape fabric, and trench excavation volume. Enter your drain length and trench dimensions for a complete material list.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Trench Dimensions</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="drain-length">Drain Length (feet)</label>
+            <input type="number" id="drain-length" placeholder="e.g. 50" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="trench-width">Trench Width (inches)</label>
+            <select id="trench-width">
+              <option value="6">6 inches</option>
+              <option value="8">8 inches</option>
+              <option value="10">10 inches</option>
+              <option value="12" selected>12 inches</option>
+              <option value="18">18 inches</option>
+              <option value="24">24 inches</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="trench-depth">Trench Depth (inches)</label>
+            <select id="trench-depth">
+              <option value="12">12 inches</option>
+              <option value="18" selected>18 inches</option>
+              <option value="24">24 inches</option>
+              <option value="30">30 inches</option>
+              <option value="36">36 inches</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pipe-diameter">Perforated Pipe Diameter</label>
+            <select id="pipe-diameter">
+              <option value="3">3 inches</option>
+              <option value="4" selected>4 inches</option>
+              <option value="6">6 inches</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gravel-cost">Gravel Price per Ton ($)</label>
+          <input type="number" id="gravel-cost" placeholder="e.g. 45" min="0" step="any">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate French Drain Materials</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Material List</h3>
+          <div class="result-row"><span class="result-label">Trench Volume</span><span class="result-value" id="res-trench-vol"></span></div>
+          <div class="result-row"><span class="result-label">Gravel Needed</span><span class="result-value" id="res-gravel-cuyd"></span></div>
+          <div class="result-row"><span class="result-label">Gravel Weight</span><span class="result-value" id="res-gravel-tons"></span></div>
+          <div class="result-row"><span class="result-label">Perforated Pipe</span><span class="result-value" id="res-pipe"></span></div>
+          <div class="result-row"><span class="result-label">Landscape Fabric</span><span class="result-value" id="res-fabric"></span></div>
+          <div class="result-row"><span class="result-label">Pipe Sock / Sleeve</span><span class="result-value" id="res-sock"></span></div>
+          <div class="result-row"><span class="result-label">Gravel Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>total length</strong> of your French drain run.</li>
+          <li>Select <strong>trench width</strong> — 12" is standard for residential drains.</li>
+          <li>Select <strong>trench depth</strong> — 18" minimum; deeper for more capacity.</li>
+          <li>Choose your <strong>pipe diameter</strong> — 4" is standard residential.</li>
+          <li>Optionally enter a <strong>gravel price</strong> for cost estimates.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Trench Volume (cu ft) = Length × (Width/12) × (Depth/12)</div>
+        <div class="formula-block">Gravel Volume (cu yd) = Trench Volume ÷ 27</div>
+        <div class="formula-block">Gravel Weight (tons) = Cubic Yards × 1.4</div>
+        <p>Washed drainage gravel (#57 stone) weighs approximately 2,800 lbs (1.4 tons) per cubic yard. The pipe displaces a small amount of gravel volume, but we keep the full trench volume to ensure adequate drainage capacity.</p>
+        <div class="formula-block">Fabric = (2 × Depth + Width + 12") × Length</div>
+        <p>Landscape fabric lines the trench bottom and sides with 6" overlap at top.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/gravel-calculator.html" class="related-card"><span class="rc-icon">🪨</span><div class="rc-text"><strong>Gravel Calculator</strong><span>Tons of aggregate needed</span></div></a>
+          <a href="/tools/drain-slope-calculator.html" class="related-card"><span class="rc-icon">📐</span><div class="rc-text"><strong>Drain Slope Calculator</strong><span>Pipe grade &amp; drop</span></div></a>
+          <a href="/tools/topsoil-calculator.html" class="related-card"><span class="rc-icon">🌿</span><div class="rc-text"><strong>Topsoil Calculator</strong><span>Cubic yards of topsoil</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/french-drain.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Carpet Calculator — Estimate Carpet & Padding Needed | BuildCalc</title>
+  <meta name="description" content="Calculate how much carpet and padding you need. Enter room dimensions, carpet roll width, and seam direction for accurate square footage, rolls, and cost estimates.">
+  <meta property="og:title" content="Free Carpet Calculator — Estimate Carpet & Padding Needed | BuildCalc">
+  <meta property="og:description" content="Calculate carpet square footage, rolls, padding, and cost for any room. Accounts for waste and seam placement.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/carpet-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Carpet Calculator",
+    "description": "Calculate carpet and padding needed for any room. Accurate square footage and roll estimates.",
+    "url": "https://buildcalc.cc/tools/carpet-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container"><div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div></div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Carpet Calculator — Square Footage &amp; Rolls</h1>
+        <p>Estimate how much carpet and padding you need for any room. This calculator accounts for roll width, seam direction, waste factor, and gives you cost estimates based on your price per square foot.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Room Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="roomLength">Room Length (feet)</label>
+            <input type="number" id="roomLength" placeholder="e.g. 15" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="roomWidth">Room Width (feet)</label>
+            <input type="number" id="roomWidth" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rollWidth">Carpet Roll Width (feet)</label>
+            <select id="rollWidth">
+              <option value="12" selected>12 ft (standard)</option>
+              <option value="13.5">13.5 ft</option>
+              <option value="15">15 ft</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="waste">Waste Factor (%)</label>
+            <input type="number" id="waste" value="10" min="0" max="30" step="1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="carpetCost">Carpet Cost ($/sq ft)</label>
+            <input type="number" id="carpetCost" placeholder="e.g. 3.50" min="0" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="paddingCost">Padding Cost ($/sq ft)</label>
+            <input type="number" id="paddingCost" placeholder="e.g. 0.75" min="0" step="0.01">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Carpet</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Room Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Waste Allowance</span><span class="result-value" id="res-waste"></span></div>
+          <div class="result-row"><span class="result-label">Total Carpet Needed</span><span class="result-value" id="res-total"></span></div>
+          <div class="result-row"><span class="result-label">Linear Feet of Roll</span><span class="result-value" id="res-linear"></span></div>
+          <div class="result-row"><span class="result-label">Square Yards</span><span class="result-value" id="res-sqyd"></span></div>
+          <div class="result-row"><span class="result-label">Padding Needed</span><span class="result-value" id="res-padding"></span></div>
+          <div class="result-row"><span class="result-label">Carpet Cost</span><span class="result-value" id="res-carpet-cost"></span></div>
+          <div class="result-row"><span class="result-label">Padding Cost</span><span class="result-value" id="res-padding-cost"></span></div>
+          <div class="result-row"><span class="result-label">Total Material Cost</span><span class="result-value" id="res-total-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>room length</strong> and <strong>width</strong> in feet.</li>
+          <li>Select the <strong>carpet roll width</strong> (12 ft is most common).</li>
+          <li>Set the <strong>waste factor</strong> — 10% is standard; use 15% for patterned carpet.</li>
+          <li>Optionally enter <strong>carpet</strong> and <strong>padding cost</strong> per square foot.</li>
+          <li>Click <strong>"Calculate Carpet"</strong> to see your results.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Room Area = Length × Width<br>Total with Waste = Room Area × (1 + Waste%/100)<br>Linear Feet of Roll = Total Sq Ft ÷ Roll Width<br>Square Yards = Total Sq Ft ÷ 9<br>Padding = Same sq ft as carpet</div>
+        <p>Carpet is sold by the square yard or square foot, cut from rolls typically 12 ft wide. The calculator rounds up linear feet to avoid short pieces. Always order a bit extra for seams and pattern matching.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/tile-calculator.html" class="related-card"><span class="rc-icon">🔲</span><div class="rc-text"><strong>Tile Calculator</strong><span>Tiles &amp; grout</span></div></a>
+          <a href="/tools/flooring-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Flooring Calculator</strong><span>Hardwood &amp; laminate</span></div></a>
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Wall coverage</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar"><div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div></aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/carpet.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Brick Calculator — How Many Bricks Do I Need? | BuildCalc</title>
+  <meta name="description" content="Calculate how many bricks you need for walls, patios, and paths. Enter area, choose brick size, and get counts with mortar and waste estimates. Free brick calculator.">
+  <meta property="og:title" content="Free Brick Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate bricks needed for walls and patios. Enter dimensions for instant brick count with mortar estimates.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/brick-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Brick Calculator",
+    "description": "Calculate the number of bricks needed for walls, patios, and pathways.",
+    "url": "https://buildcalc.cc/tools/brick-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Brick Calculator</h1>
+        <p>Figure out exactly how many bricks you need for walls, patios, walkways, or veneer projects. Select your brick size, enter your area, and get an accurate count including mortar joint allowance and waste factor.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Project Details</h2>
+
+        <div class="form-group">
+          <label for="project-type">Project Type</label>
+          <select id="project-type">
+            <option value="wall">Wall (single wythe)</option>
+            <option value="patio">Patio / Walkway (flat)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="area-length">Length (feet)</label>
+            <input type="number" id="area-length" placeholder="e.g. 20" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="area-height">Height / Width (feet)</label>
+            <input type="number" id="area-height" placeholder="e.g. 8" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="brick-size">Brick Size</label>
+            <select id="brick-size">
+              <option value="standard" selected>Standard (8" × 2¼" × 3⅝")</option>
+              <option value="modular">Modular (7⅝" × 2¼" × 3⅝")</option>
+              <option value="queen">Queen (7⅝" × 2¾" × 3⅛")</option>
+              <option value="king">King (9⅝" × 2⅝" × 3⅝")</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mortar-joint">Mortar Joint (inches)</label>
+            <input type="number" id="mortar-joint" value="0.375" min="0" max="1" step="0.0625">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="waste-pct">Waste Factor (%)</label>
+            <input type="number" id="waste-pct" value="5" min="0" max="25" step="1">
+          </div>
+          <div class="form-group">
+            <label for="cost-per-brick">Price per Brick ($)</label>
+            <input type="number" id="cost-per-brick" placeholder="e.g. 0.75" min="0" step="any">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Bricks</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Wall/Patio Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Bricks per Sq Ft</span><span class="result-value" id="res-per-sqft"></span></div>
+          <div class="result-row"><span class="result-label">Bricks (no waste)</span><span class="result-value" id="res-bricks-net"></span></div>
+          <div class="result-row"><span class="result-label">Bricks (with waste)</span><span class="result-value" id="res-bricks-total"></span></div>
+          <div class="result-row"><span class="result-label">Mortar Bags (70 lb)</span><span class="result-value" id="res-mortar"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Select your <strong>project type</strong> — wall (bricks on face) or patio (bricks flat).</li>
+          <li>Enter the <strong>length and height</strong> (walls) or length and width (patios).</li>
+          <li>Choose your <strong>brick size</strong> and mortar joint width (⅜" is standard).</li>
+          <li>Set a <strong>waste factor</strong> — 5% for simple projects, 10% for cuts and patterns.</li>
+          <li>Click <strong>"Calculate Bricks"</strong> for your count and mortar estimate.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Wall: Bricks/sq ft = 144 ÷ ((Brick Length + Joint) × (Brick Height + Joint))</div>
+        <div class="formula-block">Patio: Bricks/sq ft = 144 ÷ ((Brick Length + Joint) × (Brick Width + Joint))</div>
+        <p>Standard bricks laid in running bond with ⅜" joints = approximately 6.75 bricks per sq ft for walls (face) and 4.5 bricks per sq ft for patios (flat).</p>
+        <div class="formula-block">Mortar: ~7 bags (70 lb) per 1,000 bricks for walls</div>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/block-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Block Calculator</strong><span>CMU blocks &amp; mortar</span></div></a>
+          <a href="/tools/retaining-wall-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Retaining Wall Calculator</strong><span>Blocks &amp; drainage</span></div></a>
+          <a href="/tools/paver-calculator.html" class="related-card"><span class="rc-icon">🧩</span><div class="rc-text"><strong>Paver Calculator</strong><span>Pavers, sand &amp; gravel</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/brick.js"></script>
+</body>
+</html>

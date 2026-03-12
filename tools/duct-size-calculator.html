@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free HVAC Duct Size Calculator — CFM, Duct Diameter &amp; Velocity | BuildCalc</title>
+  <meta name="description" content="Calculate HVAC duct size based on CFM airflow requirements. Get round and rectangular duct dimensions with friction rate and velocity checks. Free duct calculator.">
+  <meta property="og:title" content="Free HVAC Duct Size Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate duct size from CFM. Get round and rectangular duct dimensions with velocity checks.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/duct-size-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free HVAC Duct Size Calculator",
+    "description": "Calculate HVAC duct diameter and rectangular equivalents based on CFM airflow.",
+    "url": "https://buildcalc.cc/tools/duct-size-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>HVAC Duct Size Calculator</h1>
+        <p>Size your HVAC ductwork correctly based on CFM airflow requirements. Enter the required CFM and desired velocity to get round duct diameter and equivalent rectangular duct dimensions. Proper duct sizing prevents noise, ensures comfort, and maximizes system efficiency.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Airflow Requirements</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cfm">Required Airflow (CFM)</label>
+            <input type="number" id="cfm" placeholder="e.g. 400" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="velocity">Target Velocity (FPM)</label>
+            <select id="velocity">
+              <option value="600">600 FPM (branch ducts)</option>
+              <option value="700" selected>700 FPM (residential main)</option>
+              <option value="900">900 FPM (commercial)</option>
+              <option value="1200">1200 FPM (industrial)</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="custom-vel-field" style="display:none;">
+          <div class="form-group">
+            <label for="custom-velocity">Custom Velocity (FPM)</label>
+            <input type="number" id="custom-velocity" placeholder="e.g. 800" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rect-height">Rectangular Duct Height (inches) — optional</label>
+            <input type="number" id="rect-height" placeholder="e.g. 8" min="1" step="any">
+          </div>
+          <div class="form-group">
+            <label for="friction-rate">Friction Rate (in. w.g./100ft)</label>
+            <input type="number" id="friction-rate" placeholder="e.g. 0.08" min="0" step="any" value="0.08">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Duct Size</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Required CFM</span><span class="result-value" id="res-cfm"></span></div>
+          <div class="result-row"><span class="result-label">Target Velocity</span><span class="result-value" id="res-velocity"></span></div>
+          <div class="result-row"><span class="result-label">Round Duct Diameter</span><span class="result-value" id="res-round"></span></div>
+          <div class="result-row"><span class="result-label">Duct Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Rectangular Equivalent</span><span class="result-value" id="res-rect"></span></div>
+          <div class="result-row"><span class="result-label">Actual Velocity</span><span class="result-value" id="res-actual-vel"></span></div>
+          <div class="result-row"><span class="result-label">Noise Level</span><span class="result-value" id="res-noise"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>required CFM</strong> for the room or duct branch (use 1 CFM per sq ft as a rule of thumb for residential).</li>
+          <li>Select a <strong>target velocity</strong> — 600–700 FPM for residential, 900+ for commercial.</li>
+          <li>Optionally enter a <strong>rectangular duct height</strong> to get width for that height.</li>
+          <li>Click <strong>"Calculate Duct Size"</strong> for round and rectangular options.</li>
+          <li>Keep velocity under 900 FPM in residential to minimize noise.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Duct Area (sq in) = CFM ÷ Velocity (FPM) × 144</div>
+        <div class="formula-block">Round Diameter = √(4 × Area ÷ π)</div>
+        <p>The 144 converts from sq ft to sq in. Round up to the nearest standard duct size (6", 7", 8", 10", 12", 14", etc.).</p>
+        <div class="formula-block">Rectangular Width = Area ÷ Height</div>
+        <p>For rectangular equivalents, the cross-sectional area must match the round duct area.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/btu-calculator.html" class="related-card"><span class="rc-icon">🌡️</span><div class="rc-text"><strong>BTU Calculator</strong><span>HVAC heating/cooling sizing</span></div></a>
+          <a href="/tools/insulation-calculator.html" class="related-card"><span class="rc-icon">🧊</span><div class="rc-text"><strong>Insulation Calculator</strong><span>Walls, attics &amp; ceilings</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Panel sizing per NEC</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/duct-size.js"></script>
+</body>
+</html>
