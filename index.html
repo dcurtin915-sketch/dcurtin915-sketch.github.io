@@ -44,7 +44,14 @@
 
 <main class="container">
   <h2 style="text-align:center;margin:2rem 0 .5rem;font-size:1.5rem;color:#0f172a;">Choose a Calculator</h2>
-  <p style="text-align:center;color:#64748b;margin-bottom:1.5rem;">All calculators use industry-standard formulas and are 100% free to use.</p>
+  <p style="text-align:center;color:#64748b;margin-bottom:1rem;">All calculators use industry-standard formulas and are 100% free to use.</p>
+
+  <div class="search-wrapper" style="max-width:480px;margin:0 auto 1.5rem;">
+    <input type="text" id="tool-search" placeholder="🔍  Search calculators..." autocomplete="off"
+      style="width:100%;padding:.75rem 1rem;font-size:1rem;border:2px solid #e2e8f0;border-radius:8px;outline:none;transition:border-color .2s;"
+      onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
+    <p id="search-no-results" style="text-align:center;color:#94a3b8;margin-top:.75rem;display:none;">No calculators match your search.</p>
+  </div>
 
   <div class="tools-grid">
 
@@ -312,5 +319,24 @@
 </footer>
 
 <script src="/js/main.js"></script>
+<script>
+(function() {
+  var input = document.getElementById('tool-search');
+  var noResults = document.getElementById('search-no-results');
+  if (!input) return;
+  input.addEventListener('input', function() {
+    var q = this.value.toLowerCase().trim();
+    var cards = document.querySelectorAll('.tools-grid .tool-card');
+    var visible = 0;
+    cards.forEach(function(card) {
+      var text = card.textContent.toLowerCase();
+      var match = !q || text.indexOf(q) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    noResults.style.display = (q && visible === 0) ? '' : 'none';
+  });
+})();
+</script>
 </body>
 </html>
