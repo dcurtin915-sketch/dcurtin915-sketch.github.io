@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Shed Material Calculator — Framing, Siding &amp; Roofing | BuildCalc</title>
+  <meta name="description" content="Calculate materials to build a shed — studs, plywood sheathing, siding, roofing, and floor joists. Enter shed dimensions for a complete material list.">
+  <meta property="og:title" content="Free Shed Material Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate all materials for a shed build: framing, siding, roofing, and flooring from dimensions.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/shed-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Shed Material Calculator",
+    "description": "Calculate framing, siding, roofing, and flooring materials needed to build a storage shed.",
+    "url": "https://buildcalc.cc/tools/shed-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Shed Material Calculator</h1>
+        <p>Plan your shed build with an accurate material list. Enter your shed dimensions, wall height, and roof pitch to get studs, plates, sheathing, siding sheets, roofing squares, and floor joists — everything you need to start building.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Shed Dimensions</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="shed-length">Shed Length (feet)</label>
+            <input type="number" id="shed-length" placeholder="e.g. 12" min="1" step="any">
+          </div>
+          <div class="form-group">
+            <label for="shed-width">Shed Width (feet)</label>
+            <input type="number" id="shed-width" placeholder="e.g. 10" min="1" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wall-height">Wall Height (feet)</label>
+            <input type="number" id="wall-height" placeholder="e.g. 8" min="1" step="any" value="8">
+          </div>
+          <div class="form-group">
+            <label for="roof-pitch">Roof Pitch</label>
+            <select id="roof-pitch">
+              <option value="1.031">3/12 (low slope)</option>
+              <option value="1.054" selected>4/12 (standard)</option>
+              <option value="1.083">5/12</option>
+              <option value="1.118">6/12</option>
+              <option value="1.202">8/12 (steep)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="stud-spacing">Stud Spacing</label>
+            <select id="stud-spacing">
+              <option value="16" selected>16" on center</option>
+              <option value="24">24" on center</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="num-doors">Doors (3 ft wide)</label>
+            <input type="number" id="num-doors" placeholder="e.g. 1" min="0" value="1">
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Materials</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Framing</h3>
+          <div class="result-row"><span class="result-label">Wall Studs (2×4)</span><span class="result-value" id="res-studs"></span></div>
+          <div class="result-row"><span class="result-label">Top/Bottom Plates (2×4)</span><span class="result-value" id="res-plates"></span></div>
+          <div class="result-row"><span class="result-label">Floor Joists (2×6)</span><span class="result-value" id="res-joists"></span></div>
+          <h3>Sheathing &amp; Siding</h3>
+          <div class="result-row"><span class="result-label">Wall Sheathing (4×8)</span><span class="result-value" id="res-wall-sheath"></span></div>
+          <div class="result-row"><span class="result-label">Roof Sheathing (4×8)</span><span class="result-value" id="res-roof-sheath"></span></div>
+          <div class="result-row"><span class="result-label">Floor Sheathing (4×8)</span><span class="result-value" id="res-floor-sheath"></span></div>
+          <h3>Roofing</h3>
+          <div class="result-row"><span class="result-label">Roof Area</span><span class="result-value" id="res-roof-area"></span></div>
+          <div class="result-row"><span class="result-label">Shingle Bundles</span><span class="result-value" id="res-bundles"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your <strong>shed length and width</strong> (footprint dimensions).</li>
+          <li>Set the <strong>wall height</strong> — 8 ft is standard for sheds.</li>
+          <li>Choose a <strong>roof pitch</strong> — 4/12 is the most common for sheds.</li>
+          <li>Select <strong>stud spacing</strong> (16" OC is standard, 24" OC for lighter builds).</li>
+          <li>Click <strong>"Calculate Materials"</strong> for your complete material list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Wall Studs = (Perimeter ÷ Spacing) + 1 per wall + corner studs</div>
+        <div class="formula-block">Plates = Perimeter × 3 (double top plate + bottom plate)</div>
+        <div class="formula-block">Roof Area = Length × (Width ÷ 2 × Pitch Factor) × 2 sides</div>
+        <div class="formula-block">Shingle Bundles = Roof Area ÷ 33.3 sq ft/bundle</div>
+        <p>The roof pitch factor converts the horizontal run into actual rafter length. Floor joists are spaced at 16" OC. All quantities include a 10% waste factor.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/stud-calculator.html" class="related-card"><span class="rc-icon">📐</span><div class="rc-text"><strong>Stud Calculator</strong><span>Wall framing</span></div></a>
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Shingles & felt</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Foundation slab</span></div></a>
+          <a href="/tools/plywood-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Plywood Calculator</strong><span>Sheathing sheets</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/shed.js"></script>
+</body>
+</html>

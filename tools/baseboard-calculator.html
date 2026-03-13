@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Baseboard &amp; Trim Calculator — Linear Feet, Pieces &amp; Cost | BuildCalc</title>
+  <meta name="description" content="Calculate baseboard trim needed for any room. Get linear feet, number of pieces, inside/outside corners, and cost estimates. Free baseboard calculator.">
+  <meta property="og:title" content="Free Baseboard & Trim Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate baseboard trim linear feet, pieces, corners, and cost for any room. Enter room dimensions for instant results.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/baseboard-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Baseboard & Trim Calculator",
+    "description": "Calculate linear feet of baseboard trim, pieces, corners, and cost for any room.",
+    "url": "https://buildcalc.cc/tools/baseboard-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Baseboard &amp; Trim Calculator</h1>
+        <p>Calculate how much baseboard trim you need for any room. Enter your room dimensions, door openings, and trim length to get total linear feet, number of pieces, corner counts, and cost estimates — perfect for renovation or new construction projects.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Room Details</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="room-length">Room Length (feet)</label>
+            <input type="number" id="room-length" placeholder="e.g. 14" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="room-width">Room Width (feet)</label>
+            <input type="number" id="room-width" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="num-doors">Number of Doorways</label>
+            <input type="number" id="num-doors" placeholder="e.g. 2" min="0" value="1">
+          </div>
+          <div class="form-group">
+            <label for="door-width">Average Door Width (feet)</label>
+            <input type="number" id="door-width" placeholder="e.g. 3" min="0" step="any" value="3">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="trim-length">Trim Piece Length (feet)</label>
+            <select id="trim-length">
+              <option value="8">8 ft</option>
+              <option value="10">10 ft</option>
+              <option value="12" selected>12 ft</option>
+              <option value="16">16 ft</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="waste-pct">Waste Factor (%)</label>
+            <input type="number" id="waste-pct" placeholder="e.g. 10" min="0" value="10" step="1">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inside-corners">Inside Corners</label>
+            <input type="number" id="inside-corners" placeholder="e.g. 4" min="0" value="4">
+          </div>
+          <div class="form-group">
+            <label for="outside-corners">Outside Corners</label>
+            <input type="number" id="outside-corners" placeholder="e.g. 0" min="0" value="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cost-per-foot">Cost per Linear Foot ($)</label>
+          <input type="number" id="cost-per-foot" placeholder="e.g. 1.50" min="0" step="any">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Baseboard</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Room Perimeter</span><span class="result-value" id="res-perimeter"></span></div>
+          <div class="result-row"><span class="result-label">Door Deductions</span><span class="result-value" id="res-doors"></span></div>
+          <div class="result-row"><span class="result-label">Net Linear Feet</span><span class="result-value" id="res-net"></span></div>
+          <div class="result-row"><span class="result-label">With Waste</span><span class="result-value" id="res-with-waste"></span></div>
+          <div class="result-row"><span class="result-label">Pieces Needed</span><span class="result-value" id="res-pieces"></span></div>
+          <div class="result-row"><span class="result-label">Inside Corners</span><span class="result-value" id="res-inside"></span></div>
+          <div class="result-row"><span class="result-label">Outside Corners</span><span class="result-value" id="res-outside"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your <strong>room length and width</strong> in feet.</li>
+          <li>Specify the <strong>number of doorways</strong> and average door width to deduct.</li>
+          <li>Choose the <strong>trim piece length</strong> you plan to buy (8, 10, 12, or 16 ft).</li>
+          <li>Set the <strong>waste factor</strong> — 10% is standard for miter cuts and mistakes.</li>
+          <li>Enter <strong>inside/outside corners</strong> so you know how many corner pieces you need.</li>
+          <li>Click <strong>"Calculate Baseboard"</strong> for your full material list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Perimeter = 2 × (Length + Width)</div>
+        <div class="formula-block">Net Linear Feet = Perimeter − (Doors × Door Width)</div>
+        <div class="formula-block">Total with Waste = Net LF × (1 + Waste%/100)</div>
+        <div class="formula-block">Pieces = ⌈Total LF ÷ Trim Piece Length⌉</div>
+        <p>Always round up to whole pieces. A standard room has 4 inside corners (one per wall joint). Add outside corners for bump-outs, columns, or peninsula walls.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/crown-molding-calculator.html" class="related-card"><span class="rc-icon">👑</span><div class="rc-text"><strong>Crown Molding Calculator</strong><span>Ceiling trim</span></div></a>
+          <a href="/tools/flooring-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Flooring Calculator</strong><span>Floor materials</span></div></a>
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Walls & trim</span></div></a>
+          <a href="/tools/wainscoting-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Wainscoting Calculator</strong><span>Wall paneling</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/baseboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Solar Panel Calculator — Panels, kW &amp; Savings | BuildCalc</title>
+  <meta name="description" content="Calculate how many solar panels you need based on your electricity usage. Get system size in kW, panel count, roof space, and estimated annual savings.">
+  <meta property="og:title" content="Free Solar Panel Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate solar panels needed based on electricity usage. Get kW system size, panel count, and savings.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/solar-panel-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Solar Panel Calculator",
+    "description": "Calculate how many solar panels you need to offset your electricity bill.",
+    "url": "https://buildcalc.cc/tools/solar-panel-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Solar Panel Calculator</h1>
+        <p>Calculate how many solar panels you need to offset your electricity usage. Enter your monthly electric bill or kWh usage, choose your region's sun hours, and get system size, panel count, roof space requirements, and estimated annual savings.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Energy Details</h2>
+
+        <div class="form-group">
+          <label for="input-method">Input Method</label>
+          <select id="input-method">
+            <option value="kwh">Monthly kWh Usage</option>
+            <option value="bill">Monthly Electric Bill ($)</option>
+          </select>
+        </div>
+
+        <div id="kwh-field">
+          <div class="form-group">
+            <label for="monthly-kwh">Monthly Usage (kWh)</label>
+            <input type="number" id="monthly-kwh" placeholder="e.g. 900" min="0" step="any">
+          </div>
+        </div>
+
+        <div id="bill-field" style="display:none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="monthly-bill">Monthly Bill ($)</label>
+              <input type="number" id="monthly-bill" placeholder="e.g. 150" min="0" step="any">
+            </div>
+            <div class="form-group">
+              <label for="rate-per-kwh">Rate per kWh ($)</label>
+              <input type="number" id="rate-per-kwh" placeholder="e.g. 0.13" min="0" step="any" value="0.13">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sun-hours">Peak Sun Hours / Day</label>
+            <select id="sun-hours">
+              <option value="3">3 hours (Pacific NW, NE winter)</option>
+              <option value="4" selected>4 hours (Midwest, Mid-Atlantic)</option>
+              <option value="5">5 hours (Southeast, Plains)</option>
+              <option value="6">6 hours (Southwest, Desert)</option>
+              <option value="7">7 hours (Arizona, SoCal)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="panel-wattage">Panel Wattage</label>
+            <select id="panel-wattage">
+              <option value="350">350W (budget)</option>
+              <option value="400" selected>400W (standard)</option>
+              <option value="450">450W (premium)</option>
+              <option value="500">500W (high-efficiency)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="offset-pct">Energy Offset Target (%)</label>
+          <input type="number" id="offset-pct" placeholder="e.g. 100" min="1" max="150" value="100" step="1">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Solar System</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Annual Usage</span><span class="result-value" id="res-annual-kwh"></span></div>
+          <div class="result-row"><span class="result-label">Target Offset</span><span class="result-value" id="res-offset"></span></div>
+          <div class="result-row"><span class="result-label">System Size</span><span class="result-value" id="res-system-kw"></span></div>
+          <div class="result-row"><span class="result-label">Panels Needed</span><span class="result-value" id="res-panels"></span></div>
+          <div class="result-row"><span class="result-label">Roof Space</span><span class="result-value" id="res-roof"></span></div>
+          <div class="result-row"><span class="result-label">Annual Production</span><span class="result-value" id="res-production"></span></div>
+          <div class="result-row"><span class="result-label">Est. Annual Savings</span><span class="result-value" id="res-savings"></span></div>
+          <div class="result-row"><span class="result-label">Est. System Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your <strong>monthly kWh usage</strong> (check your electric bill) or your monthly bill amount.</li>
+          <li>Select your area's <strong>peak sun hours</strong> — this is the average daily equivalent hours of full sunlight.</li>
+          <li>Choose the <strong>panel wattage</strong> — 400W is the current residential standard.</li>
+          <li>Set your <strong>offset target</strong> — 100% means fully offsetting your usage.</li>
+          <li>Click <strong>"Calculate Solar System"</strong> for your results.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Daily kWh Needed = (Monthly kWh × Offset%) ÷ 30</div>
+        <div class="formula-block">System Size (kW) = Daily kWh ÷ Peak Sun Hours ÷ 0.80</div>
+        <div class="formula-block">Number of Panels = System kW × 1000 ÷ Panel Wattage</div>
+        <p>The 0.80 factor accounts for real-world system losses (inverter efficiency, wiring, temperature, shading, soiling). Typical losses range 15–25%. Each panel needs approximately 17.5 sq ft of roof space (standard 65" × 39" panel).</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Roof area</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Home load</span></div></a>
+          <a href="/tools/watts-to-amps-calculator.html" class="related-card"><span class="rc-icon">⚡</span><div class="rc-text"><strong>Watts to Amps</strong><span>Power conversion</span></div></a>
+          <a href="/tools/btu-calculator.html" class="related-card"><span class="rc-icon">🌡️</span><div class="rc-text"><strong>BTU Calculator</strong><span>Energy needs</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/solar-panel.js"></script>
+</body>
+</html>

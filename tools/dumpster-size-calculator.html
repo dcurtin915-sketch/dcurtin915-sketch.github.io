@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Dumpster Size Calculator — Yard Capacity for Any Project | BuildCalc</title>
+  <meta name="description" content="Calculate the right dumpster size for your construction, demolition, or renovation project. Get cubic yard estimates based on debris type and project scope.">
+  <meta property="og:title" content="Free Dumpster Size Calculator | BuildCalc">
+  <meta property="og:description" content="Find the right dumpster size for your project. Estimate cubic yards from debris type and project scope.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/dumpster-size-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Dumpster Size Calculator",
+    "description": "Calculate the right dumpster rental size for construction, demolition, and renovation projects.",
+    "url": "https://buildcalc.cc/tools/dumpster-size-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Dumpster Size Calculator</h1>
+        <p>Find the right dumpster size for your project. Select your project type and scope to get a recommended dumpster size in cubic yards, estimated weight, and typical rental cost range. Avoid paying for a dumpster that's too big or needing a second haul.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Project Details</h2>
+
+        <div class="form-group">
+          <label for="project-type">Project Type</label>
+          <select id="project-type">
+            <option value="cleanout">Home cleanout / junk removal</option>
+            <option value="remodel-small">Small remodel (1 room — bathroom, kitchen)</option>
+            <option value="remodel-large">Large remodel (multi-room)</option>
+            <option value="roofing">Roofing tear-off</option>
+            <option value="demo-interior">Interior demolition</option>
+            <option value="demo-full">Full structure demolition</option>
+            <option value="deck">Deck removal</option>
+            <option value="landscaping">Landscaping / yard debris</option>
+            <option value="new-construction">New construction debris</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="project-sqft">Project Area (sq ft)</label>
+          <input type="number" id="project-sqft" placeholder="e.g. 1500" min="0" step="any">
+        </div>
+
+        <div class="form-group">
+          <label for="debris-weight">Debris Type</label>
+          <select id="debris-weight">
+            <option value="light" selected>Light (wood, drywall, insulation)</option>
+            <option value="mixed">Mixed (general construction debris)</option>
+            <option value="heavy">Heavy (concrete, brick, tile, dirt)</option>
+          </select>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Dumpster Size</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Project Type</span><span class="result-value" id="res-project"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Volume</span><span class="result-value" id="res-volume"></span></div>
+          <div class="result-row"><span class="result-label">Recommended Size</span><span class="result-value" id="res-size"></span></div>
+          <div class="result-row"><span class="result-label">Dimensions (approx)</span><span class="result-value" id="res-dims"></span></div>
+          <div class="result-row"><span class="result-label">Weight Limit</span><span class="result-value" id="res-weight"></span></div>
+          <div class="result-row"><span class="result-label">Typical Rental Cost</span><span class="result-value" id="res-cost"></span></div>
+          <div class="result-row"><span class="result-label">Pickup Truck Loads</span><span class="result-value" id="res-trucks"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Select your <strong>project type</strong> from the dropdown.</li>
+          <li>Enter the <strong>project area</strong> in square feet (room size, roof area, or yard area).</li>
+          <li>Choose the <strong>debris type</strong> — heavy debris needs a smaller dumpster due to weight limits.</li>
+          <li>Click <strong>"Calculate Dumpster Size"</strong> for recommendations.</li>
+          <li>When in doubt, size up — it's cheaper than a second haul.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Estimated Volume = Project Area × Debris Factor (cu yd per sq ft)</div>
+        <p>Debris factors vary by project type:</p>
+        <ul>
+          <li><strong>Home cleanout:</strong> ~0.01 cu yd/sq ft (1 yd per 100 sq ft of home)</li>
+          <li><strong>Roofing:</strong> ~0.01–0.015 cu yd/sq ft (1 yard per ~33 sq of roofing)</li>
+          <li><strong>Remodel:</strong> ~0.015–0.025 cu yd/sq ft depending on scope</li>
+          <li><strong>Demolition:</strong> ~0.025–0.05 cu yd/sq ft</li>
+        </ul>
+        <div class="formula-block">Standard sizes: 10, 15, 20, 30, 40 cubic yards</div>
+        <p>Heavy materials (concrete, dirt) usually max out at 10–15 yard dumpsters due to weight limits (typically 2–4 tons for 10-yard, 4–6 tons for 20-yard).</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Tear-off waste</span></div></a>
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Demo debris</span></div></a>
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Heavy debris</span></div></a>
+          <a href="/tools/shed-calculator.html" class="related-card"><span class="rc-icon">🏚️</span><div class="rc-text"><strong>Shed Calculator</strong><span>Build waste</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/dumpster.js"></script>
+</body>
+</html>

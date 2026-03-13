@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Ceiling Fan Size Calculator — Blade Span &amp; CFM | BuildCalc</title>
+  <meta name="description" content="Calculate the right ceiling fan size for any room. Get recommended blade span, CFM rating, and mounting type based on room dimensions and ceiling height.">
+  <meta property="og:title" content="Free Ceiling Fan Size Calculator | BuildCalc">
+  <meta property="og:description" content="Find the right ceiling fan size for your room. Get blade span, CFM, and mount type recommendations.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/ceiling-fan-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Ceiling Fan Size Calculator",
+    "description": "Calculate the correct ceiling fan blade span and CFM for any room size.",
+    "url": "https://buildcalc.cc/tools/ceiling-fan-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Ceiling Fan Size Calculator</h1>
+        <p>Choose the right ceiling fan for your room. Enter your room dimensions and ceiling height to get the recommended blade span, minimum CFM rating, and proper mounting type. Works for bedrooms, living rooms, kitchens, and outdoor spaces.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Room Details</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="room-length">Room Length (feet)</label>
+            <input type="number" id="room-length" placeholder="e.g. 14" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="room-width">Room Width (feet)</label>
+            <input type="number" id="room-width" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ceiling-height">Ceiling Height (feet)</label>
+          <input type="number" id="ceiling-height" placeholder="e.g. 9" min="0" step="any" value="8">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Fan Size</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Room Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Blade Span</span><span class="result-value" id="res-span"></span></div>
+          <div class="result-row"><span class="result-label">Minimum CFM</span><span class="result-value" id="res-cfm"></span></div>
+          <div class="result-row"><span class="result-label">Mount Type</span><span class="result-value" id="res-mount"></span></div>
+          <div class="result-row"><span class="result-label">Fans Needed</span><span class="result-value" id="res-fans"></span></div>
+          <div class="result-row"><span class="result-label">Blade Clearance</span><span class="result-value" id="res-clearance"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your <strong>room length and width</strong> in feet.</li>
+          <li>Enter the <strong>ceiling height</strong> (standard is 8 ft).</li>
+          <li>Click <strong>"Calculate Fan Size"</strong> for blade span, CFM, and mount recommendations.</li>
+          <li>For rooms over 400 sq ft, the calculator recommends multiple fans.</li>
+          <li>Blade tips should be at least 18 inches from walls and 7 feet above the floor.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Room Area = Length × Width</div>
+        <p>Blade span is matched to room area using industry guidelines:</p>
+        <ul>
+          <li><strong>Up to 75 sq ft</strong> → 29–36 inch fan</li>
+          <li><strong>76–144 sq ft</strong> → 36–42 inch fan</li>
+          <li><strong>145–225 sq ft</strong> → 44–50 inch fan</li>
+          <li><strong>226–400 sq ft</strong> → 50–54 inch fan</li>
+          <li><strong>Over 400 sq ft</strong> → 54–72 inch, or two fans</li>
+        </ul>
+        <div class="formula-block">Minimum CFM ≈ Room Area × 1.0 to 2.0 (based on airflow need)</div>
+        <p>Target at least 1 CFM per sq ft for light airflow, 2 CFM per sq ft for heavy cooling. Mount type depends on ceiling height: flush mount for 7–8 ft, standard downrod for 8–9 ft, extended downrod for 10+ ft.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/btu-calculator.html" class="related-card"><span class="rc-icon">🌡️</span><div class="rc-text"><strong>BTU Calculator</strong><span>HVAC sizing</span></div></a>
+          <a href="/tools/electrical-load-calculator.html" class="related-card"><span class="rc-icon">🔌</span><div class="rc-text"><strong>Electrical Load Calculator</strong><span>Panel sizing</span></div></a>
+          <a href="/tools/duct-size-calculator.html" class="related-card"><span class="rc-icon">💨</span><div class="rc-text"><strong>Duct Size Calculator</strong><span>Ductwork CFM</span></div></a>
+          <a href="/tools/bathroom-vent-fan-calculator.html" class="related-card"><span class="rc-icon">🌀</span><div class="rc-text"><strong>Bathroom Vent Fan Calculator</strong><span>Exhaust CFM</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/ceiling-fan.js"></script>
+</body>
+</html>

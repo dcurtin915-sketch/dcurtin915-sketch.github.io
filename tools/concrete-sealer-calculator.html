@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Concrete Sealer Calculator — Gallons &amp; Coverage | BuildCalc</title>
+  <meta name="description" content="Calculate how much concrete sealer you need. Enter surface area and sealer type for gallons, number of coats, and cost estimates. Free concrete sealer calculator.">
+  <meta property="og:title" content="Free Concrete Sealer Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate concrete sealer gallons, coats, and cost for driveways, patios, and garage floors.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/concrete-sealer-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Concrete Sealer Calculator",
+    "description": "Calculate gallons of concrete sealer needed for driveways, patios, and floors.",
+    "url": "https://buildcalc.cc/tools/concrete-sealer-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Concrete Sealer Calculator</h1>
+        <p>Calculate how many gallons of concrete sealer you need for your driveway, patio, garage floor, or walkway. Select your sealer type and number of coats to get accurate coverage estimates with cost breakdown.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Surface Details</h2>
+
+        <div class="form-group">
+          <label for="input-method">Input Method</label>
+          <select id="input-method">
+            <option value="dimensions">Length × Width</option>
+            <option value="sqft">Total Square Feet</option>
+          </select>
+        </div>
+
+        <div id="dim-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="area-length">Length (feet)</label>
+              <input type="number" id="area-length" placeholder="e.g. 40" min="0" step="any">
+            </div>
+            <div class="form-group">
+              <label for="area-width">Width (feet)</label>
+              <input type="number" id="area-width" placeholder="e.g. 20" min="0" step="any">
+            </div>
+          </div>
+        </div>
+
+        <div id="sqft-field" style="display:none;">
+          <div class="form-group">
+            <label for="total-sqft">Total Area (sq ft)</label>
+            <input type="number" id="total-sqft" placeholder="e.g. 800" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sealer-type">Sealer Type</label>
+            <select id="sealer-type">
+              <option value="200">Acrylic (150–250 sq ft/gal)</option>
+              <option value="250">Penetrating/Silane (200–300 sq ft/gal)</option>
+              <option value="300">Siloxane (250–350 sq ft/gal)</option>
+              <option value="175">Epoxy (150–200 sq ft/gal)</option>
+              <option value="150">Polyurethane (100–200 sq ft/gal)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="num-coats">Number of Coats</label>
+            <select id="num-coats">
+              <option value="1">1 coat</option>
+              <option value="2" selected>2 coats (recommended)</option>
+              <option value="3">3 coats</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cost-per-gallon">Cost per Gallon ($)</label>
+          <input type="number" id="cost-per-gallon" placeholder="e.g. 40" min="0" step="any">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Sealer</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Surface Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Coverage Rate</span><span class="result-value" id="res-coverage"></span></div>
+          <div class="result-row"><span class="result-label">Gallons per Coat</span><span class="result-value" id="res-per-coat"></span></div>
+          <div class="result-row"><span class="result-label">Number of Coats</span><span class="result-value" id="res-coats"></span></div>
+          <div class="result-row"><span class="result-label">Total Gallons</span><span class="result-value" id="res-total-gal"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the <strong>surface area</strong> — either length × width or total square feet.</li>
+          <li>Select the <strong>sealer type</strong> — each has a different coverage rate per gallon.</li>
+          <li>Choose the <strong>number of coats</strong> — 2 coats is recommended for most applications.</li>
+          <li>Enter <strong>cost per gallon</strong> for a budget estimate.</li>
+          <li>Click <strong>"Calculate Sealer"</strong> to get your results.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Gallons per Coat = Surface Area ÷ Coverage Rate (sq ft/gal)</div>
+        <div class="formula-block">Total Gallons = Gallons per Coat × Number of Coats</div>
+        <p>Coverage rates vary by sealer type and concrete porosity. New or porous concrete absorbs more sealer (use the lower end of the range). Smooth or previously sealed concrete uses less. Always round up — you can't buy partial gallons.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/concrete-calculator.html" class="related-card"><span class="rc-icon">🧱</span><div class="rc-text"><strong>Concrete Calculator</strong><span>Cubic yards</span></div></a>
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Wall coverage</span></div></a>
+          <a href="/tools/asphalt-calculator.html" class="related-card"><span class="rc-icon">🛣️</span><div class="rc-text"><strong>Asphalt Calculator</strong><span>Paving tonnage</span></div></a>
+          <a href="/tools/paver-calculator.html" class="related-card"><span class="rc-icon">🧩</span><div class="rc-text"><strong>Paver Calculator</strong><span>Patios & walks</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/concrete-sealer.js"></script>
+</body>
+</html>

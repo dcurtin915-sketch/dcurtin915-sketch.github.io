@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Plywood &amp; Sheathing Calculator — Sheets &amp; Cost | BuildCalc</title>
+  <meta name="description" content="Calculate how many 4x8 plywood or OSB sheets you need for walls, floors, or roofs. Enter dimensions and get sheet count with waste and cost estimates.">
+  <meta property="og:title" content="Free Plywood & Sheathing Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate plywood or OSB sheets needed for walls, floors, and roof sheathing with waste and cost estimates.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/plywood-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Plywood & Sheathing Calculator",
+    "description": "Calculate 4x8 plywood or OSB sheets needed for walls, floors, and roof sheathing.",
+    "url": "https://buildcalc.cc/tools/plywood-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Plywood &amp; Sheathing Calculator</h1>
+        <p>Figure out exactly how many 4×8 sheets of plywood or OSB you need for wall sheathing, subfloor, or roof decking. Enter your area dimensions and get sheet counts with waste factor and cost estimates.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Measurements</h2>
+
+        <div class="form-group">
+          <label for="input-method">Input Method</label>
+          <select id="input-method">
+            <option value="dimensions">Length × Height/Width</option>
+            <option value="sqft">Total Square Feet</option>
+          </select>
+        </div>
+
+        <div id="dim-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="area-length">Length (feet)</label>
+              <input type="number" id="area-length" placeholder="e.g. 40" min="0" step="any">
+            </div>
+            <div class="form-group">
+              <label for="area-height">Height / Width (feet)</label>
+              <input type="number" id="area-height" placeholder="e.g. 8" min="0" step="any">
+            </div>
+          </div>
+        </div>
+
+        <div id="sqft-field" style="display:none;">
+          <div class="form-group">
+            <label for="total-sqft">Total Area (sq ft)</label>
+            <input type="number" id="total-sqft" placeholder="e.g. 320" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sheet-size">Sheet Size</label>
+            <select id="sheet-size">
+              <option value="32" selected>4 × 8 ft (32 sq ft)</option>
+              <option value="40">4 × 10 ft (40 sq ft)</option>
+              <option value="48">4 × 12 ft (48 sq ft)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="waste-pct">Waste Factor (%)</label>
+            <input type="number" id="waste-pct" placeholder="e.g. 10" min="0" value="10" step="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cost-per-sheet">Cost per Sheet ($)</label>
+          <input type="number" id="cost-per-sheet" placeholder="e.g. 45" min="0" step="any">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Sheets</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Total Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Area + Waste</span><span class="result-value" id="res-area-waste"></span></div>
+          <div class="result-row"><span class="result-label">Sheet Coverage</span><span class="result-value" id="res-sheet-cov"></span></div>
+          <div class="result-row"><span class="result-label">Sheets Needed</span><span class="result-value" id="res-sheets"></span></div>
+          <div class="result-row"><span class="result-label">Estimated Cost</span><span class="result-value" id="res-cost"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Choose your <strong>input method</strong> — enter length × height or total square feet.</li>
+          <li>Select the <strong>sheet size</strong> (4×8 is standard; 4×10 and 4×12 for taller walls).</li>
+          <li>Set the <strong>waste factor</strong> — 10% for simple rectangles, 15% for complex cuts.</li>
+          <li>Enter <strong>cost per sheet</strong> for a budget estimate.</li>
+          <li>Click <strong>"Calculate Sheets"</strong> to see how many you need.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Total Area = Length × Height (or entered sq ft)</div>
+        <div class="formula-block">Area with Waste = Total Area × (1 + Waste%/100)</div>
+        <div class="formula-block">Sheets Needed = ⌈Area with Waste ÷ Sheet Area⌉</div>
+        <p>A standard 4×8 sheet covers 32 sq ft. Always round up — you can't buy partial sheets. Use 10% waste for rectangular areas, 15% for L-shapes or areas with many openings.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheets & mud</span></div></a>
+          <a href="/tools/stud-calculator.html" class="related-card"><span class="rc-icon">📐</span><div class="rc-text"><strong>Stud Calculator</strong><span>Wall framing</span></div></a>
+          <a href="/tools/roofing-calculator.html" class="related-card"><span class="rc-icon">🏠</span><div class="rc-text"><strong>Roofing Calculator</strong><span>Roof decking</span></div></a>
+          <a href="/tools/board-feet-calculator.html" class="related-card"><span class="rc-icon">🪵</span><div class="rc-text"><strong>Board Feet Calculator</strong><span>Lumber quantity</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/plywood.js"></script>
+</body>
+</html>

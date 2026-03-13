@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Wainscoting Calculator — Panels, Cap Rail &amp; Cost | BuildCalc</title>
+  <meta name="description" content="Calculate wainscoting panels, cap rail, chair rail, and adhesive for any room. Enter dimensions and panel style for instant material estimates.">
+  <meta property="og:title" content="Free Wainscoting Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate wainscoting panels, rail, and adhesive for any room. Enter dimensions for instant estimates.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/wainscoting-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Wainscoting Calculator",
+    "description": "Calculate wainscoting panels, chair rail, cap rail, and adhesive needed for any room.",
+    "url": "https://buildcalc.cc/tools/wainscoting-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Wainscoting Calculator</h1>
+        <p>Calculate exactly how many wainscoting panels, feet of chair rail, and cap rail you need. Enter your room dimensions, wainscoting height, and panel width to get a complete material list with cost estimates.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Your Room Details</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="room-length">Room Length (feet)</label>
+            <input type="number" id="room-length" placeholder="e.g. 14" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="room-width">Room Width (feet)</label>
+            <input type="number" id="room-width" placeholder="e.g. 12" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wains-height">Wainscoting Height (inches)</label>
+            <select id="wains-height">
+              <option value="32">32 in (standard — ⅓ wall)</option>
+              <option value="36" selected>36 in (most common)</option>
+              <option value="42">42 in (tall)</option>
+              <option value="48">48 in (half wall)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="panel-width">Panel Width (inches)</label>
+            <input type="number" id="panel-width" placeholder="e.g. 48" min="1" value="48" step="any">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="num-doors">Doorways to Deduct</label>
+            <input type="number" id="num-doors" placeholder="e.g. 2" min="0" value="1">
+          </div>
+          <div class="form-group">
+            <label for="door-width">Door Width (feet)</label>
+            <input type="number" id="door-width" placeholder="e.g. 3" min="0" value="3" step="any">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="waste-pct">Waste Factor (%)</label>
+          <input type="number" id="waste-pct" value="10" min="0" step="1">
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Wainscoting</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Wall Perimeter</span><span class="result-value" id="res-perimeter"></span></div>
+          <div class="result-row"><span class="result-label">Net Linear Feet</span><span class="result-value" id="res-net-lf"></span></div>
+          <div class="result-row"><span class="result-label">Wall Area (wainscoting)</span><span class="result-value" id="res-wall-area"></span></div>
+          <div class="result-row"><span class="result-label">Panels Needed</span><span class="result-value" id="res-panels"></span></div>
+          <div class="result-row"><span class="result-label">Chair Rail</span><span class="result-value" id="res-chair-rail"></span></div>
+          <div class="result-row"><span class="result-label">Baseboard</span><span class="result-value" id="res-baseboard"></span></div>
+          <div class="result-row"><span class="result-label">Construction Adhesive</span><span class="result-value" id="res-adhesive"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter your <strong>room length and width</strong> in feet.</li>
+          <li>Choose the <strong>wainscoting height</strong> — 36 inches (3 ft) is the most common.</li>
+          <li>Enter the <strong>panel width</strong> (standard beadboard panels are 48 inches wide).</li>
+          <li>Deduct <strong>doorways</strong> where wainscoting won't be installed.</li>
+          <li>Click <strong>"Calculate Wainscoting"</strong> for your full material list.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Perimeter = 2 × (Length + Width)</div>
+        <div class="formula-block">Net LF = Perimeter − (Doors × Door Width)</div>
+        <div class="formula-block">Panels = ⌈(Net LF × 12 ÷ Panel Width) × (1 + Waste%)⌉</div>
+        <div class="formula-block">Chair Rail LF = Net LF × (1 + Waste%)</div>
+        <p>Standard beadboard panels are 48 inches wide and come in heights from 32" to 48". Chair rail goes on top of the wainscoting. One tube of construction adhesive covers roughly 32 linear feet of panel.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/baseboard-calculator.html" class="related-card"><span class="rc-icon">📏</span><div class="rc-text"><strong>Baseboard Calculator</strong><span>Trim & molding</span></div></a>
+          <a href="/tools/crown-molding-calculator.html" class="related-card"><span class="rc-icon">👑</span><div class="rc-text"><strong>Crown Molding Calculator</strong><span>Ceiling trim</span></div></a>
+          <a href="/tools/paint-coverage-calculator.html" class="related-card"><span class="rc-icon">🎨</span><div class="rc-text"><strong>Paint Calculator</strong><span>Walls & trim</span></div></a>
+          <a href="/tools/drywall-estimator.html" class="related-card"><span class="rc-icon">🏗️</span><div class="rc-text"><strong>Drywall Estimator</strong><span>Sheet & mud</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/wainscoting.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Bathroom Vent Fan Calculator — CFM Sizing per Code | BuildCalc</title>
+  <meta name="description" content="Calculate the right bathroom exhaust fan size in CFM. Based on room size and building code requirements. Free bathroom ventilation fan calculator.">
+  <meta property="og:title" content="Free Bathroom Vent Fan Calculator | BuildCalc">
+  <meta property="og:description" content="Calculate bathroom exhaust fan CFM based on room size and code requirements. Get duct size recommendations.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://buildcalc.cc/tools/bathroom-vent-fan-calculator.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Bathroom Vent Fan Calculator",
+    "description": "Calculate the correct CFM exhaust fan size for any bathroom per building code.",
+    "url": "https://buildcalc.cc/tools/bathroom-vent-fan-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Build<span>Calc</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="/tools/concrete-calculator.html">Concrete</a>
+      <a href="/tools/board-feet-calculator.html">Board Feet</a>
+      <a href="/tools/drywall-estimator.html">Drywall</a>
+      <a href="/tools/paint-coverage-calculator.html">Paint</a>
+      <a href="/tools/gravel-calculator.html">Gravel</a>
+      <a href="/tools/roofing-calculator.html">Roofing</a>
+      <a href="/tools/stud-calculator.html">Studs</a>
+      <a href="/tools/tile-calculator.html">Tile</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-slot ad-slot-header"><!-- AdSense: Header Banner 728x90 --></div>
+</div>
+
+<main class="container">
+  <div class="page-layout">
+    <div class="content-main">
+
+      <div class="calc-intro">
+        <h1>Bathroom Vent Fan Calculator</h1>
+        <p>Size your bathroom exhaust fan correctly. Enter your bathroom dimensions to get the minimum CFM rating per building code, recommended sone level, and duct size. Proper ventilation prevents mold, moisture damage, and mirror fogging.</p>
+      </div>
+
+      <div class="calc-box">
+        <h2>Enter Bathroom Details</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bath-length">Length (feet)</label>
+            <input type="number" id="bath-length" placeholder="e.g. 10" min="0" step="any">
+          </div>
+          <div class="form-group">
+            <label for="bath-width">Width (feet)</label>
+            <input type="number" id="bath-width" placeholder="e.g. 8" min="0" step="any">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ceiling-height">Ceiling Height (feet)</label>
+          <input type="number" id="ceiling-height" placeholder="e.g. 8" min="0" step="any" value="8">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="has-tub">Tub / Shower?</label>
+            <select id="has-tub">
+              <option value="no">No (half bath)</option>
+              <option value="shower" selected>Shower only</option>
+              <option value="tub">Tub/shower combo</option>
+              <option value="jetted">Jetted / soaking tub</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="has-enclosed">Enclosed Toilet/Shower?</label>
+            <select id="has-enclosed">
+              <option value="no" selected>No (open layout)</option>
+              <option value="yes">Yes (separate enclosure)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calc-btn" class="btn-calculate">Calculate Fan Size</button>
+
+        <div class="results-box" id="results">
+          <div class="result-highlight" id="res-highlight"></div>
+          <h3>Full Breakdown</h3>
+          <div class="result-row"><span class="result-label">Floor Area</span><span class="result-value" id="res-area"></span></div>
+          <div class="result-row"><span class="result-label">Volume</span><span class="result-value" id="res-volume"></span></div>
+          <div class="result-row"><span class="result-label">Method</span><span class="result-value" id="res-method"></span></div>
+          <div class="result-row"><span class="result-label">Minimum CFM</span><span class="result-value" id="res-cfm"></span></div>
+          <div class="result-row"><span class="result-label">Recommended CFM</span><span class="result-value" id="res-rec-cfm"></span></div>
+          <div class="result-row"><span class="result-label">Duct Size</span><span class="result-value" id="res-duct"></span></div>
+          <div class="result-row"><span class="result-label">Noise Level</span><span class="result-value" id="res-sones"></span></div>
+          <div class="result-row"><span class="result-label">Air Changes/Hour</span><span class="result-value" id="res-ach"></span></div>
+        </div>
+      </div>
+
+      <div class="ad-slot ad-slot-content"><!-- AdSense: After Results 728x250 --></div>
+
+      <section class="info-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li>Enter the bathroom <strong>length, width, and ceiling height</strong>.</li>
+          <li>Specify whether the room has a <strong>shower, tub, or jetted tub</strong>.</li>
+          <li>Note if there are <strong>enclosed toilet or shower</strong> areas (they may need separate fans).</li>
+          <li>Click <strong>"Calculate Fan Size"</strong> for CFM and duct recommendations.</li>
+          <li>Building code requires a minimum of 50 CFM for bathrooms under 100 sq ft, or 1 CFM/sq ft for larger bathrooms.</li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>The Formula</h2>
+        <div class="formula-block">Small bathrooms (≤100 sq ft): Minimum 50 CFM</div>
+        <div class="formula-block">Large bathrooms (>100 sq ft): 1 CFM per sq ft</div>
+        <div class="formula-block">Air Changes per Hour = (CFM × 60) ÷ Room Volume</div>
+        <p>Per ASHRAE 62.2 and IRC M1507.4, bathrooms require continuous ventilation or intermittent exhaust. The HVI recommends 8 air changes per hour (ACH) for bathrooms. Jetted tubs and enclosed areas warrant additional CFM. A 4" duct handles up to 100 CFM; use 6" duct for higher airflow.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Related Calculators</h2>
+        <div class="related-calcs">
+          <a href="/tools/duct-size-calculator.html" class="related-card"><span class="rc-icon">💨</span><div class="rc-text"><strong>Duct Size Calculator</strong><span>HVAC ductwork</span></div></a>
+          <a href="/tools/ceiling-fan-calculator.html" class="related-card"><span class="rc-icon">🌀</span><div class="rc-text"><strong>Ceiling Fan Calculator</strong><span>Fan sizing</span></div></a>
+          <a href="/tools/btu-calculator.html" class="related-card"><span class="rc-icon">🌡️</span><div class="rc-text"><strong>BTU Calculator</strong><span>HVAC sizing</span></div></a>
+          <a href="/tools/tile-calculator.html" class="related-card"><span class="rc-icon">🔲</span><div class="rc-text"><strong>Tile Calculator</strong><span>Bathroom tile</span></div></a>
+        </div>
+      </section>
+
+    </div>
+    <aside class="sidebar">
+      <div class="ad-slot ad-slot-sidebar"><!-- AdSense: Sidebar 300x250 --></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col"><h4>BuildCalc</h4><p style="font-size:.85rem;">Free construction calculators for professionals and DIY enthusiasts.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/tools/concrete-calculator.html">Concrete</a><a href="/tools/board-feet-calculator.html">Board Feet</a><a href="/tools/drywall-estimator.html">Drywall</a><a href="/tools/paint-coverage-calculator.html">Paint</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/tools/gravel-calculator.html">Gravel</a><a href="/tools/roofing-calculator.html">Roofing</a><a href="/tools/stud-calculator.html">Studs</a><a href="/tools/tile-calculator.html">Tile</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="/">Home</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 BuildCalc. All calculators are for estimation purposes.</p></div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/calculators/bathroom-vent.js"></script>
+</body>
+</html>
